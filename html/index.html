@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Brightcove Native Player for iOS Reference</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="index.html">Brightcove Native Player for iOS </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="index.html">Brightcove</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">Hierarchy</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">Brightcove Native Player for iOS Reference</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.4.3.616</h1>
+
+<h1>Supported Platforms</h1>
+
+<p>iOS 10.0 and above.</p>
+
+<p>tvOS 9.0 and above.</p>
+
+<h1>Installation</h1>
+
+<p>The SSAI plugin for Brightcove Player SDK for iOS provides two installation packages; a static library framework and a dynamic library framework.</p>
+
+<h2>CocoaPods</h2>
+
+<p>You can use <a href="http://cocoapods.org">CocoaPods</a> to add the SSAI Plugin for Brightcove Player SDK to your project.  You can find the latest <code>Brightcove-Player-SSAI</code> podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-SSAI">here</a>.</p>
+
+<p>Static framework example:</p>
+
+<pre><code>source 'https://github.com/brightcove/BrightcoveSpecs.git'
+
+use_frameworks!
+platform :ios, 10.0'
+
+target 'MyVideoPlayer' do
+  pod 'Brightcove-Player-SSAI'
+end
+</code></pre>
+
+<p>Dynamic framework example:</p>
+
+<pre><code>source 'https://github.com/brightcove/BrightcoveSpecs.git'
+
+use_frameworks!
+platform :ios, '10.0'
+
+target 'MyVideoPlayer' do
+  pod 'Brightcove-Player-SSAI/dynamic'
+end
+</code></pre>
+
+<p>When updating your installation, it&rsquo;s a good idea to refresh the local copy of your BrightcoveSpecs repository so that you have the latest podspecs locally, just like you would update your CococaPods master repository.</p>
+
+<p>Typically if you use <code>pod update</code> in Terminal this will happen automatically, or alternatively you can update explicitly with <code>pod repo update brightcove</code>. (Your BrightcoveSpecs repository may have a different name if you explicitly added it to your list of podspecs repos.)</p>
+
+<h2>Manual</h2>
+
+<p>To add the SSAI Plugin for Brightcove Player SDK to your project manually:</p>
+
+<ol>
+<li>Install the latest version of the <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player SDK</a>.</li>
+<li>Download the latest zip'ed release of the BrightcoveSSAI plugin from our <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ssai/releases">release page</a>.</li>
+<li>Add <code>BrightcoveSSAI.framework</code> to your project.</li>
+<li>On the &ldquo;Build Settings&rdquo; tab of your application target, ensure that the &ldquo;Framework Search Paths&rdquo; include the path to the framework. This should have been done automatically unless the framework is stored under a different root directory than your project.</li>
+<li>(Dynamic Framework only) On the &ldquo;General&rdquo; tab of your application target, add &lsquo;BrightcoveSSAI.framework&rsquo; to the &ldquo;Embedded Binaries&rdquo; section.</li>
+<li>(Dynamic Framework only) On the &ldquo;Build Phases&rdquo; tab, add a &ldquo;Run Script&rdquo; phase with the command <code>bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveSSAI.framework/strip-frameworks.sh</code>. Check &ldquo;Run script only when installing&rdquo;. This will remove unneeded architectures from the build, which is important for App Store submission.</li>
+<li>(Static Framework only) On the &ldquo;Build Settings&rdquo; tab of your application target, add <code>-ObjC</code> to the &ldquo;Other Linker Flags&rdquo; build setting.</li>
+</ol>
+
+
+<h2>Imports</h2>
+
+<p>The SSAI Plugin for Brightcove Player SDK for iOS can be imported into code a few different ways; <code>@import BrightcoveSSAI;</code>, <code>#import &lt;BrightcoveSSAI/BrightcoveSSAI.h&gt;</code> or <code>#import &lt;BrightcoveSSAI/[specific class].h&gt;</code>.</p>
+
+<h1>Quick Start</h1>
+
+<p>BrightcoveSSAI is a plugin for <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player SDK for iOS</a> that provides support for Brightcove Server Side Ad Insertion.</p>
+
+<pre><code>[1] BCOVSSAIAdComponentDisplayContainer *displayContainer = [[BCOVSSAIAdComponentDisplayContainer alloc] initWithCompanionSlots:@[]];
+
+    BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager];
+
+[2] id&lt;BCOVPlaybackController&gt; playbackController = [sdkManager createSSAIPlaybackControllerWithViewStrategy:nil];
+
+[3] [playbackController addSessionConsumer:displayContainer];
+
+[4] [self.videoContainer addSubview:playbackController.view];
+
+[5] BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
+                                                                                policyKey:policyKey];
+    [playbackService findVideoWithVideoID:videoID
+                               parameters:@{ kBCOVPlaybackServiceParamaterKeyAdConfigId: &lt;valid-ad-config-id&gt; }
+                               completion:^(BCOVVideo *video,
+                                            NSDictionary *jsonResponse,
+                                            NSError *error) {
+
+[6]                              [playbackController setVideos:@[ video ]];
+                                 [playbackController play];
+
+                           }];
+</code></pre>
+
+<p>To summarize:</p>
+
+<ol>
+<li>First create a <a href="Classes/BCOVSSAIAdComponentDisplayContainer.html"><code>BCOVSSAIAdComponentDisplayContainer</code></a>. This object will help manage companion slots. Pass in the companion slots that you have, if any.</li>
+<li>BrightcoveSSAI adds some category methods to <code>BCOVPlaybackManager</code>. The first of these is <code>-createSSAIPlaybackControllerWithViewStrategy:</code>. Use this method to create your playback controller. You will typically pass <code>nil</code> for the view strategy.</li>
+<li>In order for the <a href="Classes/BCOVSSAIAdComponentDisplayContainer.html"><code>BCOVSSAIAdComponentDisplayContainer</code></a> to display ad information and populate companion ad views, it must be added as a session consumer.</li>
+<li>Add the playback controller&rsquo;s view to the video container in your own view hierarchy.</li>
+<li>Request the video or playlist from the Playback Service. When using a OnceUX-style video URL, create the BCOVVideo object directly using <code>[BCOVVideo videoWithURL:&lt;onceux-style-url&gt;]</code>.</li>
+<li>Load the video into the playback controller.</li>
+</ol>
+
+
+<p>If you have questions or need help, visit the support forum for Brightcove Native Player SDKs at <a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">[https://groups.google.com/forum/](https://groups.google.com/forum/)#!forum/brightcove-native-player-sdks</a> .</p>
+
+<h1>Migrating OnceUX to SSAI</h1>
+
+<p>The BrightcoveSSAI plugin framework is taking the place of BrightcoveOUX. BrightcoveSSAI supports all the current features of BrightcoveOUX, however future updates will only be added to BrightcoveSSAI. Follow these instructions to migrate your OnceUX application to Brightcove SSAI.</p>
+
+<p>1) If you install Brightcove plugins using CocoaPods, update your Podfile by changing <code>Brightcove-Player-OnceUX</code> to <code>Brightcove-Player-SSAI</code>, for example this:
+<code>
+target 'MyVideoPlayer' do
+    pod 'Brightcove-Player-OnceUX/dynamic'
+end
+</code>
+becomes this:
+<code>
+target 'MyVideoPlayer' do
+    pod 'Brightcove-Player-SSAI/dynamic'
+end
+</code>
+If you use static frameworks, leave off <code>/dynamic</code> like this: <code>pod 'Brightcove-Player-SSAI'</code>. Run <code>'pod update'</code> when ready.</p>
+
+<p>If you install the Brightcove plugins manually, delete the Brightcove-Player-OnceUX framework from your Xcode project and follow the steps above to manually add the Brightcove-Player-SSAI framework.</p>
+
+<p>2) In your source code, for all @import / #import statements, data types, method names, properties, constants and protocols which refer to the BrightcoveOUX framework, change every occurrence of &ldquo;OUX&rdquo; to &ldquo;SSAI&rdquo;. A partial list is here:</p>
+
+<pre><code>"@import BrightcoveOUX;" is now "@import BrightcoveSSAI;"
+"createOUXSessionProviderWithUpstreamSessionProvider" is now "createSSAISessionProviderWithUpstreamSessionProvider"
+"createOUXPlaybackControllerWithViewStrategy" is now "createSSAIPlaybackControllerWithViewStrategy"
+"oux_seekToTime" is now "ssai_seekToTime"
+"BCOVOUXAdComponentDisplayContainer" is now "BCOVSSAIAdComponentDisplayContainer"
+"BCOVOUXCompanionSlot" is now "BCOVSSAICompanionSlot"
+</code></pre>
+
+<h1>Obtaining Ad playback Information</h1>
+
+<p>BrightcoveSSAI provides ad playback information via the <code>BCOVPlaybackControllerAdsDelegate</code>. For example, if you want to hide your controls during an ad, you could implement <code>[BCOVPlaybackControllerAdsDelegate playbackController:playbackSession:didEnterAdSequence:]</code> to hide them.</p>
+
+<p>For more information on how to use these delegate methods, please see <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player SDK for iOS</a>.</p>
+
+<h1>Seeking</h1>
+
+<p>The BrightcoveSSAI plugin provides a seeking function that should be used when implementing controls. This seek function is exposed on the session through the <code>providerExtension</code> property. Here is how it is used:</p>
+
+<pre><code>CMTime contentTimeToSeekTo = &lt;calculation-from-scrub-bar&gt;;
+[self.currentSession.providerExtension ssai_seekToTime:contentTimeToSeekTo completionHandler:^(BOOL finished) {
+
+    if (finished)
+    {
+        [self.currentSession.player play];
+    }
+
+}];
+</code></pre>
+
+<p>The <code>completionHandler</code> will execute at the completion of a successful seek. It will not execute if a seek was already initiated by a previous call to <code>-[BCOVSessionProviderExtension ssai_seekToTime:completionHandler:]</code> or if an ad is playing back. To test whether a seek attempt can be made, check the <code>-[BCOVSessionProviderExtension ssai_canSeek]</code> property. For more information on both of these methods, be sure to read the <a href="[https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/static/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h](https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/static/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h)">headerdoc</a>.</p>
+
+<h1>Seeking With Ads Disabled</h1>
+
+<p>The BrightcovePlayerSDK provides a BOOL property for disabling ads while seeking. The intended use by SSAI is to allow an application to resume video playback after relaunching without requiring the end-user to view ads they&rsquo;ve already seen.</p>
+
+<p>It is recommended that ad-disabling logic be added to the <code>kBCOVPlaybackSessionLifecycleEventReady</code> handler of the <code>-playbackController:playbackSession:didReceiveLifecycleEvent:</code> method of your <code>BCOVPlaybackController</code> delegate.</p>
+
+<pre><code>- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller
+           playbackSession:(id&lt;BCOVPlaybackSession&gt;)session
+  didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent
+  {
+    if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType])
+    {
+      // disable ads.
+      _playbackController.adsDisabled = YES;
+
+      // seek somewhere into the video content.
+      [session.providerExtension ssai_seekToTime:resumeTime completionHandler:^(BOOL finished)
+      {
+        // re-enable ads.
+        _playbackController.adsDisabled = NO;
+
+        // open the shutter.
+        _playbackController.shutterFadeTime = 0.25;
+        _playbackController.shutter = NO;
+    }];
+  }
+</code></pre>
+
+<p>When calling <code>ssai_seekToTime:completionHandler:</code> to resume playback at a particular time, the first frame of the video will be visible until the seek completes. For a cleaner presentation, temporarily cover the video view during seeking by setting the BOOL <code>shutter</code> property of BCOVPlabackController to <code>YES</code> before calling <code>-setVideos:</code>. When seeking is complete, dismiss the shutter by setting the <code>shutter</code> property to <code>NO</code>. The <code>shutterFadeTime</code> property defines the duration of the shutter fade animation.</p>
+
+<pre><code>self.playbackController = [sdkManager createSSAIPlaybackControllerWithViewStrategy:[sdkManager BCOVSSAIdefaultControlsViewStrategy]];
+
+// activate the shutter before loading video.
+self.playbackController.shutterFadeTime = 0.0;
+self.playbackController.shutter = YES;
+
+// load the video.
+</code></pre>
+
+<h1>Player UI Built-In Controls</h1>
+
+<p>The BrightcovePlayerSDK provides a built-in set of UI controls that can be used with the SSAI plugin for both basic playback and ad controls. To use the controls, create a <code>BCOVPUIPlayerView</code>, and associate it with your SSAI playback controller.</p>
+
+<p>First, create a playerView property in your class.</p>
+
+<pre><code> @property (nonatomic) BCOVPUIPlayerView *playerView;
+</code></pre>
+
+<p>Create the <code>BCOVPUIPlayerView</code> instance and save a reference to the object.</p>
+
+<pre><code> BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout];
+ self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil options:nil controlsView:controlView];
+ // Insert the playerView into your own video view.
+ [self.videoContainer addSubview:self.playerView];
+</code></pre>
+
+<p>You&rsquo;ll need to set up the layout for the player view, you can do this with Auto Layout or the older Springs &amp; Struts method.</p>
+
+<p><strong>Springs &amp; Struts</strong></p>
+
+<p>Set its frame to match your container view, then add the player view to the container view in your view hierarchy. Note that <code>videoContainer</code> is your own view object in your app&rsquo;s layout.</p>
+
+<pre><code> self.playerView.frame = self.videoContainer.bounds;
+ self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+</code></pre>
+
+<p><strong>Auto Layout</strong></p>
+
+<pre><code>self.playerView.translatesAutoresizingMaskIntoConstraints = NO;
+[NSLayoutConstraint activateConstraints:@[
+                                          [self.playerView.topAnchor constraintEqualToAnchor:self.videoContainer.topAnchor],
+                                          [self.playerView.rightAnchor constraintEqualToAnchor:self.videoContainer.rightAnchor],
+                                          [self.playerView.leftAnchor constraintEqualToAnchor:self.videoContainer.leftAnchor],
+                                          [self.playerView.bottomAnchor constraintEqualToAnchor:self.videoContainer.bottomAnchor],
+                                          ]];
+</code></pre>
+
+<p>Now create the <code>BCOVPlaybackController</code>, assign it to your player view, and then start playing videos.</p>
+
+<pre><code>// Initialize companion slots
+BCOVSSAIAdComponentDisplayContainer *displayContainer = [[BCOVSSAIAdComponentDisplayContainer alloc] initWithCompanionSlots:@[]];
+
+// Create the playback controller
+BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager];
+id&lt;BCOVPlaybackController&gt; playbackController = [sdkManager createSSAIPlaybackControllerWithViewStrategy:nil];
+
+// Listen for display/companion ad messages
+[playbackController addSessionConsumer:displayContainer];
+
+// Tell the player view this is the playback controller we're using
+self.playerView.playbackController = playbackController;
+
+// Create and play your video. For OnceUX-style video URLs, create the BCOVVideo object directly.
+BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
+                                                                            policyKey:policyKey];
+[playbackService findVideoWithVideoID:videoID
+                           parameters:{ kBCOVPlaybackServiceParamaterKeyAdConfigId: &lt;valid-ad-config-id&gt; }
+                           completion:^(BCOVVideo *video,
+                                        NSDictionary *jsonResponse,
+                                        NSError *error) {
+
+                             [playbackController setVideos:@[ video ]];
+                             [playbackController play];
+
+                          }];
+</code></pre>
+
+<p>See the README in the BrightcovePlayerSDK for more details about how to use and customize the PlayerUI controls.</p>
+
+<h1>Access to VMAP Response Data</h1>
+
+<p>Should you want access to the VMAP response data you can subscribe to the <code>kBCOVSSAIVMAPResponseReceivedNotification</code> notification. Once received, the notification&rsquo;s userInfo dictionary will contain the VMAP response as NSData. You can use the <code>kBCOVSSAIVMAPResponseReceivedNotificationDataUserInfoKey</code> constant to access it from userInfo. Since you may have multiple playback controllers, and thus multiple VMAP responses, you can check the notification&rsquo;s object, <code>id playbackController = notification.object</code> to verify which video the VMAP data is for. Additionally, when you subscribe to the notification you can set a playback controller as the object so that only VMAP data notifications regarding that playback controller will be received. For example:</p>
+
+<pre><code>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(vmapResponseReceived:) name:kBCOVSSAIVMAPResponseReceivedNotification object:self.playbackController];
+</code></pre>
+
+<h1>Known Issues</h1>
+
+<ul>
+<li><p>You cannot use BrightcoveSSAI with any other Brightcove plugins except for the BrightcoveFairPlay plugin.</p></li>
+<li><p>The SSAI plugin does not support playing SSAI content and non SSAI content in the same playback controller. If you need to play both, you need to create separate playback controllers.</p></li>
+</ul>
+
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">Class References</h2>
+							<ul>
+								
+								<li><a href="Classes/BCOVSSAIAdComponentDisplayContainer.html">BCOVSSAIAdComponentDisplayContainer</a></li>
+								
+								<li><a href="Classes/BCOVSSAICompanionSlot.html">BCOVSSAICompanionSlot</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">Protocol References</h2>
+							<ul>
+								
+								<li><a href="Protocols/BCOVSSAIAdComponentDelegate.html">BCOVSSAIAdComponentDelegate</a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">Category References</h2>
+							<ul>
+								
+								<li><a href="Categories/BCOVPlayerSDKManager+BCOVSSAIAdditions.html">BCOVPlayerSDKManager(BCOVSSAIAdditions)</a></li>
+								
+								<li><a href="Categories/BCOVSessionProviderExtension+BCOVSSAIAdditions.html">BCOVSessionProviderExtension(BCOVSSAIAdditions)</a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Copyright &copy; 2019 Brightcove. All rights reserved. Updated: 2019-04-22</p>
+							
+							
+							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>
