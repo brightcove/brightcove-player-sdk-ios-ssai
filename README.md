@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.4.3.616
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.4.4.683
 
 Supported Platforms
 ===================
@@ -74,7 +74,7 @@ BrightcoveSSAI is a plugin for [Brightcove Player SDK for iOS][bcovsdk] that pro
         
         BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager];
 
-    [2] id<BCOVPlaybackController> playbackController = [sdkManager createSSAIPlaybackControllerWithViewStrategy:nil];
+    [2] id<BCOVPlaybackController> playbackController = [sdkManager createSSAIPlaybackController];
 
     [3] [playbackController addSessionConsumer:displayContainer];
     
@@ -123,18 +123,18 @@ target 'MyVideoPlayer' do
 	pod 'Brightcove-Player-SSAI/dynamic'
 end
 ```
-If you use static frameworks, leave off `/dynamic` like this: `pod 'Brightcove-Player-SSAI'`. Run `'pod update'` when ready.
+If you use static frameworks, leave off `/dynamic` like this: `pod 'Brightcove-Player-SSAI'`, then run `'pod update'`.
 
-If you install the Brightcove plugins manually, delete the Brightcove-Player-OnceUX framework from your Xcode project and follow the steps above to manually add the Brightcove-Player-SSAI framework.
+If you install the Brightcove plugins manually, delete the Brightcove-Player-OnceUX framework from your Xcode project and follow the steps above to manually add the Brightcove-Player-SSAI framework. Alternatively, you can change the name of the BrightcoveOUX framework to BrightcoveSSAI using the Xcode File Inspector, and update the Framework Search Path in the Build Settings for your app target.
 
 2) In your source code, for all @import / #import statements, data types, method names, properties, constants and protocols which refer to the BrightcoveOUX framework, change every occurrence of "OUX" to "SSAI". A partial list is here:
  
-    "@import BrightcoveOUX;" is now "@import BrightcoveSSAI;"
-    "createOUXSessionProviderWithUpstreamSessionProvider" is now "createSSAISessionProviderWithUpstreamSessionProvider"
-    "createOUXPlaybackControllerWithViewStrategy" is now "createSSAIPlaybackControllerWithViewStrategy"
-    "oux_seekToTime" is now "ssai_seekToTime"
-    "BCOVOUXAdComponentDisplayContainer" is now "BCOVSSAIAdComponentDisplayContainer"
-    "BCOVOUXCompanionSlot" is now "BCOVSSAICompanionSlot"
+ * `@import BrightcoveOUX;` is now `@import BrightcoveSSAI;`
+ * `createOUXSessionProviderWithUpstreamSessionProvider` is now `createSSAISessionProviderWithUpstreamSessionProvider`
+ * `createOUXPlaybackControllerWithViewStrategy` is now `createSSAIPlaybackControllerWithViewStrategy`
+ * `oux_seekToTime` is now `ssai_seekToTime`
+ * `BCOVOUXAdComponentDisplayContainer` is now `BCOVSSAIAdComponentDisplayContainer`
+ * `BCOVOUXCompanionSlot` is now `BCOVSSAICompanionSlot`
 
 Obtaining Ad playback Information
 =======
@@ -194,7 +194,7 @@ It is recommended that ad-disabling logic be added to the `kBCOVPlaybackSessionL
 
 When calling `ssai_seekToTime:completionHandler:` to resume playback at a particular time, the first frame of the video will be visible until the seek completes. For a cleaner presentation, temporarily cover the video view during seeking by setting the BOOL `shutter` property of BCOVPlabackController to `YES` before calling `-setVideos:`. When seeking is complete, dismiss the shutter by setting the `shutter` property to `NO`. The `shutterFadeTime` property defines the duration of the shutter fade animation.
 
-	self.playbackController = [sdkManager createSSAIPlaybackControllerWithViewStrategy:[sdkManager BCOVSSAIdefaultControlsViewStrategy]];
+	self.playbackController = [sdkManager createSSAIPlaybackController];
 
 	// activate the shutter before loading video.
 	self.playbackController.shutterFadeTime = 0.0;
