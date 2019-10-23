@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.4.5.699
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.5.0.745
 
 Supported Platforms
 ===================
@@ -278,6 +278,8 @@ Should you want access to the VMAP response data you can subscribe to the `kBCOV
 
 Known Issues
 ==========================
+
+* Because tvOS does not support Web browsing, Companion Ads, Learn More and all ad click throughs are ignored on that platform.
 
 * You cannot use BrightcoveSSAI with any other Brightcove plugins except for the BrightcoveFairPlay plugin.
 
