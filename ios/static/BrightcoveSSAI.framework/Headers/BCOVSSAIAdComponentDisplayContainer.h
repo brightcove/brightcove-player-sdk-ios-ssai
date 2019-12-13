@@ -43,18 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable instancetype)initWithCompanionSlots:(NSArray *)companionSlots NS_DESIGNATED_INITIALIZER;
 
 /**
- * The designated initializer.
- *
- * *** DEPRECATED ***
- * Use -[BCOVSSAIAdComponentDisplayContainer initWithCompanionSlots:] instead
- *
- * @param adComponentContainer The view to display the ad UI.
- * @param companionSlots An array of BCOVSSAICompanionSlots to be populated.
- * @return An initialized instance.
- */
-- (nullable instancetype)initWithAdComponentContainer:(UIView *)adComponentContainer companionSlots:(NSArray *)companionSlots __attribute__((deprecated("Use -initWithCompanionSlots: instead")));
-
-/**
  * The delegate for the BCOVSSAIAdComponentDisplayContainer.
  */
 @property (nullable, nonatomic, weak) id<BCOVSSAIAdComponentDelegate> delegate;
@@ -114,9 +102,3 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
-
-@interface BCOVSSAIAdComponentDisplayContainer (Unavailable)
-
-- (nullable instancetype)init __attribute__((unavailable("Use `-[BCOVSSAIAdComponentDisplayContainer initWithAdComponentContainer:companionSlots:]` instead.")));
-
-@end

@@ -28,9 +28,3 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
-
-@interface BCOVSSAICompanionSlot (Unavailable)
-
-- (nullable instancetype)init __attribute__((unavailable("Use `-[BCOVSSAICompanionSlot initWithView:width:height:]` instead.")));
-
-@end
