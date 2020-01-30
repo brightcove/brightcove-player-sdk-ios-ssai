@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.6.0.817
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.6.1.888
 
 Requirements
 ============
