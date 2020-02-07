@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version string for BCOVPlayerSDK.
-FOUNDATION_EXPORT const unsigned char BrightcoveOUXVersionString[];
-
 #import <BrightcoveSSAI/BCOVSSAIAdComponentDisplayContainer.h>
 #import <BrightcoveSSAI/BCOVSSAICompanionSlot.h>
 #import <BrightcoveSSAI/BCOVSSAIComponent.h>

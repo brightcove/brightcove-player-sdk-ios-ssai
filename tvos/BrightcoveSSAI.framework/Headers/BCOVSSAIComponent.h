@@ -10,8 +10,6 @@
 
 #import <BrightcovePlayerSDK/BrightcovePlayerSDK.h>
 
-@class BCOVOUXSessionProviderOptions;
-
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -30,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (id<BCOVPlaybackController>)createSSAIPlaybackController;
 
 /**
- * Creates and returns a new OnceUX playback controller with the specified view
+ * Creates and returns a new SSAI playback controller with the specified view
  * strategy. The returned playback controller will be configured with a
  * BCOVSSAI session provider.
  *

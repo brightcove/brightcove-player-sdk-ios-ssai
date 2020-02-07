@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.6.2.897
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.7.0.912
 
 Requirements
 ============
@@ -105,7 +105,7 @@ To summarize:
 1. BrightcoveSSAI adds some category methods to `BCOVPlaybackManager`. The first of these is `-createSSAIPlaybackControllerWithViewStrategy:`. Use this method to create your playback controller. You will typically pass `nil` for the view strategy.
 1. In order for the `BCOVSSAIAdComponentDisplayContainer` to display ad information and populate companion ad views, it must be added as a session consumer.
 1. Add the playback controller's view to the video container in your own view hierarchy.
-1. Request the video or playlist from the Playback Service. When using a OnceUX-style video URL, create the BCOVVideo object directly using `[BCOVVideo videoWithURL:<onceux-style-url>]`.
+1. Request the video or playlist from the Playback Service. When using a Unicorn Once-style VMAP URL, create the BCOVVideo object directly using `[BCOVVideo videoWithURL:<unicorn-style-url>]`.
 1. Load the video into the playback controller.
 
 If you have questions or need help, visit the support forum for Brightcove Native Player SDKs at [https://groups.google.com/forum/#!forum/brightcove-native-player-sdks][forum] .
@@ -258,7 +258,7 @@ Now create the `BCOVPlaybackController`, assign it to your player view, and then
 	// Tell the player view this is the playback controller we're using
 	self.playerView.playbackController = playbackController;
     
-    // Create and play your video. For OnceUX-style video URLs, create the BCOVVideo object directly.
+    // Create and play your video. For Unicorn Once-style VMAP URLs, create the BCOVVideo object directly.
     BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
                                                                                 policyKey:policyKey];
     [playbackService findVideoWithVideoID:videoID
@@ -288,5 +288,7 @@ Known Issues
 * Because tvOS does not support Web browsing, Companion Ads, Learn More and all ad click throughs are ignored on that platform.
 
 * You cannot use BrightcoveSSAI with any other Brightcove plugins except for the BrightcoveFairPlay plugin.
+
+* If you want to use the BrightcoveSSAI plugin along with the BrightcoveFairPlay plugin then the BrightcoveFairPlay plugin must be the `upstreamSessionProvider` of the SSAI session provider.
 
 * The SSAI plugin does not support playing SSAI content and non SSAI content in the same playback controller. If you need to play both, you need to create separate playback controllers.
