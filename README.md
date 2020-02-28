@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.7.0.912
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.7.1.940
 
 Requirements
 ============
@@ -142,7 +142,7 @@ If you install the Brightcove plugins manually, delete the Brightcove-Player-Onc
  * `BCOVOUXAdComponentDisplayContainer` is now `BCOVSSAIAdComponentDisplayContainer`
  * `BCOVOUXCompanionSlot` is now `BCOVSSAICompanionSlot`
 
-Obtaining Ad playback Information
+Obtaining Ad Playback Information
 =======
 BrightcoveSSAI provides ad playback information via the `BCOVPlaybackControllerAdsDelegate`. For example, if you want to hide your controls during an ad, you could implement `-[BCOVPlaybackControllerAdsDelegate playbackController:playbackSession:didEnterAdSequence:]` to hide them.
 
@@ -170,12 +170,12 @@ The `completionHandler` will execute at the completion of a successful seek. It 
 
 [ssai_extensions]: https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/static/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h
 
-Seeking With Ads Disabled
-=========================
+Seek Without Ads
+=======
 
-The BrightcovePlayerSDK provides a BOOL property for disabling ads while seeking. The intended use by SSAI is to allow an application to resume video playback after relaunching without requiring the end-user to view ads they've already seen.
+The BrightcovePlayerSDK provides the `adsDisabled` BOOL property for disabling ads while seeking, allowing an application to resume playback without requiring the end-user to view previously played ads.
 
-It is recommended that ad-disabling logic be added to the `kBCOVPlaybackSessionLifecycleEventReady` handler of the `-playbackController:playbackSession:didReceiveLifecycleEvent:` method of your `BCOVPlaybackController` delegate.
+Ad-disabling logic should be added to the `kBCOVPlaybackSessionLifecycleEventReady` handler of the `-playbackController:playbackSession:didReceiveLifecycleEvent:` method of your `BCOVPlaybackController` delegate.
 
 	- (void)playbackController:(id<BCOVPlaybackController>)controller
 	           playbackSession:(id<BCOVPlaybackSession>)session
@@ -198,7 +198,7 @@ It is recommended that ad-disabling logic be added to the `kBCOVPlaybackSessionL
 	    }];
 	  }
 
-When calling `ssai_seekToTime:completionHandler:` to resume playback at a particular time, the first frame of the video will be visible until the seek completes. For a cleaner presentation, temporarily cover the video view during seeking by setting the BOOL `shutter` property of BCOVPlabackController to `YES` before calling `-setVideos:`. When seeking is complete, dismiss the shutter by setting the `shutter` property to `NO`. The `shutterFadeTime` property defines the duration of the shutter fade animation.
+When calling `ssai_seekToTime:completionHandler:` to resume playback at a particular time, the first frame of the video might be visible until the seek completes. For a cleaner presentation, temporarily cover the video view during seeking by setting the `shutter` property of BCOVPlabackController to `YES` before calling `-setVideos:`. When seeking is complete, dismiss the shutter by setting the `shutter` property to `NO`. The `shutterFadeTime` property defines the duration of the shutter fade animation.
 
 	self.playbackController = [sdkManager createSSAIPlaybackController];
 
