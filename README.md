@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.7.2.958
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.7.3.965
 
 Requirements
 ============
@@ -27,7 +27,7 @@ Static framework example:
 source 'https://github.com/brightcove/BrightcoveSpecs.git'
 
 use_frameworks!
-platform :ios, 10.0'
+platform :ios, 11.0'
 
 target 'MyVideoPlayer' do
   pod 'Brightcove-Player-SSAI'
@@ -40,7 +40,7 @@ Dynamic framework example:
 source 'https://github.com/brightcove/BrightcoveSpecs.git'
 
 use_frameworks!
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 target 'MyVideoPlayer' do
   pod 'Brightcove-Player-SSAI/dynamic'
