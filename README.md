@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.7.4.1018
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.7.5.1079
 
 Requirements
 ============
@@ -56,11 +56,11 @@ Manual
 
 To add the SSAI Plugin for Brightcove Player SDK to your project manually:
 
-1. Install the latest version of the [Brightcove Player SDK][bcovsdk].
+1. Install the latest version of the [Brightcove Player SDK][bcovsdkreleases].
 2. Download the latest zip'ed release of the BrightcoveSSAI plugin from our [release page][release].
 3. Add `BrightcoveSSAI.framework` to your project.
 4. On the "Build Settings" tab of your application target, ensure that the "Framework Search Paths" include the path to the framework. This should have been done automatically unless the framework is stored under a different root directory than your project.
-5. (Dynamic Framework only) On the "General" tab of your application target, add 'BrightcoveSSAI.framework' to the "Embedded Binaries" section.
+5. (Dynamic Framework only) On the "General" tab of your application target, add 'BrightcoveSSAI.framework' to the "Frameworks, Libraries, Embedded Content" section.
 6. (Dynamic Framework only) On the "Build Phases" tab, add a "Run Script" phase with the command `bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveSSAI.framework/strip-frameworks.sh`. Check "Run script only when installing". This will remove unneeded architectures from the build, which is important for App Store submission.
 7. (Static Framework only) On the "Build Settings" tab of your application target, add `-ObjC` to the "Other Linker Flags" build setting.
 
@@ -71,6 +71,7 @@ The SSAI Plugin for Brightcove Player SDK for iOS can be imported into code a fe
 [cocoapods]: http://cocoapods.org
 [podspecs]: https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-SSAI
 [release]: https://github.com/brightcove/brightcove-player-sdk-ios-ssai/releases
+[bcovsdkreleases]: https://github.com/brightcove/brightcove-player-sdk-ios/releases
 
 Quick Start
 ===========
