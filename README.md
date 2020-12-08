@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.1.1355
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.2.1421
 
 Requirements
 ============
@@ -111,39 +111,15 @@ To summarize:
 1. Request the video or playlist from the Playback Service. When using a Unicorn Once-style VMAP URL, create the BCOVVideo object directly using `[BCOVVideo videoWithURL:<unicorn-style-url>]`.
 1. Load the video into the playback controller.
 
-If you have questions or need help, visit the support forum for Brightcove Native Player SDKs at [https://groups.google.com/forum/#!forum/brightcove-native-player-sdks][forum] .
-
-[forum]: https://groups.google.com/forum/#!forum/brightcove-native-player-sdks
-
-Migrating OnceUX to SSAI
+Using a custom VMAP source URL
 =======
 
-The BrightcoveSSAI plugin framework is taking the place of BrightcoveOUX. BrightcoveSSAI supports all the current features of BrightcoveOUX, however future updates will only be added to BrightcoveSSAI. Follow these instructions to migrate your OnceUX application to Brightcove SSAI.
+If you have a custom VMAP source URL and do not need to use the `BCOVPlaybackService` you can manually create a `BCOVVideo` with your URL like this:
 
-1) If you install Brightcove plugins (dynamic frameworks) using CocoaPods, update your Podfile by changing `Brightcove-Player-OnceUX/dynamic` to `Brightcove-Player-SSAI`, for example this:
-```bash
-target 'MyVideoPlayer' do
-  pod 'Brightcove-Player-OnceUX/dynamic'
-end
 ```
-becomes this:
-```bash
-target 'MyVideoPlayer' do
-  pod 'Brightcove-Player-SSAI'
-end
+BCOVVideo *video = [BCOVVideo videoWithURL:[NSURL URLWithString:@"https://sdks.support.brightcove.com/assets/ads/ssai/sample-vmap.xml"]];
+[self.playbackController setVideos:@[video]];
 ```
-If you use static frameworks, append `-static` like this: `pod 'Brightcove-Player-SSAI-static'`, then run `'pod update'`.
-
-If you install the Brightcove plugins manually, delete the Brightcove-Player-OnceUX framework from your Xcode project and follow the steps above to manually add the Brightcove-Player-SSAI framework. Alternatively, you can change the name of the BrightcoveOUX framework to BrightcoveSSAI using the Xcode File Inspector, and update the Framework Search Path in the Build Settings for your app target.
-
-2) In your source code, for all @import / #import statements, data types, method names, properties, constants and protocols which refer to the BrightcoveOUX framework, change every occurrence of "OUX" to "SSAI". A partial list is here:
- 
- * `@import BrightcoveOUX;` is now `@import BrightcoveSSAI;`
- * `createOUXSessionProviderWithUpstreamSessionProvider` is now `createSSAISessionProviderWithUpstreamSessionProvider`
- * `createOUXPlaybackControllerWithViewStrategy` is now `createSSAIPlaybackControllerWithViewStrategy`
- * `oux_seekToTime` is now `ssai_seekToTime`
- * `BCOVOUXAdComponentDisplayContainer` is now `BCOVSSAIAdComponentDisplayContainer`
- * `BCOVOUXCompanionSlot` is now `BCOVSSAICompanionSlot`
 
 Obtaining Ad Playback Information
 =======
@@ -304,10 +280,14 @@ Should you want access to the VMAP response data you can subscribe to the `kBCOV
 Known Issues
 ==========================
 
-* Because tvOS does not support Web browsing, Companion Ads, Learn More and all ad click throughs are ignored on that platform.
+* Because tvOS does not support Web browsing, Companion Ads, Learn More and all ad clickthroughs are ignored on that platform.
 
-* You cannot use BrightcoveSSAI with any other Brightcove plugins except for the BrightcoveFairPlay plugin.
+* You cannot use BrightcoveSSAI with any other Brightcove plugins except for the BrightcoveFairPlay plugin, or the BrightcoveIMA plugin (for pre-roll ads only).
 
 * If you want to use the BrightcoveSSAI plugin along with the BrightcoveFairPlay plugin then the BrightcoveFairPlay plugin must be the `upstreamSessionProvider` of the SSAI session provider.
 
 * The SSAI plugin does not support playing SSAI content and non SSAI content in the same playback controller. If you need to play both, you need to create separate playback controllers.
+
+Support
+=======
+If you have questions, need help or want to provide feedback, please use the [Support Portal](https://supportportal.brightcove.com/s/login/) or contact your Account Manager.  To receive notification of new SDK software releases, subscribe to the Brightcove Native Player SDKs [Google Group](https://groups.google.com/g/brightcove-native-player-sdks).

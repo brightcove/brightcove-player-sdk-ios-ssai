@@ -7,6 +7,7 @@
 //
 
 #import <CoreMedia/CoreMedia.h>
+#import <UIKit/UIKit.h>
 
 #import <BrightcovePlayerSDK/BrightcovePlayerSDK.h>
 
@@ -46,6 +47,18 @@ NS_ASSUME_NONNULL_BEGIN
  * @return A new BCOVSSAISessionProvider with the specified parameters.
  */
 - (id<BCOVPlaybackSessionProvider>)createSSAISessionProviderWithUpstreamSessionProvider:(nullable id<BCOVPlaybackSessionProvider>)provider;
+
+#if !TARGET_OS_TV
+/**
+ * Creates and returns a new BCOVSSAI session provider with the specified
+ * parameters.
+ *
+ * @param omidPartnerName Unique partner name given by the IAB Tech Lab for the integration.
+ * @param provider Optional upstream session provider.
+ * @return A new BCOVSSAISessionProvider with the specified parameters.
+ */
+- (id<BCOVPlaybackSessionProvider>)createSSAISessionProviderWithUpstreamSessionProvider:(nullable id<BCOVPlaybackSessionProvider>)provider omidPartner:(NSString *)omidPartnerName;
+#endif
 
 @end
 

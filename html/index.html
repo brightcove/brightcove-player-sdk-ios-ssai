@@ -44,7 +44,7 @@
 					<div class="section section-overview index-overview">
 						
 						
-						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.1.1355</h1>
+						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.2.1421</h1>
 
 <h1>Requirements</h1>
 
@@ -157,41 +157,15 @@ To summarize:
 1. Request the video or playlist from the Playback Service. When using a Unicorn Once-style VMAP URL, create the BCOVVideo object directly using `[BCOVVideo videoWithURL:&lt;unicorn-style-url&gt;]`.
 1. Load the video into the playback controller.
 
-If you have questions or need help, visit the support forum for Brightcove Native Player SDKs at [https://groups.google.com/forum/#!forum/brightcove-native-player-sdks][forum] .
-
-Migrating OnceUX to SSAI
+Using a custom VMAP source URL
 =======
 
-The BrightcoveSSAI plugin framework is taking the place of BrightcoveOUX. BrightcoveSSAI supports all the current features of BrightcoveOUX, however future updates will only be added to BrightcoveSSAI. Follow these instructions to migrate your OnceUX application to Brightcove SSAI.
-
-1) If you install Brightcove plugins (dynamic frameworks) using CocoaPods, update your Podfile by changing `Brightcove-Player-OnceUX/dynamic` to `Brightcove-Player-SSAI`, for example this:
-```bash
-target 'MyVideoPlayer' do
-  pod 'Brightcove-Player-OnceUX/dynamic'
-end
+If you have a custom VMAP source URL and do not need to use the `BCOVPlaybackService` you can manually create a `BCOVVideo` with your URL like this:
 </code></pre>
 
-<p>becomes this:
-<code>bash
-target 'MyVideoPlayer' do
-  pod 'Brightcove-Player-SSAI'
-end
-</code>
-If you use static frameworks, append <code>-static</code> like this: <code>pod 'Brightcove-Player-SSAI-static'</code>, then run <code>'pod update'</code>.</p>
-
-<p>If you install the Brightcove plugins manually, delete the Brightcove-Player-OnceUX framework from your Xcode project and follow the steps above to manually add the Brightcove-Player-SSAI framework. Alternatively, you can change the name of the BrightcoveOUX framework to BrightcoveSSAI using the Xcode File Inspector, and update the Framework Search Path in the Build Settings for your app target.</p>
-
-<p>2) In your source code, for all @import / #import statements, data types, method names, properties, constants and protocols which refer to the BrightcoveOUX framework, change every occurrence of &ldquo;OUX&rdquo; to &ldquo;SSAI&rdquo;. A partial list is here:</p>
-
-<ul>
-<li><code>@import BrightcoveOUX;</code> is now <code>@import BrightcoveSSAI;</code></li>
-<li><code>createOUXSessionProviderWithUpstreamSessionProvider</code> is now <code>createSSAISessionProviderWithUpstreamSessionProvider</code></li>
-<li><code>createOUXPlaybackControllerWithViewStrategy</code> is now <code>createSSAIPlaybackControllerWithViewStrategy</code></li>
-<li><code>oux_seekToTime</code> is now <code>ssai_seekToTime</code></li>
-<li><code>BCOVOUXAdComponentDisplayContainer</code> is now <code>BCOVSSAIAdComponentDisplayContainer</code></li>
-<li><code>BCOVOUXCompanionSlot</code> is now <code>BCOVSSAICompanionSlot</code></li>
-</ul>
-
+<p>BCOVVideo *video = [BCOVVideo videoWithURL:[NSURL URLWithString:@&ldquo;https://sdks.support.brightcove.com/assets/ads/ssai/sample-vmap.xml&rdquo;]];
+[self.playbackController setVideos:@[video]];
+```</p>
 
 <h1>Obtaining Ad Playback Information</h1>
 
@@ -348,12 +322,16 @@ Should you want access to the VMAP response data you can subscribe to the `kBCOV
 <h1>Known Issues</h1>
 
 <ul>
-<li><p>Because tvOS does not support Web browsing, Companion Ads, Learn More and all ad click throughs are ignored on that platform.</p></li>
-<li><p>You cannot use BrightcoveSSAI with any other Brightcove plugins except for the BrightcoveFairPlay plugin.</p></li>
+<li><p>Because tvOS does not support Web browsing, Companion Ads, Learn More and all ad clickthroughs are ignored on that platform.</p></li>
+<li><p>You cannot use BrightcoveSSAI with any other Brightcove plugins except for the BrightcoveFairPlay plugin, or the BrightcoveIMA plugin (for pre-roll ads only).</p></li>
 <li><p>If you want to use the BrightcoveSSAI plugin along with the BrightcoveFairPlay plugin then the BrightcoveFairPlay plugin must be the <code>upstreamSessionProvider</code> of the SSAI session provider.</p></li>
 <li><p>The SSAI plugin does not support playing SSAI content and non SSAI content in the same playback controller. If you need to play both, you need to create separate playback controllers.</p></li>
 </ul>
 
+
+<h1>Support</h1>
+
+<p>If you have questions, need help or want to provide feedback, please use the <a href="https://supportportal.brightcove.com/s/login/">Support Portal</a> or contact your Account Manager.  To receive notification of new SDK software releases, subscribe to the Brightcove Native Player SDKs <a href="https://groups.google.com/g/brightcove-native-player-sdks">Google Group</a>.</p>
 						
 						
 					</div>
@@ -405,7 +383,7 @@ Should you want access to the VMAP response data you can subscribe to the `kBCOV
 					<footer>
 						<div class="footer-copyright">
 							
-							<p class="copyright">Copyright &copy; 2020 Brightcove. All rights reserved. Updated: 2020-10-19</p>
+							<p class="copyright">Copyright &copy; 2020 Brightcove. All rights reserved. Updated: 2020-12-08</p>
 							
 							
 							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
