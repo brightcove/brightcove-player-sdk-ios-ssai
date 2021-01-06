@@ -2,7 +2,7 @@
 // BCOVSSAIConstants.h
 // BrightcoveSSAI
 //
-// Copyright (c) 2020 Brightcove, Inc. All rights reserved.
+// Copyright (c) 2021 Brightcove, Inc. All rights reserved.
 // License: https://accounts.brightcove.com/en/terms-and-conditions
 //
 
@@ -17,6 +17,11 @@ extern NSString * const kBCOVSSAIErrorDomain;
  * Error code used to indicate that an error occurred while loading a timeline.
  */
 extern const NSInteger kBCOVSSAIErrorCodeTimelineLoadError;
+
+/**
+ * Error code used to indicate that a VMAP source is not available.
+ */
+extern const NSInteger kBCOVSSAIErrorCodeVMAPMissingError;
 
 /**
  * BCOVPlaybackSessionLifecycleEvent.eventType for lifecycle events that
