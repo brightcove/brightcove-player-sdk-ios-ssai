@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.3.1457
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.4.1493
 
 Requirements
 ============
@@ -275,6 +275,35 @@ Should you want access to the VMAP response data you can subscribe to the `kBCOV
 
 ```objc
 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(vmapResponseReceived:) name:kBCOVSSAIVMAPResponseReceivedNotification object:self.playbackController];
+```
+
+You can also access the VMAP response data through the `BCOVOUXSession` object:
+
+```
+// Obj-C
+- (void)playbackController:(id<BCOVPlaybackController>)controller didAdvanceToPlaybackSession:(id<BCOVPlaybackSession>)session
+{    
+    if ([session respondsToSelector:NSSelectorFromString(@"vmapResponseData")])
+    {
+        NSData *vmapResponseData = [(NSObject *)session valueForKeyPath:@"vmapResponseData"];
+        NSString *xmlString = [[NSString alloc] initWithData:vmapResponseData encoding:NSUTF8StringEncoding];
+        NSLog(@"VMAP XML: %@", xmlString);
+    }
+}
+```
+```
+// Swift
+func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo session: BCOVPlaybackSession!) {
+    if (session.responds(to: NSSelectorFromString("vmapResponseData")))
+    {
+        let vmapResponseData = (session as? NSObject)?.value(forKeyPath: "vmapResponseData") as? Data
+        var xmlString: String? = nil
+        if let vmapResponseData = vmapResponseData {
+            xmlString = String(data: vmapResponseData, encoding: .utf8)
+        }
+        print("VMAP XML: \(xmlString ?? "")")
+    }
+}
 ```
 
 Known Issues
