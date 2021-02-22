@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.4.1493
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.5.1519
 
 Requirements
 ============
@@ -315,7 +315,7 @@ Known Issues
 
 * If you want to use the BrightcoveSSAI plugin along with the BrightcoveFairPlay plugin then the BrightcoveFairPlay plugin must be the `upstreamSessionProvider` of the SSAI session provider.
 
-* The SSAI plugin does not support playing SSAI content and non SSAI content in the same playback controller. If you need to play both, you need to create separate playback controllers.
+* The SSAI plugin does not support playing non-SSAI content. If you need to play non-SSAI content you need to create another playback controller that does not use the SSAI plugin.
 
 Support
 =======
