@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.6.1579
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.7.1605
 
 Requirements
 ============
@@ -118,6 +118,28 @@ If you have a custom VMAP source URL and do not need to use the `BCOVPlaybackSer
 
 ```
 BCOVVideo *video = [BCOVVideo videoWithURL:[NSURL URLWithString:@"https://sdks.support.brightcove.com/assets/ads/ssai/sample-vmap.xml"]];
+[self.playbackController setVideos:@[video]];
+```
+
+Using VMAP XML data
+=======
+
+If you have VMAP XML data you can manually create a `BCOVVideo` with your data like this:
+
+```
+// If using FairPlay DRM you'll need to construct the key_systems dictionary
+// otherwise you can pass `nil` for the properties value.
+NSDictionary *properties = @{
+    @"key_systems": @{
+            @"com.apple.fps.1_0": @{
+                    @"key_request_url": @"<insert key request URL>",
+                    @"certificate_url": @"<insert certificate URL>"
+            }
+    }
+};
+
+BCOVSource *source = [[BCOVSource alloc] initWithVMAPXMLData:vmapData properties:properties];
+BCOVVideo *video = [[BCOVVideo alloc] initWithSource:source cuePoints:nil properties:nil];
 [self.playbackController setVideos:@[video]];
 ```
 

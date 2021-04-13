@@ -131,4 +131,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ * Category methods added to BCOVSource to support BCOVSSAI.
+ */
+@interface BCOVSource (BCOVSSAIAdditions)
+
+/**
+ * Constructs a new source with the specified VMAP XML data.
+ *
+ * @param data The NSData for the new source's VMAP XML configuration
+ * @param properties The metadata or properties related to the new source.
+ * @return A new source configured with the specified VMAP data.
+ */
+- (instancetype)initWithVMAPXMLData:(NSData *)data properties:(NSDictionary *)properties;
+
+@end
+
 NS_ASSUME_NONNULL_END

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>BCOVSSAICompanionSlot Class Reference</title>
+	<title>BCOVSource(BCOVSSAIAdditions) Category Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -60,7 +60,7 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/initWithView:width:height:">- initWithView:width:height:</option>
+		<option value="//api/name/initWithVMAPXMLData:properties:">- initWithVMAPXMLData:properties:</option>
 		
 	</optgroup>
 	
@@ -77,16 +77,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">BCOVSSAICompanionSlot Class Reference</h1>
+					<h1 class="title">BCOVSource(BCOVSSAIAdditions) Category Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Inherits from</th>
-	<td>NSObject</td>
-</tr><tr>
 	<th>Declared in</th>
-	<td>BCOVSSAICompanionSlot.h</td>
+	<td>BCOVSSAIComponent.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -96,7 +93,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class represents a companion slot to be populated with a matching companion ad.</p>
+						<p>Category methods added to BCOVSource to support BCOVSSAI.</p>
 					</div>
 					
 					
@@ -112,8 +109,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithView:width:height:" title="initWithView:width:height:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithView:width:height:">&ndash;&nbsp;initWithView:width:height:</a></code>
+	<a name="//api/name/initWithVMAPXMLData:properties:" title="initWithVMAPXMLData:properties:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithVMAPXMLData:properties:">&ndash;&nbsp;initWithVMAPXMLData:properties:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -123,12 +120,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The designated initializer.</p>
+				<p>Constructs a new source with the specified VMAP XML data.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithView:(UIView *)<em>view</em> width:(NSInteger)<em>width</em> height:(NSInteger)<em>height</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithVMAPXMLData:(NSData *)<em>data</em> properties:(NSDictionary *)<em>properties</em></code></div>
 
 		    
 			
@@ -137,13 +134,13 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>width</code></th>
-						<td><p>The width of the companion ad to match.</p></td>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The NSData for the new source&rsquo;s VMAP XML configuration</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>height</code></th>
-						<td><p>The height of the companion ad to match.</p></td>
+						<th scope="row" class="argument-name"><code>properties</code></th>
+						<td><p>The metadata or properties related to the new source.</p></td>
 					</tr>
 				
 				</table>
@@ -153,7 +150,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An intialized instance.</p>
+				<p>A new source configured with the specified VMAP data.</p>
 			</div>
 			
 
@@ -162,7 +159,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>The designated initializer.</p>
+				<p>Constructs a new source with the specified VMAP XML data.</p>
 			</div>
 			
 
@@ -173,7 +170,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">BCOVSSAICompanionSlot.h</code></p>
+				<p><code class="declared-in-ref">BCOVSSAIComponent.h</code></p>
 			</div>
 			
 			
