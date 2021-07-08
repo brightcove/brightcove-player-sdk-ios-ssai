@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.8.7.1605
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.9.0.1697
 
 Requirements
 ============
@@ -176,6 +176,8 @@ Seek Without Ads
 =======
 
 The BrightcovePlayerSDK provides the `adsDisabled` BOOL property for disabling ads while seeking, allowing an application to resume playback without requiring the end-user to view previously played ads.
+
+In preparation for seeking, disable `autoPlay` when setting up the `BCOVPlaybackController`.
 
 Ad-disabling logic should be added to the `kBCOVPlaybackSessionLifecycleEventReady` handler of the `-playbackController:playbackSession:didReceiveLifecycleEvent:` method of your `BCOVPlaybackController` delegate.
 
