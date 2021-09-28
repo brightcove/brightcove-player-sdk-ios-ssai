@@ -44,7 +44,7 @@
 					<div class="section section-overview index-overview">
 						
 						
-						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.9.1.1726</h1>
+						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.10.0.1786</h1>
 
 <h1>Requirements</h1>
 
@@ -62,13 +62,13 @@
 
 <h1>Installation</h1>
 
-<p>The SSAI plugin for Brightcove Player SDK for iOS provides two installation packages; a static library framework and a dynamic library framework.</p>
+<p>The SSAI plugin for Brightcove Player SDK for iOS provides a dynamic library framework for installation.</p>
 
 <h2>CocoaPods</h2>
 
 <p>You can use <a href="http://cocoapods.org">CocoaPods</a> to add the SSAI Plugin for Brightcove Player SDK to your project.  You can find the latest <code>Brightcove-Player-SSAI</code> podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-SSAI">here</a>.</p>
 
-<p>Dynamic framework example:</p>
+<p>CocoaPod Podfile example:</p>
 
 <p>```bash
 source &lsquo;<a href="https://github.com/brightcove/BrightcoveSpecs.git" title="">https://github.com/brightcove/BrightcoveSpecs.git'</a></p>
@@ -81,16 +81,18 @@ platform :ios, &lsquo;11.0&rsquo;</p>
 end
 ```</p>
 
-<p>Static framework example:</p>
+<p>XCFramework will be installed appending the <code>/XCFramework</code> subspec in the pod.</p>
+
+<p>XCFramework example:</p>
 
 <p>```bash
 source &lsquo;https://github.com/brightcove/BrightcoveSpecs.git&rsquo;</p>
 
 <p>use_frameworks!
-platform :ios, 11.0'</p>
+platform :ios, &lsquo;11.0&rsquo;</p>
 
 <p>target &lsquo;MyVideoPlayer&rsquo; do
-  pod &lsquo;Brightcove-Player-SSAI-static&rsquo;
+  pod &lsquo;Brightcove-Player-SSAI/XCFramework&rsquo;
 end
 ```</p>
 
@@ -105,11 +107,17 @@ end
 <ol>
 <li>Install the latest version of the <a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">Brightcove Player SDK</a>.</li>
 <li>Download the latest zip'ed release of the BrightcoveSSAI plugin from our <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ssai/releases">release page</a>.</li>
-<li>Add <code>BrightcoveSSAI.framework</code> to your project.</li>
-<li>On the &ldquo;Build Settings&rdquo; tab of your application target, ensure that the &ldquo;Framework Search Paths&rdquo; include the path to the framework. This should have been done automatically unless the framework is stored under a different root directory than your project.</li>
-<li>(Dynamic Framework only) On the &ldquo;General&rdquo; tab of your application target, add &lsquo;BrightcoveSSAI.framework&rsquo; to the &ldquo;Frameworks, Libraries, Embedded Content&rdquo; section.</li>
-<li>(Dynamic Framework only) On the &ldquo;Build Phases&rdquo; tab, add a &ldquo;Run Script&rdquo; phase with the command <code>bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveSSAI.framework/strip-frameworks.sh</code>. Check &ldquo;Run script only when installing&rdquo;. This will remove unneeded architectures from the build, which is important for App Store submission.</li>
-<li>(Static Framework only) On the &ldquo;Build Settings&rdquo; tab of your application target, add <code>-ObjC</code> to the &ldquo;Other Linker Flags&rdquo; build setting.</li>
+<li>Add <code>BrightcoveSSAI.framework</code> or <code>BrightcoveSSAI.xcframework</code> to your project.</li>
+<li>Add <code>OMSDK_Brightcove.xcframework</code> to your project.</li>
+<li>On the &ldquo;Build Settings&rdquo; tab of your application target, ensure that the &ldquo;Framework Search Paths&rdquo; include the paths to the frameworks. This should have been done automatically unless the framework is stored under a different root directory than your project.</li>
+<li>On the &ldquo;General&rdquo; tab of your application target, add &lsquo;BrightcoveSSAI.framework&rsquo; or &lsquo;BrightcoveSSAI.xcframework&rsquo; and &lsquo;OMSDK_Brightcove.xcframework&rsquo; to the &ldquo;Frameworks, Libraries, Embedded Content&rdquo; section.</li>
+<li>(<strong>Universal Framework</strong> only) On the &ldquo;Build Phases&rdquo; tab, add a &ldquo;Run Script&rdquo; phase with the command <code>bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveSSAI.framework/strip-frameworks.sh</code>. Check &ldquo;Run script only when installing&rdquo;. This will remove unneeded architectures from the build, which is important for App Store submission.</li>
+<li>(<strong>Apple Silicon with Universal Framework</strong> only) On the &ldquo;Build Settings&rdquo; tab of your application target:
+
+<ul>
+<li>Ensure that <code>arm64</code> has been added to your &ldquo;Excluded Architectures&rdquo; build setting for <code>Any iOS Simulator SDK</code>.</li>
+</ul>
+</li>
 </ol>
 
 
@@ -209,7 +217,7 @@ CMTime contentTimeToSeekTo = &lt;calculation-from-scrub-bar>;
 <p>}];
 ```</p>
 
-<p>The <code>completionHandler</code> will execute at the completion of a successful seek. It will not execute if a seek was already initiated by a previous call to <code>[BCOVSessionProviderExtension ssai_seekToTime:completionHandler:]</code> or if an ad is playing back. To test whether a seek attempt can be made, check the <code>[BCOVSessionProviderExtension ssai_canSeek]</code> property. For more information on both of these methods, be sure to read the <a href="[https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/static/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h](https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/static/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h)">headerdoc</a>.</p>
+<p>The <code>completionHandler</code> will execute at the completion of a successful seek. It will not execute if a seek was already initiated by a previous call to <code>[BCOVSessionProviderExtension ssai_seekToTime:completionHandler:]</code> or if an ad is playing back. To test whether a seek attempt can be made, check the <code>[BCOVSessionProviderExtension ssai_canSeek]</code> property. For more information on both of these methods, be sure to read the <a href="[https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h](https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h)">headerdoc</a>.</p>
 
 <h1>Seek Without Ads</h1>
 
@@ -369,6 +377,134 @@ func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo sess
 }
 </code></pre>
 
+<h1>AVPlayerViewController Support</h1>
+
+<p><strong>Enforcing Linear Playback</strong></p>
+
+<p>If you&rsquo;d like to enforce linear playback durings ads while using AVPlayerViewController all you have to do is set AVPlayerViewController&rsquo;s delegate to one of your classes and add the following:</p>
+
+<pre><code>#pragma mark - AVPlayerViewControllerDelegate
+
+- (void)playerViewController:(AVPlayerViewController *)playerViewController willPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
+{
+    playerViewController.requiresLinearPlayback = YES;
+}
+
+- (void)playerViewController:(AVPlayerViewController *)playerViewController didPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
+{
+    playerViewController.requiresLinearPlayback = NO;
+}
+</code></pre>
+
+<p><strong>Displaying Ad UI</strong></p>
+
+<p>You can also add your own advertising UI using these methods as well by adding views to AVPlayerViewController&rsquo;s <code>contentOverlayView</code> when <code>willPresentInterstitialTimeRange:</code> is called and and removing or hiding it when <code>didPresentInterstitialTimeRange:</code> is called. Here is an example:</p>
+
+<pre><code>#pragma mark - AVPlayerViewControllerDelegate
+
+- (void)playerViewController:(AVPlayerViewController *)playerViewController willPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
+{
+    ...
+
+    [self displayAdUI:CMTimeGetSeconds(interstitial.timeRange.duration)];
+}
+
+- (void)playerViewController:(AVPlayerViewController *)playerViewController didPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
+{
+    ...
+
+    [self hideAdUI];
+}
+
+- (void)displayAdUI:(NSTimeInterval)adLength
+{
+    // UI Setup
+    // Adding a subview to the AVPlayerViewController's contentOverlayView
+    ...
+}
+
+- (void)hideAdUI
+{
+    // Hide the view/s that were added in displayAdUI:
+}
+</code></pre>
+
+<p>You may also wish to prevent users from seeking over an ad. Here is an example of how to prevent that:</p>
+
+<pre><code>#pragma mark - AVPlayerViewControllerDelegate
+
+- (CMTime)playerViewController:(AVPlayerViewController *)playerViewController timeToSeekAfterUserNavigatedFromTime:(CMTime)oldTime toTime:(CMTime)targetTime
+{
+    // Check to see if we'll be seeking over any interstitials
+    // If we are, seek to the beginning of the last interstitial
+    // and save the targetTime so we can seek after the interstitial
+    // has finished.
+
+    NSMutableArray *timeRanges = @[].mutableCopy;
+    for (AVInterstitialTimeRange *timeRange in playerViewController.player.currentItem.interstitialTimeRanges)
+    {
+        CMTime startTime = timeRange.timeRange.start;
+        if (CMTimeCompare(targetTime, startTime) == 1 &amp;&amp; CMTimeCompare(startTime, oldTime) == 1)
+        {
+            [timeRanges addObject:timeRange];
+        }
+    }
+
+    // If we encounter an ad we should seek to the start time
+    // of the ad and save the desired seek time to we can seek
+    // to it after the ad completes
+    if (timeRanges.count &gt; 0)
+    {
+        self.seekToTime = targetTime;
+        AVInterstitialTimeRange *lastTimeRange = timeRanges.lastObject;
+        return lastTimeRange.timeRange.start;
+    }
+
+    return targetTime;
+}
+
+- (void)playerViewController:(AVPlayerViewController *)playerViewController didPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
+{
+    ...
+
+    // If we encountered an ad while seeking we can now
+    // seek to the desired location
+    if (CMTimeCompare(self.seekToTime, kCMTimeInvalid) != 0)
+    {
+        [playerViewController.player seekToTime:self.seekToTime];
+        self.seekToTime = kCMTimeInvalid;
+    }
+}
+</code></pre>
+
+<p>If you&rsquo;d like to prevent a pre-roll ad from playing again here in an example of how to approach that:</p>
+
+<pre><code>- (void)playerViewController:(AVPlayerViewController *)playerViewController willPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
+{
+    ... 
+
+    if (CMTimeCompare(interstitial.timeRange.start, kCMTimeZero) == 0 &amp;&amp; self.didPlayPreroll)
+    {
+        [playerViewController.player seekToTime:interstitial.timeRange.duration];
+        return;
+    }
+}
+
+- (void)playerViewController:(AVPlayerViewController *)playerViewController didPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
+{
+    ...
+
+    if (CMTimeCompare(interstitial.timeRange.start, kCMTimeZero) == 0)
+    {
+        self.didPlayPreroll = YES;
+    }
+}
+</code></pre>
+
+<p><strong>Using a Custom Playback Rate</strong></p>
+
+<p>If you want to use a <a href="https://github.com/brightcove/brightcove-player-sdk-ios#PlaybackRate">custom playback rate</a> along with using <a href="https://github.com/brightcove/brightcove-player-sdk-ios#AVPlayerViewController">AVPlayerViewController</a> you&rsquo;ll need to disable the automatic generation of <code>interstitialTimeRanges</code>. You can do this by setting the <code>generateInterstitialTimeRanges</code> property on your <code>BCOVPlaybackController</code> to <code>NO</code>.</p>
+
 <h1>Known Issues</h1>
 
 <ul>
@@ -435,7 +571,7 @@ func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo sess
 					<footer>
 						<div class="footer-copyright">
 							
-							<p class="copyright">Copyright &copy; 2021 Brightcove. All rights reserved. Updated: 2021-08-16</p>
+							<p class="copyright">Copyright &copy; 2021 Brightcove. All rights reserved. Updated: 2021-09-27</p>
 							
 							
 							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
