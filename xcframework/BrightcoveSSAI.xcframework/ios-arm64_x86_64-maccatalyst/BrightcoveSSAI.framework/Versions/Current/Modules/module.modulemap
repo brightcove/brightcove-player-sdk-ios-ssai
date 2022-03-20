@@ -1,6 +1,0 @@
-framework module BrightcoveSSAI {
-  umbrella header "BrightcoveSSAI.h"
-
-  export *
-  module * { export * }
-}
