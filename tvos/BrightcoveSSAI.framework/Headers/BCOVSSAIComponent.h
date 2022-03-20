@@ -2,7 +2,7 @@
 // BCOVSSAIComponent.h
 // BrightcoveSSAI
 //
-// Copyright (c) 2021 Brightcove, Inc. All rights reserved.
+// Copyright (c) 2022 Brightcove, Inc. All rights reserved.
 // License: https://accounts.brightcove.com/en/terms-and-conditions
 //
 
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (id<BCOVPlaybackSessionProvider>)createSSAISessionProviderWithUpstreamSessionProvider:(nullable id<BCOVPlaybackSessionProvider>)provider;
 
-#if !TARGET_OS_TV
+#if !TARGET_OS_TV && !TARGET_OS_MACCATALYST
 /**
  * Creates and returns a new BCOVSSAI session provider with the specified
  * parameters.

@@ -1,27 +1,16 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.10.2.1847
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.10.3.2003
 
-Requirements
-============
+Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
-- Xcode 11.0+
-- ARC
+## Installation
 
-Supported Platforms
-===================
-iOS 11.0 and above.
-
-tvOS 11.0 and above.
-
-Installation
-============
 The SSAI plugin for Brightcove Player SDK for iOS provides a dynamic library framework for installation.
 
-CocoaPods
---------------
+### CocoaPods
 
 You can use [CocoaPods][cocoapods] to add the SSAI Plugin for Brightcove Player SDK to your project.  You can find the latest `Brightcove-Player-SSAI` podspec [here][podspecs].
 
-CocoaPod Podfile example:
+#### CocoaPod Podfile example:
 
 ```bash
 source 'https://github.com/brightcove/BrightcoveSpecs.git'
@@ -34,9 +23,9 @@ target 'MyVideoPlayer' do
 end
 ```
 
-XCFramework will be installed appending the `/XCFramework` subspec in the pod.
+#### XCFramework example:
 
-XCFramework example:
+XCFramework will be installed appending the `/XCFramework` subspec in the pod.
 
 ```bash
 source 'https://github.com/brightcove/BrightcoveSpecs.git'
@@ -53,8 +42,7 @@ When updating your installation, it's a good idea to refresh the local copy of y
 
 Typically if you use `pod update` in Terminal this will happen automatically, or alternatively you can update explicitly with `pod repo update brightcove`. (Your BrightcoveSpecs repository may have a different name if you explicitly added it to your list of podspecs repos.)
 
-Manual
---------------
+### Manual
 
 To add the SSAI Plugin for Brightcove Player SDK to your project manually:
 
@@ -63,13 +51,15 @@ To add the SSAI Plugin for Brightcove Player SDK to your project manually:
 1. Add `BrightcoveSSAI.framework` or `BrightcoveSSAI.xcframework` to your project.
 1. Add `OMSDK_Brightcove.xcframework` to your project.
 1. On the "Build Settings" tab of your application target, ensure that the "Framework Search Paths" include the paths to the frameworks. This should have been done automatically unless the framework is stored under a different root directory than your project.
-1. On the "General" tab of your application target, add 'BrightcoveSSAI.framework' or 'BrightcoveSSAI.xcframework' and 'OMSDK_Brightcove.xcframework' to the "Frameworks, Libraries, Embedded Content" section.
+1. On the "General" tab of your application target, add 'BrightcoveSSAI.framework' or 'BrightcoveSSAI.xcframework' to the "Frameworks, Libraries, Embedded Content" section. 
+1. (**Open Measurement** support) If you need to support OM in your app add 'OMSDK_Brightcove.xcframework' to the "Frameworks, Libraries, Embedded Content" section.
+1. (**Mac Catalyst and Open Measurement** only) In the "Filter" for `OMSDK_Brightcove.xcframework`, ensure that only the value `iOS` is selected.
 1. (**Universal Framework** only) On the "Build Phases" tab, add a "Run Script" phase with the command `bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveSSAI.framework/strip-frameworks.sh`. Check "Run script only when installing". This will remove unneeded architectures from the build, which is important for App Store submission.
 1. (**Apple Silicon with Universal Framework** only) On the "Build Settings" tab of your application target:
     * Ensure that `arm64` has been added to your "Excluded Architectures" build setting for `Any iOS Simulator SDK`.
 
-Imports
---------------
+### Imports
+
 The SSAI Plugin for Brightcove Player SDK for iOS can be imported into code a few different ways; `@import BrightcoveSSAI;`, `#import <BrightcoveSSAI/BrightcoveSSAI.h>` or `#import <BrightcoveSSAI/[specific class].h>`.
 
 [cocoapods]: http://cocoapods.org
@@ -77,8 +67,8 @@ The SSAI Plugin for Brightcove Player SDK for iOS can be imported into code a fe
 [release]: https://github.com/brightcove/brightcove-player-sdk-ios-ssai/releases
 [bcovsdkreleases]: https://github.com/brightcove/brightcove-player-sdk-ios/releases
 
-Quick Start
-===========
+## Quick Start
+
 BrightcoveSSAI is a plugin for [Brightcove Player SDK for iOS][bcovsdk] that provides support for Brightcove Server Side Ad Insertion.
 
 ```objc
@@ -115,8 +105,45 @@ To summarize:
 1. Request the video or playlist from the Playback Service. When using a Unicorn Once-style VMAP URL, create the BCOVVideo object directly using `[BCOVVideo videoWithURL:<unicorn-style-url>]`.
 1. Load the video into the playback controller.
 
-Using a custom VMAP source URL
-=======
+## Open Measurement <a name="OpenMeasurement"></a>
+
+Open Measurement (OM) is an IAB Tech Lab initiative aimed to standardize viewability and verification measurement. Using OM, publishers can access multiple SDKs collapsed into a single integration, simplifying maintenance without sacrificing functionality.
+The SDK provided by IAB Tech Lab can be used in the SSAI Plugin for Brightcove Player for iOS. Since v6.10.3 the OMSDK is not installed along with the SSAI plugin. You can install it in your iOS apps adding the pod in your Podfile:
+
+Universal Framework (Fat Framework) example:
+
+```bash
+  pod 'Brightcove-Player-SSAI'
+  pod 'Brightcove-Player-OpenMeasurement'
+```
+
+XCFramework example:
+
+```bash
+  pod 'Brightcove-Player-SSAI/XCFramework'
+  pod 'Brightcove-Player-OpenMeasurement'
+```
+
+To take the advantage of using IAB Open Measurement, the SSAI Plugin for iOS provides a new signature:
+
+```
+[BCOVPlayerSDKManager createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:]
+```
+
+The `omidPartner` string identifies the integration. The value can not be empty or nil, if partner is not available, use "unknown". The IAB Tech Lab will assign a unique partner name to you at the time of integration, so this is the value you should use here. However, if the OpenMeasurement SDK is not embedded in your iOS app the `omidPartner` string will be ignored and OM will not take effect. The `[BCOVPlayerSDKManager createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:]` signature is not available for Mac Catalyst.
+
+### Open Measurement and Mac Catalyst
+
+Open Measurement can not be used in Mac Catalyst apps due IAB Tech Lab does not provide the necessary slice. If you need to create an app that shares code between iOS and Mac Catalyst, and uses Open Measurement for iOS app follow the steps:
+
+1. Remove 'Brightcove-Player-OpenMeasurement' from your Podfile.
+1. Update your pods running `pod update`.
+1. Download the latest zip'ed release of the `BrightcoveSSAI` plugin from our [release page][release].
+1. Add `OMSDK_Brightcove.xcframework` to your project.
+1. On the "General" tab of your application target, add `OMSDK_Brightcove.xcframework` to the "Frameworks, Libraries, Embedded Content" section.
+1. In the "Filter" for `OMSDK_Brightcove.xcframework`, ensure that only the value `iOS` is selected.
+
+## Using a custom VMAP source URL
 
 If you have a custom VMAP source URL and do not need to use the `BCOVPlaybackService` you can manually create a `BCOVVideo` with your URL like this:
 
@@ -125,8 +152,7 @@ BCOVVideo *video = [BCOVVideo videoWithURL:[NSURL URLWithString:@"https://sdks.s
 [self.playbackController setVideos:@[video]];
 ```
 
-Using VMAP XML data
-=======
+## Using VMAP XML data
 
 If you have VMAP XML data you can manually create a `BCOVVideo` with your data like this:
 
@@ -147,16 +173,15 @@ BCOVVideo *video = [[BCOVVideo alloc] initWithSource:source cuePoints:nil proper
 [self.playbackController setVideos:@[video]];
 ```
 
-Obtaining Ad Playback Information
-=======
+## Obtaining Ad Playback Information
+
 BrightcoveSSAI provides ad playback information via the `BCOVPlaybackControllerAdsDelegate`. For example, if you want to hide your controls during an ad, you could implement `-[BCOVPlaybackControllerAdsDelegate playbackController:playbackSession:didEnterAdSequence:]` to hide them.
 
 For more information on how to use these delegate methods, please see [Brightcove Player SDK for iOS][bcovsdk].
 
 [bcovsdk]: https://github.com/brightcove/brightcove-player-sdk-ios
 
-Seeking
-=======
+## Seeking
 
 The BrightcoveSSAI plugin provides a seeking function that should be used when implementing controls. This seek function is exposed on the session through the `providerExtension` property. Here is how it is used:
     
@@ -176,8 +201,7 @@ The `completionHandler` will execute at the completion of a successful seek. It 
 
 [ssai_extensions]: https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h
 
-Seek Without Ads
-=======
+## Seek Without Ads
 
 The BrightcovePlayerSDK provides the `adsDisabled` BOOL property for disabling ads while seeking, allowing an application to resume playback without requiring the end-user to view previously played ads.
 
@@ -222,8 +246,7 @@ self.playbackController.shutter = YES;
 
 Note that for performance reasons, small tolerances are built into video seeking. A seek to a content playhead position which is close to the start of an ad sequence can result in a seek to the start of the ad sequence. If autoPlay is NO in this case, AVPlayer will be paused on the first frame of the ad sequence.
 
-Player UI Built-In Controls
-===========================
+## PlayerUI Built-In Controls
 
 The BrightcovePlayerSDK provides a built-in set of UI controls that can be used with the SSAI plugin for both basic playback and ad controls. To use the controls, create a `BCOVPUIPlayerView`, and associate it with your SSAI playback controller.
 
@@ -244,7 +267,7 @@ self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil opti
 
 You'll need to set up the layout for the player view, you can do this with Auto Layout or the older Springs & Struts method. 
 
-**Springs & Struts**
+#### Springs & Struts
 
 Set its frame to match your container view, then add the player view to the container view in your view hierarchy. Note that `videoContainer` is your own view object in your app's layout.
 
@@ -253,7 +276,7 @@ self.playerView.frame = self.videoContainer.bounds;
 self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 ```
 
-**Auto Layout**
+#### Auto Layout
 
 ```objc
 self.playerView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -297,8 +320,8 @@ BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAcco
 
 See the README in the BrightcovePlayerSDK for more details about how to use and customize the PlayerUI controls.
 
-Access to VMAP Response Data
-==========================
+## Access to VMAP Response Data
+
 Should you want access to the VMAP response data you can subscribe to the `kBCOVSSAIVMAPResponseReceivedNotification` notification. Once received, the notification's userInfo dictionary will contain the VMAP response as NSData. You can use the `kBCOVSSAIVMAPResponseReceivedNotificationDataUserInfoKey` constant to access it from userInfo. Since you may have multiple playback controllers, and thus multiple VMAP responses, you can check the notification's object, `id playbackController = notification.object` to verify which video the VMAP data is for. Additionally, when you subscribe to the notification you can set a playback controller as the object so that only VMAP data notifications regarding that playback controller will be received. For example:
 
 ```objc
@@ -334,10 +357,9 @@ func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo sess
 }
 ```
 
-AVPlayerViewController Support
-==========================
+## AVPlayerViewController Support
 
-**Enforcing Linear Playback**
+### Enforcing Linear Playback
 
 If you'd like to enforce linear playback durings ads while using AVPlayerViewController all you have to do is set AVPlayerViewController's delegate to one of your classes and add the following:
 
@@ -355,7 +377,7 @@ If you'd like to enforce linear playback durings ads while using AVPlayerViewCon
 }
 ```
 
-**Displaying Ad UI**
+### Displaying an Ad UI
 
 You can also add your own advertising UI using these methods as well by adding views to AVPlayerViewController's `contentOverlayView` when `willPresentInterstitialTimeRange:` is called and and removing or hiding it when `didPresentInterstitialTimeRange:` is called. Here is an example:
 
@@ -464,12 +486,11 @@ If you'd like to prevent a pre-roll ad from playing again here in an example of 
 }
 ```
 
-**Using a Custom Playback Rate**
+### Using a Custom Playback Rate
 
 If you want to use a [custom playback rate](https://github.com/brightcove/brightcove-player-sdk-ios#PlaybackRate) along with using [AVPlayerViewController](https://github.com/brightcove/brightcove-player-sdk-ios#AVPlayerViewController) you'll need to disable the automatic generation of `interstitialTimeRanges`. You can do this by setting the `generateInterstitialTimeRanges` property on your `BCOVPlaybackController` to `NO`. 
 
-Known Issues
-==========================
+## Known Issues
 
 * Because tvOS does not support Web browsing, Companion Ads, Learn More and all ad clickthroughs are ignored on that platform.
 
@@ -479,6 +500,6 @@ Known Issues
 
 * The SSAI plugin does not support playing non-SSAI content. If you need to play non-SSAI content you need to create another playback controller that does not use the SSAI plugin.
 
-Support
-=======
+## Support
+
 If you have questions, need help or want to provide feedback, please use the [Support Portal](https://supportportal.brightcove.com/s/login/) or contact your Account Manager.  To receive notification of new SDK software releases, subscribe to the Brightcove Native Player SDKs [Google Group](https://groups.google.com/g/brightcove-native-player-sdks).
