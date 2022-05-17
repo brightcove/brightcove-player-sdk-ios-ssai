@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.10.4.2043
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.10.5.2109
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -57,6 +57,16 @@ To add the SSAI Plugin for Brightcove Player SDK to your project manually:
 1. (**Universal Framework** only) On the "Build Phases" tab, add a "Run Script" phase with the command `bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveSSAI.framework/strip-frameworks.sh`. Check "Run script only when installing". This will remove unneeded architectures from the build, which is important for App Store submission.
 1. (**Apple Silicon with Universal Framework** only) On the "Build Settings" tab of your application target:
     * Ensure that `arm64` has been added to your "Excluded Architectures" build setting for `Any iOS Simulator SDK`.
+
+### Swift Package Manager
+
+To add the SSAI Plugin for Brightcove Player SDK to your project with Swift Package Manager: 
+
+1. First [follow the steps][corespm] to add the Core XCFramework with Swift Package Mananger.
+1. Add the SSAI package to Swift Package Manager using `https://github.com/brightcove/brightcove-player-sdk-ios-ssai.git`.
+1. You can then select either `BrightcoveSSAI` or `BrightcoveSSAI & Open Measurement` if you need OM support.
+
+[corespm]: https://github.com/brightcove/brightcove-player-sdk-ios#SwiftPackageManager
 
 ### Imports
 
