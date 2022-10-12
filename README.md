@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.10.6.2156
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.11.0.2264
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -495,6 +495,12 @@ If you'd like to prevent a pre-roll ad from playing again here in an example of 
     }
 }
 ```
+
+## Picture-in-Picture
+
+The Brightcove SSAI plugin can be used with Brightcove's Picture-in-Picture support.
+
+When entering and exiting an ad sequence the `requiresLinearPlayback` property on the current `AVPictureInPictureController` will be enabled and disabled accordingly so that users can not skip ad breaks.
 
 ### Using a Custom Playback Rate
 
