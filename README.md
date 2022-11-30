@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.11.1.2309
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.11.2.2333
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -457,7 +457,7 @@ You may also wish to prevent users from seeking over an ad. Here is an example o
     return targetTime;
 }
 
-- (void)playerViewController:(AVPlayerViewController *)playerViewController didPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
+- (void)playbackController:(id<BCOVPlaybackController>)controller playbackSession:(id<BCOVPlaybackSession>)session didExitAdSequence:(BCOVAdSequence *)adSequence
 {
     ...
     
