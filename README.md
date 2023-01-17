@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.11.2.2333
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.0.2391
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -66,7 +66,7 @@ To add the SSAI Plugin for Brightcove Player SDK to your project with Swift Pack
 1. Add the SSAI package to Swift Package Manager using `https://github.com/brightcove/brightcove-player-sdk-ios-ssai.git`.
 1. You can then select either `BrightcoveSSAI` or `BrightcoveSSAI & Open Measurement` if you need OM support.
 
-[corespm]: https://github.com/brightcove/brightcove-player-sdk-ios#SwiftPackageManager
+[corespm]: https://github.com/brightcove/brightcove-player-sdk-ios#swift-package-manager
 
 ### Imports
 
@@ -115,7 +115,7 @@ To summarize:
 1. Request the video or playlist from the Playback Service. When using a Unicorn Once-style VMAP URL, create the BCOVVideo object directly using `[BCOVVideo videoWithURL:<unicorn-style-url>]`.
 1. Load the video into the playback controller.
 
-## Open Measurement <a name="OpenMeasurement"></a>
+## Open Measurement
 
 Open Measurement (OM) is an IAB Tech Lab initiative aimed to standardize viewability and verification measurement. Using OM, publishers can access multiple SDKs collapsed into a single integration, simplifying maintenance without sacrificing functionality.
 The SDK provided by IAB Tech Lab can be used in the SSAI Plugin for Brightcove Player for iOS. Since v6.10.3 the OMSDK is not installed along with the SSAI plugin. You can install it in your iOS apps adding the pod in your Podfile:
@@ -504,7 +504,7 @@ When entering and exiting an ad sequence the `requiresLinearPlayback` property o
 
 ### Using a Custom Playback Rate
 
-If you want to use a [custom playback rate](https://github.com/brightcove/brightcove-player-sdk-ios#PlaybackRate) along with using [AVPlayerViewController](https://github.com/brightcove/brightcove-player-sdk-ios#AVPlayerViewController) you'll need to disable the automatic generation of `interstitialTimeRanges`. You can do this by setting the `generateInterstitialTimeRanges` property on your `BCOVPlaybackController` to `NO`. 
+If you want to use a [custom playback rate](https://github.com/brightcove/brightcove-player-sdk-ios#playback-rate) along with using [AVPlayerViewController](https://github.com/brightcove/brightcove-player-sdk-ios#using-an-avplayerviewcontroller-with-a-bcovplaybackcontroller) you'll need to disable the automatic generation of `interstitialTimeRanges`. You can do this by setting the `generateInterstitialTimeRanges` property on your `BCOVPlaybackController` to `NO`.
 
 ## Known Issues
 
