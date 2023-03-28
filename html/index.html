@@ -44,7 +44,7 @@
 					<div class="section section-overview index-overview">
 						
 						
-						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.0.2391</h1>
+						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.1.2421</h1>
 
 <p>Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.</p>
 
@@ -144,11 +144,14 @@ end
 
 <p>  [5] BCOVPlaybackService <em>playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
                                                                                   policyKey:policyKey];
-      [playbackService findVideoWithVideoID:videoID
-                                 parameters:@{ kBCOVPlaybackServiceParamaterKeyAdConfigId: &lt;valid-ad-config-id> }
-                                 completion:^(BCOVVideo </em>video,
-                                              NSDictionary <em>jsonResponse,
-                                              NSError </em>error) {</p>
+      NSDictionary </em>configuration = @{
+        kBCOVPlaybackServiceConfigurationKeyAssetID:videoID
+      };
+      [playbackService findVideoWithConfiguration:configuration
+                                  queryParameters:@{ kBCOVPlaybackServiceParamaterKeyAdConfigId: &lt;valid-ad-config-id> }
+                                       completion:^(BCOVVideo <em>video,
+                                                    NSDictionary </em>jsonResponse,
+                                                    NSError *error) {</p>
 
 <p>  [6]   [playbackController setVideos:@[ video ]];
         [playbackController play];</p>
@@ -365,28 +368,31 @@ self.playerView.playbackController = playbackController;</p>
 <p>// Create and play your video. For Unicorn Once-style VMAP URLs, create the BCOVVideo object directly.
 BCOVPlaybackService <em>playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
                                                                             policyKey:policyKey];
-[playbackService findVideoWithVideoID:videoID
-                           parameters:{ kBCOVPlaybackServiceParamaterKeyAdConfigId: &lt;valid-ad-config-id> }
-                           completion:^(BCOVVideo </em>video,
-                                        NSDictionary <em>jsonResponse,
-                                        NSError </em>error) {</p>
+NSDictionary </em>configuration = @{
+    kBCOVPlaybackServiceConfigurationKeyAssetID:videoID
+};
+[playbackService findVideoWithConfiguration:configuration
+                            queryParameters:{ kBCOVPlaybackServiceParamaterKeyAdConfigId: &lt;valid-ad-config-id> }
+                                 completion:^(BCOVVideo <em>video,
+                                              NSDictionary </em>jsonResponse,
+                                              NSError *error) {</p>
 
-<pre><code>                         [playbackController setVideos:@[ video ]];
-                         [playbackController play];
-
-                      }];
+<pre><code>[playbackController setVideos:@[ video ]];
+[playbackController play];
 </code></pre>
 
-<pre><code>
-See the README in the BrightcovePlayerSDK for more details about how to use and customize the PlayerUI controls.
+<p>}];
+```</p>
 
-## Access to VMAP Response Data
+<p>See the README in the BrightcovePlayerSDK for more details about how to use and customize the PlayerUI controls.</p>
 
-Should you want access to the VMAP response data you can subscribe to the `kBCOVSSAIVMAPResponseReceivedNotification` notification. Once received, the notification's userInfo dictionary will contain the VMAP response as NSData. You can use the `kBCOVSSAIVMAPResponseReceivedNotificationDataUserInfoKey` constant to access it from userInfo. Since you may have multiple playback controllers, and thus multiple VMAP responses, you can check the notification's object, `id playbackController = notification.object` to verify which video the VMAP data is for. Additionally, when you subscribe to the notification you can set a playback controller as the object so that only VMAP data notifications regarding that playback controller will be received. For example:
+<h2>Access to VMAP Response Data</h2>
 
-```objc
+<p>Should you want access to the VMAP response data you can subscribe to the <code>kBCOVSSAIVMAPResponseReceivedNotification</code> notification. Once received, the notification&rsquo;s userInfo dictionary will contain the VMAP response as NSData. You can use the <code>kBCOVSSAIVMAPResponseReceivedNotificationDataUserInfoKey</code> constant to access it from userInfo. Since you may have multiple playback controllers, and thus multiple VMAP responses, you can check the notification&rsquo;s object, <code>id playbackController = notification.object</code> to verify which video the VMAP data is for. Additionally, when you subscribe to the notification you can set a playback controller as the object so that only VMAP data notifications regarding that playback controller will be received. For example:</p>
+
+<p><code>objc
 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(vmapResponseReceived:) name:kBCOVSSAIVMAPResponseReceivedNotification object:self.playbackController];
-</code></pre>
+</code></p>
 
 <p>You can also access the VMAP response data through the <code>BCOVOUXSession</code> object:</p>
 
@@ -616,7 +622,7 @@ func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo sess
 					<footer>
 						<div class="footer-copyright">
 							
-							<p class="copyright">Copyright &copy; 2023 Brightcove. All rights reserved. Updated: 2023-01-17</p>
+							<p class="copyright">Copyright &copy; 2023 Brightcove. All rights reserved. Updated: 2023-03-28</p>
 							
 							
 							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

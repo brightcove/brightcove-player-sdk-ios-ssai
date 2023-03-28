@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.0.2391
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.1.2421
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -94,11 +94,14 @@ BrightcoveSSAI is a plugin for [Brightcove Player SDK for iOS][bcovsdk] that pro
     
   [5] BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
                                                                                   policyKey:policyKey];
-      [playbackService findVideoWithVideoID:videoID
-                                 parameters:@{ kBCOVPlaybackServiceParamaterKeyAdConfigId: <valid-ad-config-id> }
-                                 completion:^(BCOVVideo *video,
-                                              NSDictionary *jsonResponse,
-                                              NSError *error) {
+      NSDictionary *configuration = @{
+        kBCOVPlaybackServiceConfigurationKeyAssetID:videoID
+      };
+      [playbackService findVideoWithConfiguration:configuration
+                                  queryParameters:@{ kBCOVPlaybackServiceParamaterKeyAdConfigId: <valid-ad-config-id> }
+                                       completion:^(BCOVVideo *video,
+                                                    NSDictionary *jsonResponse,
+                                                    NSError *error) {
 
   [6]   [playbackController setVideos:@[ video ]];
         [playbackController play];
@@ -316,16 +319,19 @@ self.playerView.playbackController = playbackController;
 // Create and play your video. For Unicorn Once-style VMAP URLs, create the BCOVVideo object directly.
 BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
                                                                             policyKey:policyKey];
-[playbackService findVideoWithVideoID:videoID
-                           parameters:{ kBCOVPlaybackServiceParamaterKeyAdConfigId: <valid-ad-config-id> }
-                           completion:^(BCOVVideo *video,
-                                        NSDictionary *jsonResponse,
-                                        NSError *error) {
+NSDictionary *configuration = @{
+    kBCOVPlaybackServiceConfigurationKeyAssetID:videoID
+};
+[playbackService findVideoWithConfiguration:configuration
+                            queryParameters:{ kBCOVPlaybackServiceParamaterKeyAdConfigId: <valid-ad-config-id> }
+                                 completion:^(BCOVVideo *video,
+                                              NSDictionary *jsonResponse,
+                                              NSError *error) {
 
-                             [playbackController setVideos:@[ video ]];
-                             [playbackController play];
+    [playbackController setVideos:@[ video ]];
+    [playbackController play];
 
-                          }];
+}];
 ```
 
 See the README in the BrightcovePlayerSDK for more details about how to use and customize the PlayerUI controls.
