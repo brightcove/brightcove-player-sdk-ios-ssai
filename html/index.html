@@ -44,7 +44,7 @@
 					<div class="section section-overview index-overview">
 						
 						
-						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.1.2421</h1>
+						<h1>SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.2.2452</h1>
 
 <p>Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.</p>
 
@@ -556,6 +556,120 @@ func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo sess
 
 <p>If you want to use a <a href="https://github.com/brightcove/brightcove-player-sdk-ios#playback-rate">custom playback rate</a> along with using <a href="https://github.com/brightcove/brightcove-player-sdk-ios#using-an-avplayerviewcontroller-with-a-bcovplaybackcontroller">AVPlayerViewController</a> you&rsquo;ll need to disable the automatic generation of <code>interstitialTimeRanges</code>. You can do this by setting the <code>generateInterstitialTimeRanges</code> property on your <code>BCOVPlaybackController</code> to <code>NO</code>.</p>
 
+<h2>SSAI URL Variables</h2>
+
+<p>SSAI supports <a href="https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html#URL_variables">URL variables</a> which allow you to pass arbitrary data from the content.vmap URL into the SSAI system. For example the URL <code>content.vmap?foo={{url.foo}}&amp;bar={{url.bar}}</code> would become <code>content.vmap?foo=123&amp;bar=hello</code> after replacing each <code>{{url.&lt;variableName&gt;}}</code> variable with a real value.</p>
+
+<p>Here is an example of how you could perform the variable replacement:</p>
+
+<pre><code>// Objective-C
+
+- (void)requestContentFromPlaybackService
+{
+    __weak typeof(self) weakSelf = self;
+    ...
+    [self.playbackService findVideoWithConfiguration:configuration queryParameters:queryParmaters completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) {
+        if (jsonResponse)
+        {
+            NSDictionary *updatedJSON = [weakSelf replaceSSAIVariablesInJSON:jsonResponse];
+            video = [BCOVPlaybackService videoFromJSONDictionary:updatedJSON];
+            [weakSelf.playbackController setVideos:@[video]];
+        }
+    }];
+}
+
+- (NSDictionary *)replaceSSAIVariablesInJSON:(NSDictionary *)jsonResponse
+{
+    NSMutableDictionary *updatedJson = jsonResponse.mutableCopy;
+    NSArray *sources = jsonResponse[@"sources"];
+    NSMutableArray *updatedSources = @[].mutableCopy;
+    for (NSDictionary *source in sources)
+    {
+        NSString *vmapURL = source[@"vmap"];
+        if ([vmapURL containsString:@"{{url."])
+        {
+            NSMutableDictionary *updatedSource = source.mutableCopy;
+            updatedSource[@"vmap"] = [self replaceSSAIVariablesInVMAPURL:vmapURL];
+            [updatedSources addObject:updatedSource];
+        }
+        else
+        {
+            [updatedSources addObject:source];
+        }
+    }
+    updatedJson[@"sources"] = updatedSources;
+    return updatedJson;
+}
+
+- (NSString *)replaceSSAIVariablesInVMAPURL:(NSString *)vmapURL
+{
+    NSDictionary *replacementValues = @{
+        @"foo": @"123",
+        @"bar": @"hello"
+    };
+    for (NSString *key in replacementValues.allKeys)
+    {
+        NSString *valueToReplace = [NSString stringWithFormat:@"{{url.%@}}", key];
+        NSString *replacementValue = [NSString stringWithFormat:@"%@", replacementValues[key]];
+        vmapURL = [vmapURL stringByReplacingOccurrencesOfString:valueToReplace withString:replacementValue].mutableCopy;
+    }
+    return vmapURL;
+}
+</code></pre>
+
+<pre><code>// Swift
+
+func requestContentFromPlaybackService() {
+    ...
+    playbackService.findVideo(withConfiguration: configuration, queryParameters: queryParameters, completion: { [weak self] (video: BCOVVideo?, jsonResponse: [AnyHashable: Any]?, error: Error?) in
+        guard let jsonResponse = jsonResponse else {
+            return
+        }
+        let updatedJSON = self?.replaceSSAIVariablesInJSON(jsonResponse)
+        let updatedVideo = BCOVPlaybackService.video(fromJSONDictionary: updatedJSON)
+        self?.playbackController?.setVideos([updatedVideo] as NSFastEnumeration)
+    })
+}
+
+func replaceSSAIVariablesInJSON(_ jsonResponse: [AnyHashable: Any]) -&gt; [AnyHashable: Any] {
+    guard let sources = jsonResponse["sources"] as? [[AnyHashable: Any]] else {
+        return jsonResponse
+    }
+    var updatedJson = jsonResponse
+    var updatedSources = [[AnyHashable: Any]]()
+    for source in sources {
+        guard let vmapURL = source["vmap"] as? String else {
+            continue
+        }
+        if vmapURL.contains("{{url.") {
+            var updatedSource = source
+            updatedSource["vmap"] = replaceSSAIVariablesInVMAPURL(vmapURL)
+            updatedSources.append(updatedSource)
+        } else {
+            updatedSources.append(source)
+        }
+    }
+    updatedJson["sources"] = updatedSources
+    return updatedJson
+}
+
+func replaceSSAIVariablesInVMAPURL(_ vmapURL: String) -&gt; String {
+    let replacementValues = [
+        "foo": "123",
+        "bar": "hello"
+    ]
+    var updatedURL = vmapURL
+    for key in replacementValues.keys {
+        guard let replacementValue = replacementValues[key] else {
+            continue
+        }
+        let valueToReplace = "{{url.\(key)}}"
+        updatedURL = updatedURL.replacingOccurrences(of: valueToReplace, with: replacementValue)
+    }
+    return updatedURL
+}
+</code></pre>
+
 <h2>Known Issues</h2>
 
 <ul>
@@ -622,7 +736,7 @@ func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo sess
 					<footer>
 						<div class="footer-copyright">
 							
-							<p class="copyright">Copyright &copy; 2023 Brightcove. All rights reserved. Updated: 2023-03-28</p>
+							<p class="copyright">Copyright &copy; 2023 Brightcove. All rights reserved. Updated: 2023-06-21</p>
 							
 							
 							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

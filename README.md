@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.1.2421
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.2.2452
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -511,6 +511,123 @@ When entering and exiting an ad sequence the `requiresLinearPlayback` property o
 ### Using a Custom Playback Rate
 
 If you want to use a [custom playback rate](https://github.com/brightcove/brightcove-player-sdk-ios#playback-rate) along with using [AVPlayerViewController](https://github.com/brightcove/brightcove-player-sdk-ios#using-an-avplayerviewcontroller-with-a-bcovplaybackcontroller) you'll need to disable the automatic generation of `interstitialTimeRanges`. You can do this by setting the `generateInterstitialTimeRanges` property on your `BCOVPlaybackController` to `NO`.
+
+## SSAI URL Variables
+
+SSAI supports [URL variables](https://apis.support.brightcove.com/ssai/getting-started/video-cloud-ssai-ad-config-api.html#URL_variables) which allow you to pass arbitrary data from the content.vmap URL into the SSAI system. For example the URL `content.vmap?foo={{url.foo}}&bar={{url.bar}}` would become `content.vmap?foo=123&bar=hello` after replacing each `{{url.<variableName>}}` variable with a real value.
+
+Here is an example of how you could perform the variable replacement:
+
+```
+// Objective-C
+
+- (void)requestContentFromPlaybackService
+{
+    __weak typeof(self) weakSelf = self;
+    ...
+    [self.playbackService findVideoWithConfiguration:configuration queryParameters:queryParmaters completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) {
+        if (jsonResponse)
+        {
+            NSDictionary *updatedJSON = [weakSelf replaceSSAIVariablesInJSON:jsonResponse];
+            video = [BCOVPlaybackService videoFromJSONDictionary:updatedJSON];
+            [weakSelf.playbackController setVideos:@[video]];
+        }
+    }];
+}
+
+- (NSDictionary *)replaceSSAIVariablesInJSON:(NSDictionary *)jsonResponse
+{
+    NSMutableDictionary *updatedJson = jsonResponse.mutableCopy;
+    NSArray *sources = jsonResponse[@"sources"];
+    NSMutableArray *updatedSources = @[].mutableCopy;
+    for (NSDictionary *source in sources)
+    {
+        NSString *vmapURL = source[@"vmap"];
+        if ([vmapURL containsString:@"{{url."])
+        {
+            NSMutableDictionary *updatedSource = source.mutableCopy;
+            updatedSource[@"vmap"] = [self replaceSSAIVariablesInVMAPURL:vmapURL];
+            [updatedSources addObject:updatedSource];
+        }
+        else
+        {
+            [updatedSources addObject:source];
+        }
+    }
+    updatedJson[@"sources"] = updatedSources;
+    return updatedJson;
+}
+
+- (NSString *)replaceSSAIVariablesInVMAPURL:(NSString *)vmapURL
+{
+    NSDictionary *replacementValues = @{
+        @"foo": @"123",
+        @"bar": @"hello"
+    };
+    for (NSString *key in replacementValues.allKeys)
+    {
+        NSString *valueToReplace = [NSString stringWithFormat:@"{{url.%@}}", key];
+        NSString *replacementValue = [NSString stringWithFormat:@"%@", replacementValues[key]];
+        vmapURL = [vmapURL stringByReplacingOccurrencesOfString:valueToReplace withString:replacementValue].mutableCopy;
+    }
+    return vmapURL;
+}
+
+```
+
+```
+// Swift
+
+func requestContentFromPlaybackService() {
+    ...
+    playbackService.findVideo(withConfiguration: configuration, queryParameters: queryParameters, completion: { [weak self] (video: BCOVVideo?, jsonResponse: [AnyHashable: Any]?, error: Error?) in
+        guard let jsonResponse = jsonResponse else {
+            return
+        }
+        let updatedJSON = self?.replaceSSAIVariablesInJSON(jsonResponse)
+        let updatedVideo = BCOVPlaybackService.video(fromJSONDictionary: updatedJSON)
+        self?.playbackController?.setVideos([updatedVideo] as NSFastEnumeration)
+    })
+}
+
+func replaceSSAIVariablesInJSON(_ jsonResponse: [AnyHashable: Any]) -> [AnyHashable: Any] {
+    guard let sources = jsonResponse["sources"] as? [[AnyHashable: Any]] else {
+        return jsonResponse
+    }
+    var updatedJson = jsonResponse
+    var updatedSources = [[AnyHashable: Any]]()
+    for source in sources {
+        guard let vmapURL = source["vmap"] as? String else {
+            continue
+        }
+        if vmapURL.contains("{{url.") {
+            var updatedSource = source
+            updatedSource["vmap"] = replaceSSAIVariablesInVMAPURL(vmapURL)
+            updatedSources.append(updatedSource)
+        } else {
+            updatedSources.append(source)
+        }
+    }
+    updatedJson["sources"] = updatedSources
+    return updatedJson
+}
+
+func replaceSSAIVariablesInVMAPURL(_ vmapURL: String) -> String {
+    let replacementValues = [
+        "foo": "123",
+        "bar": "hello"
+    ]
+    var updatedURL = vmapURL
+    for key in replacementValues.keys {
+        guard let replacementValue = replacementValues[key] else {
+            continue
+        }
+        let valueToReplace = "{{url.\(key)}}"
+        updatedURL = updatedURL.replacingOccurrences(of: valueToReplace, with: replacementValue)
+    }
+    return updatedURL
+}
+```
 
 ## Known Issues
 
