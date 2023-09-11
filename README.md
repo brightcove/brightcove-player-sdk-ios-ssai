@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.3.2490
+# SSAI Plugin for Brightcove Player SDK for iOS, version 6.12.4.2514
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -16,7 +16,7 @@ You can use [CocoaPods][cocoapods] to add the SSAI Plugin for Brightcove Player 
 source 'https://github.com/brightcove/BrightcoveSpecs.git'
 
 use_frameworks!
-platform :ios, '11.4'
+platform :ios, '12.0'
 
 target 'MyVideoPlayer' do
   pod 'Brightcove-Player-SSAI'
@@ -31,7 +31,7 @@ XCFramework will be installed appending the `/XCFramework` subspec in the pod.
 source 'https://github.com/brightcove/BrightcoveSpecs.git'
 
 use_frameworks!
-platform :ios, '11.4'
+platform :ios, '12.0'
 
 target 'MyVideoPlayer' do
   pod 'Brightcove-Player-SSAI/XCFramework'
