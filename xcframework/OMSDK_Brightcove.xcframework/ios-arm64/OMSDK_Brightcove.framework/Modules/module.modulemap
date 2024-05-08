@@ -1,0 +1,4 @@
+module OMSDK_Brightcove {
+    header "Headers/OMIDImports.h"
+    export *
+}
