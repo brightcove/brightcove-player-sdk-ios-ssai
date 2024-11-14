@@ -9,7 +9,7 @@
 #import <CoreMedia/CoreMedia.h>
 #import <UIKit/UIKit.h>
 
-#import <BrightcovePlayerSDK/BrightcovePlayerSDK.h>
+@import BrightcovePlayerSDK;
 
 
 NS_ASSUME_NONNULL_BEGIN

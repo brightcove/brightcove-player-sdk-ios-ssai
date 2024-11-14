@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 6.13.3.8
+# SSAI Plugin for Brightcove Player SDK for iOS, version 7.0.0.9
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -70,7 +70,10 @@ To add the SSAI Plugin for Brightcove Player SDK to your project with Swift Pack
 
 ### Imports
 
-The SSAI Plugin for Brightcove Player SDK for iOS can be imported into code a few different ways; `@import BrightcoveSSAI;`, `#import <BrightcoveSSAI/BrightcoveSSAI.h>` or `#import <BrightcoveSSAI/[specific class].h>`.
+The SSAI Plugin for Brightcove Player SDK for iOS can be imported using:
+```swift
+import BrightcoveSSAI
+```
 
 [cocoapods]: http://cocoapods.org
 [podspecs]: https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-SSAI
@@ -81,32 +84,37 @@ The SSAI Plugin for Brightcove Player SDK for iOS can be imported into code a fe
 
 BrightcoveSSAI is a plugin for [Brightcove Player SDK for iOS][bcovsdk] that provides support for Brightcove Server Side Ad Insertion.
 
-```objc
-  [1] BCOVSSAIAdComponentDisplayContainer *displayContainer = [[BCOVSSAIAdComponentDisplayContainer alloc] initWithCompanionSlots:@[]];
+```swift
+[1] let displayContainer = BCOVSSAIAdComponentDisplayContainer(companionSlots: [])
 
-      BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager];
+    let sdkManager = BCOVPlayerSDKManager.sharedManager()
 
-  [2] id<BCOVPlaybackController> playbackController = [sdkManager createSSAIPlaybackController];
+[2] let playbackController = sdkManager.createSSAIPlaybackController()
 
-  [3] [playbackController addSessionConsumer:displayContainer];
-    
-  [4] [self.videoContainer addSubview:playbackController.view];
-    
-  [5] BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
-                                                                                  policyKey:policyKey];
-      NSDictionary *configuration = @{
-        kBCOVPlaybackServiceConfigurationKeyAssetID:videoID
-      };
-      [playbackService findVideoWithConfiguration:configuration
-                                  queryParameters:@{ kBCOVPlaybackServiceParamaterKeyAdConfigId: <valid-ad-config-id> }
-                                       completion:^(BCOVVideo *video,
-                                                    NSDictionary *jsonResponse,
-                                                    NSError *error) {
+[3] playbackController.add(displayContainer)
 
-  [6]   [playbackController setVideos:@[ video ]];
-        [playbackController play];
+[4] videoView.addSubview(playerView)
 
-      }];
+    let policyKey = "<your-policy-key>"
+    let accountID = "<your-account-id>"
+    let videoID = "<your-video-id>"
+    let playbackService = BCOVPlaybackService(withAccountId: accountID,
+                                              policyKey: policyKey)
+    let configuration = [
+        BCOVPlaybackService.ConfigurationKeyAssetID: videoID
+    ]
+    let queryParameters = [
+        BCOVPlaybackService.ParamaterKeyAdConfigId: "<valid-ad-config-id>"
+    ]
+[5] playbackService.findVideo(withConfiguration: configuration,
+                              queryParameters: queryParameters) { (video: BCOVVideo?,
+                                                                   jsonResponse: Any?,
+                                                                   error: Error?) in
+        if let video {
+[6]        playbackController.setVideos([video])
+        playbackController.play()
+        }
+    }
 ```
 
 To summarize:
@@ -139,11 +147,11 @@ XCFramework example:
 
 To take the advantage of using IAB Open Measurement, the SSAI Plugin for iOS provides a new signature:
 
-```
-[BCOVPlayerSDKManager createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:]
+```swift
+sdkManager.createSSAISessionProvider(withUpstreamSessionProvider:omidPartner:)
 ```
 
-The `omidPartner` string identifies the integration. The value can not be empty or nil, if partner is not available, use "unknown". The IAB Tech Lab will assign a unique partner name to you at the time of integration, so this is the value you should use here. However, if the OpenMeasurement SDK is not embedded in your iOS app the `omidPartner` string will be ignored and OM will not take effect. The `[BCOVPlayerSDKManager createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:]` signature is not available for Mac Catalyst.
+The `omidPartner` string identifies the integration. The value can not be empty or nil, if partner is not available, use "unknown". The IAB Tech Lab will assign a unique partner name to you at the time of integration, so this is the value you should use here. However, if the OpenMeasurement SDK is not embedded in your iOS app the `omidPartner` string will be ignored and OM will not take effect. The `sdkManager.createSSAISessionProvider(withUpstreamSessionProvider:omidPartner:)` signature is not available for Mac Catalyst.
 
 ### Open Measurement and Mac Catalyst
 
@@ -160,30 +168,32 @@ Open Measurement can not be used in Mac Catalyst apps due IAB Tech Lab does not 
 
 If you have a custom VMAP source URL and do not need to use the `BCOVPlaybackService` you can manually create a `BCOVVideo` with your URL like this:
 
-```
-BCOVVideo *video = [BCOVVideo videoWithURL:[NSURL URLWithString:@"https://sdks.support.brightcove.com/assets/ads/ssai/sample-vmap.xml"]];
-[self.playbackController setVideos:@[video]];
+```swift
+if let url = URL(string: "https://sdks.support.brightcove.com/assets/ads/ssai/sample-vmap.xml") {
+    let video = BCOVVideo.video(withURL: url)
+    playbackController.setVideos([video])
+}
 ```
 
 ## Using VMAP XML data
 
 If you have VMAP XML data you can manually create a `BCOVVideo` with your data like this:
 
-```
+```swift
 // If using FairPlay DRM you'll need to construct the key_systems dictionary
 // otherwise you can pass `nil` for the properties value.
-NSDictionary *properties = @{
-    @"key_systems": @{
-            @"com.apple.fps.1_0": @{
-                    @"key_request_url": @"<insert key request URL>",
-                    @"certificate_url": @"<insert certificate URL>"
-            }
-    }
-};
+let properties = [
+    "key_systems": [
+        "com.apple.fps.1_0": [
+            "key_request_url": "<insert key request URL>",
+            "certificate_url": "<insert certificate URL>"
+        ]
+    ]
+]
 
-BCOVSource *source = [[BCOVSource alloc] initWithVMAPXMLData:vmapData properties:properties];
-BCOVVideo *video = [[BCOVVideo alloc] initWithSource:source cuePoints:nil properties:nil];
-[self.playbackController setVideos:@[video]];
+let source = BCOVSource(vmapxmlData: vmapData, properties: properties)
+let video = BCOVVideo(withSource: source, cuePoints: nil, properties: nil)
+playbackController.setVideos([video])
 ```
 
 ## Obtaining Ad Playback Information
@@ -197,17 +207,14 @@ For more information on how to use these delegate methods, please see [Brightcov
 ## Seeking
 
 The BrightcoveSSAI plugin provides a seeking function that should be used when implementing controls. This seek function is exposed on the session through the `providerExtension` property. Here is how it is used:
-    
-```objc    
-CMTime contentTimeToSeekTo = <calculation-from-scrub-bar>;
-[self.currentSession.providerExtension ssai_seekToTime:contentTimeToSeekTo completionHandler:^(BOOL finished) {
 
-  if (finished)
-  {
-    [self.playbackController play];
-  }
-	
-}];
+```swift
+let contentTimeToSeekTo: CMTime = <calulation-from-scrub-bar>
+currentSession?.providerExtension.ssai_seek(to: contentTimeToSeekTo, completionHandler: { [weak self] finished in
+    if finished {
+        self?.playbackController.play()
+    }
+})
 ```
     
 The `completionHandler` will execute at the completion of a successful seek. It will not execute if a seek was already initiated by a previous call to `-[BCOVSessionProviderExtension ssai_seekToTime:completionHandler:]` or if an ad is playing back. To test whether a seek attempt can be made, check the `-[BCOVSessionProviderExtension ssai_canSeek]` property. For more information on both of these methods, be sure to read the [headerdoc][ssai_extensions].
@@ -222,145 +229,57 @@ In preparation for seeking, disable `autoPlay` when setting up the `BCOVPlayback
 
 Ad-disabling logic should be added to the `kBCOVPlaybackSessionLifecycleEventReady` handler of the `-playbackController:playbackSession:didReceiveLifecycleEvent:` method of your `BCOVPlaybackController` delegate.
 
-```objc
-- (void)playbackController:(id<BCOVPlaybackController>)controller
-           playbackSession:(id<BCOVPlaybackSession>)session
-  didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent
-{
-  if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType])
-  {
-    // disable ads.
-    _playbackController.adsDisabled = YES;
+```swift
+func playbackController(_ controller: BCOVPlaybackController,
+                        playbackSession session: BCOVPlaybackSession,
+                        didReceive lifecycleEvent: BCOVPlaybackSessionLifecycleEvent) {
+    if lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventReady {
+        // disable ads.
+        playbackController.adsDisabled = true
 
-    // seek somewhere into the video content.
-    [session.providerExtension ssai_seekToTime:resumeTime completionHandler:^(BOOL finished)
-    {
-        // re-enable ads.
-        _playbackController.adsDisabled = NO;
+        // seek somewhere into the video content.
+        session.providerExtension.ssai_seek(to: resumeTime) { [weak self] finished in
+            // re-enable ads.
+            self?.playbackController.adsDisabled = false
 
-        // open the shutter.
-        _playbackController.shutterFadeTime = 0.25;
-        _playbackController.shutter = NO;
-    }];
+            // open the shutter
+            self?.playbackController.shutterFadeTime = 0.25
+            self?.playbackController.shutter = false
+        }
+    }
 }
 ```
 
 When calling `ssai_seekToTime:completionHandler:` to resume playback at a particular time, the first frame of the video might be visible until the seek completes. For a cleaner presentation, temporarily cover the video view during seeking by setting the `shutter` property of BCOVPlabackController to `YES` before calling `-setVideos:`. When seeking is complete, dismiss the shutter by setting the `shutter` property to `NO`. The `shutterFadeTime` property defines the duration of the shutter fade animation.
 
-```objc
-self.playbackController = [sdkManager createSSAIPlaybackController];
+```swift
+playbackController = sdkManager.createSSAIPlaybackController()
 
 // activate the shutter before loading video.
-self.playbackController.shutterFadeTime = 0.0;
-self.playbackController.shutter = YES;
+playbackController.shutterFadeTime = 0.0
+playbackController.shutter= true
 
-// load the video.
+// load the video
 ```
 
 Note that for performance reasons, small tolerances are built into video seeking. A seek to a content playhead position which is close to the start of an ad sequence can result in a seek to the start of the ad sequence. If autoPlay is NO in this case, AVPlayer will be paused on the first frame of the ad sequence.
-
-## PlayerUI Built-In Controls
-
-The BrightcovePlayerSDK provides a built-in set of UI controls that can be used with the SSAI plugin for both basic playback and ad controls. To use the controls, create a `BCOVPUIPlayerView`, and associate it with your SSAI playback controller.
-
-First, create a playerView property in your class.
-
-```objc
-@property (nonatomic) BCOVPUIPlayerView *playerView;
-```
-
-Create the `BCOVPUIPlayerView` instance and save a reference to the object.
-
-```objc
-BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout];
-self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil options:nil controlsView:controlView];
-// Insert the playerView into your own video view.
-[self.videoContainer addSubview:self.playerView];
-```
-
-You'll need to set up the layout for the player view, you can do this with Auto Layout or the older Springs & Struts method. 
-
-#### Springs & Struts
-
-Set its frame to match your container view, then add the player view to the container view in your view hierarchy. Note that `videoContainer` is your own view object in your app's layout.
-
-```objc
-self.playerView.frame = self.videoContainer.bounds;
-self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-```
-
-#### Auto Layout
-
-```objc
-self.playerView.translatesAutoresizingMaskIntoConstraints = NO;
-[NSLayoutConstraint activateConstraints:@[
-                                          [self.playerView.topAnchor constraintEqualToAnchor:self.videoContainer.topAnchor],
-                                          [self.playerView.rightAnchor constraintEqualToAnchor:self.videoContainer.rightAnchor],
-                                          [self.playerView.leftAnchor constraintEqualToAnchor:self.videoContainer.leftAnchor],
-                                          [self.playerView.bottomAnchor constraintEqualToAnchor:self.videoContainer.bottomAnchor],
-                                          ]];
-```
-Now create the `BCOVPlaybackController`, assign it to your player view, and then start playing videos.
-
-```objc
-// Initialize companion slots
-BCOVSSAIAdComponentDisplayContainer *displayContainer = [[BCOVSSAIAdComponentDisplayContainer alloc] initWithCompanionSlots:@[]];
-
-// Create the playback controller
-BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager];
-id<BCOVPlaybackController> playbackController = [sdkManager createSSAIPlaybackControllerWithViewStrategy:nil];
-
-// Listen for display/companion ad messages
-[playbackController addSessionConsumer:displayContainer];
-
-// Tell the player view this is the playback controller we're using
-self.playerView.playbackController = playbackController;
-
-// Create and play your video. For Unicorn Once-style VMAP URLs, create the BCOVVideo object directly.
-BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId
-                                                                            policyKey:policyKey];
-NSDictionary *configuration = @{
-    kBCOVPlaybackServiceConfigurationKeyAssetID:videoID
-};
-[playbackService findVideoWithConfiguration:configuration
-                            queryParameters:{ kBCOVPlaybackServiceParamaterKeyAdConfigId: <valid-ad-config-id> }
-                                 completion:^(BCOVVideo *video,
-                                              NSDictionary *jsonResponse,
-                                              NSError *error) {
-
-    [playbackController setVideos:@[ video ]];
-    [playbackController play];
-
-}];
-```
-
-See the README in the BrightcovePlayerSDK for more details about how to use and customize the PlayerUI controls.
 
 ## Access to VMAP Response Data
 
 Should you want access to the VMAP response data you can subscribe to the `kBCOVSSAIVMAPResponseReceivedNotification` notification. Once received, the notification's userInfo dictionary will contain the VMAP response as NSData. You can use the `kBCOVSSAIVMAPResponseReceivedNotificationDataUserInfoKey` constant to access it from userInfo. Since you may have multiple playback controllers, and thus multiple VMAP responses, you can check the notification's object, `id playbackController = notification.object` to verify which video the VMAP data is for. Additionally, when you subscribe to the notification you can set a playback controller as the object so that only VMAP data notifications regarding that playback controller will be received. For example:
 
-```objc
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(vmapResponseReceived:) name:kBCOVSSAIVMAPResponseReceivedNotification object:self.playbackController];
+```swift
+NotificationCenter.default.addObserver(self,
+                                       selector: #selector(vmapResponseReceived(_:)),
+                                       name: NSNotification.Name.bcovssaivmapResponseReceived,
+                                       object: nil)
 ```
 
 You can also access the VMAP response data through the `BCOVOUXSession` object:
 
-```
-// Obj-C
-- (void)playbackController:(id<BCOVPlaybackController>)controller didAdvanceToPlaybackSession:(id<BCOVPlaybackSession>)session
-{    
-    if ([session respondsToSelector:NSSelectorFromString(@"vmapResponseData")])
-    {
-        NSData *vmapResponseData = [(NSObject *)session valueForKeyPath:@"vmapResponseData"];
-        NSString *xmlString = [[NSString alloc] initWithData:vmapResponseData encoding:NSUTF8StringEncoding];
-        NSLog(@"VMAP XML: %@", xmlString);
-    }
-}
-```
-```
-// Swift
-func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo session: BCOVPlaybackSession!) {
+```swift
+func playbackController(_ controller: BCOVPlaybackController,
+                        didAdvanceTo session: BCOVPlaybackSession) {
     if (session.responds(to: NSSelectorFromString("vmapResponseData")))
     {
         let vmapResponseData = (session as? NSObject)?.value(forKeyPath: "vmapResponseData") as? Data
@@ -379,17 +298,17 @@ func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo sess
 
 If you'd like to enforce linear playback durings ads while using AVPlayerViewController all you have to do is set AVPlayerViewController's delegate to one of your classes and add the following:
 
-```
-#pragma mark - AVPlayerViewControllerDelegate
+```swift
+// MARK: AVPlayerViewControllerDelegate
 
-- (void)playerViewController:(AVPlayerViewController *)playerViewController willPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
-{
-    playerViewController.requiresLinearPlayback = YES;
+func playerViewController(_ playerViewController: AVPlayerViewController,
+                          willPresent interstitial: AVInterstitialTimeRange) {
+    playerViewController.requiresLinearPlayback = true
 }
 
-- (void)playerViewController:(AVPlayerViewController *)playerViewController didPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
-{
-    playerViewController.requiresLinearPlayback = NO;
+func playerViewController(_ playerViewController: AVPlayerViewController,
+                          didPresent interstitial: AVInterstitialTimeRange) {
+    playerViewController.requiresLinearPlayback = false
 }
 ```
 
@@ -397,107 +316,94 @@ If you'd like to enforce linear playback durings ads while using AVPlayerViewCon
 
 You can also add your own advertising UI using these methods as well by adding views to AVPlayerViewController's `contentOverlayView` when `willPresentInterstitialTimeRange:` is called and and removing or hiding it when `didPresentInterstitialTimeRange:` is called. Here is an example:
 
-```
-#pragma mark - AVPlayerViewControllerDelegate
-
-- (void)playerViewController:(AVPlayerViewController *)playerViewController willPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
-{
-    ...
-    
-    [self displayAdUI:CMTimeGetSeconds(interstitial.timeRange.duration)];
-}
-
-- (void)playerViewController:(AVPlayerViewController *)playerViewController didPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
-{
-    ...
-    
-    [self hideAdUI];
-}
-
-- (void)displayAdUI:(NSTimeInterval)adLength
-{
+```swift
+func displayAdUI(withAdDuration duration: TimeInterval) {
     // UI Setup
     // Adding a subview to the AVPlayerViewController's contentOverlayView
-    ...
 }
 
-- (void)hideAdUI
-{
+func hideAdUI() {
     // Hide the view/s that were added in displayAdUI:
 }
 
+// MARK: AVPlayerViewControllerDelegate
+func playerViewController(_ playerViewController: AVPlayerViewController,
+                          willPresent interstitial: AVInterstitialTimeRange) {
+    displayAdUI(withAdDuration: CMTimeGetSeconds(interstitial.timeRange.duration))
+}
+
+func playerViewController(_ playerViewController: AVPlayerViewController,
+                          didPresent interstitial: AVInterstitialTimeRange) {
+    hideAdUI()
+}
 ```
 
 You may also wish to prevent users from seeking over an ad. Here is an example of how to prevent that:
 
-```
-#pragma mark - AVPlayerViewControllerDelegate
+```swift
+// MARK: AVPlayerViewControllerDelegate
 
-- (CMTime)playerViewController:(AVPlayerViewController *)playerViewController timeToSeekAfterUserNavigatedFromTime:(CMTime)oldTime toTime:(CMTime)targetTime
-{
+func playerViewController(_ playerViewController: AVPlayerViewController,
+                          timeToSeekAfterUserNavigatedFrom oldTime: CMTime,
+                          to targetTime: CMTime) -> CMTime {
     // Check to see if we'll be seeking over any interstitials
     // If we are, seek to the beginning of the last interstitial
     // and save the targetTime so we can seek after the interstitial
     // has finished.
-    
-    NSMutableArray *timeRanges = @[].mutableCopy;
-    for (AVInterstitialTimeRange *timeRange in playerViewController.player.currentItem.interstitialTimeRanges)
-    {
-        CMTime startTime = timeRange.timeRange.start;
-        if (CMTimeCompare(targetTime, startTime) == 1 && CMTimeCompare(startTime, oldTime) == 1)
-        {
-            [timeRanges addObject:timeRange];
+
+    guard let interstitialTimeRanges = playerViewController.player?.currentItem?.interstitialTimeRanges else {
+        return targetTime
+    }
+
+    var timeRanges = [AVInterstitialTimeRange]()
+    for interstitialTimeRange in interstitialTimeRanges {
+        let startTime = interstitialTimeRange.timeRange.start
+        if CMTimeCompare(targetTime, startTime) == 1 && CMTimeCompare(startTime, oldTime) == 1 {
+            timeRanges.append(interstitialTimeRange)
         }
     }
-    
+
     // If we encounter an ad we should seek to the start time
     // of the ad and save the desired seek time to we can seek
     // to it after the ad completes
-    if (timeRanges.count > 0)
-    {
-        self.seekToTime = targetTime;
-        AVInterstitialTimeRange *lastTimeRange = timeRanges.lastObject;
-        return lastTimeRange.timeRange.start;
+    if timeRanges.count > 0 {
+        seekToTime = targetTime
+        if let lastTimeRange = timeRanges.last {
+            return lastTimeRange.timeRange.start
+        }
     }
-    
-    return targetTime;
+
+    return targetTime
 }
 
-- (void)playbackController:(id<BCOVPlaybackController>)controller playbackSession:(id<BCOVPlaybackSession>)session didExitAdSequence:(BCOVAdSequence *)adSequence
-{
-    ...
-    
+// MARK: BCOVPlaybackControllerDelegate
+
+func playbackController(_ controller: BCOVPlaybackController,
+                        playbackSession ession: BCOVPlaybackSession,
+                        didExitAdSequence adSequence: BCOVAdSequence) {
     // If we encountered an ad while seeking we can now
     // seek to the desired location
-    if (CMTimeCompare(self.seekToTime, kCMTimeInvalid) != 0)
-    {
-        [playerViewController.player seekToTime:self.seekToTime];
-        self.seekToTime = kCMTimeInvalid;
+    if CMTimeCompare(seekToTime, .invalid) != 0 {
+        playerViewController.player?.seek(to: seekToTime)
+        seekToTime = .invalid
     }
 }
 ```
 
 If you'd like to prevent a pre-roll ad from playing again here in an example of how to approach that:
 
-```
-- (void)playerViewController:(AVPlayerViewController *)playerViewController willPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
-{
-    ... 
-
-    if (CMTimeCompare(interstitial.timeRange.start, kCMTimeZero) == 0 && self.didPlayPreroll)
-    {
-        [playerViewController.player seekToTime:interstitial.timeRange.duration];
-        return;
+```swift
+func playerViewController(_ playerViewController: AVPlayerViewController,
+                          willPresent interstitial: AVInterstitialTimeRange) {
+    if CMTimeCompare(interstitial.timeRange.start, .zero) == 0 && didPlayPreroll {
+        playerViewController.player?.seek(to: interstitial.timeRange.duration)
     }
 }
 
-- (void)playerViewController:(AVPlayerViewController *)playerViewController didPresentInterstitialTimeRange:(AVInterstitialTimeRange *)interstitial
-{
-    ...
-    
-    if (CMTimeCompare(interstitial.timeRange.start, kCMTimeZero) == 0)
-    {
-        self.didPlayPreroll = YES;
+func playerViewController(_ playerViewController: AVPlayerViewController,
+                          didPresent interstitial: AVInterstitialTimeRange) {
+    if CMTimeCompare(interstitial.timeRange.start, .zero) == 0 {
+        didPlayPreroll = true
     }
 }
 ```
@@ -518,75 +424,21 @@ SSAI supports [URL variables](https://apis.support.brightcove.com/ssai/getting-s
 
 Here is an example of how you could perform the variable replacement:
 
-```
-// Objective-C
-
-- (void)requestContentFromPlaybackService
-{
-    __weak typeof(self) weakSelf = self;
-    ...
-    [self.playbackService findVideoWithConfiguration:configuration queryParameters:queryParmaters completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) {
-        if (jsonResponse)
-        {
-            NSDictionary *updatedJSON = [weakSelf replaceSSAIVariablesInJSON:jsonResponse];
-            video = [BCOVPlaybackService videoFromJSONDictionary:updatedJSON];
-            [weakSelf.playbackController setVideos:@[video]];
-        }
-    }];
-}
-
-- (NSDictionary *)replaceSSAIVariablesInJSON:(NSDictionary *)jsonResponse
-{
-    NSMutableDictionary *updatedJson = jsonResponse.mutableCopy;
-    NSArray *sources = jsonResponse[@"sources"];
-    NSMutableArray *updatedSources = @[].mutableCopy;
-    for (NSDictionary *source in sources)
-    {
-        NSString *vmapURL = source[@"vmap"];
-        if ([vmapURL containsString:@"{{url."])
-        {
-            NSMutableDictionary *updatedSource = source.mutableCopy;
-            updatedSource[@"vmap"] = [self replaceSSAIVariablesInVMAPURL:vmapURL];
-            [updatedSources addObject:updatedSource];
-        }
-        else
-        {
-            [updatedSources addObject:source];
-        }
-    }
-    updatedJson[@"sources"] = updatedSources;
-    return updatedJson;
-}
-
-- (NSString *)replaceSSAIVariablesInVMAPURL:(NSString *)vmapURL
-{
-    NSDictionary *replacementValues = @{
-        @"foo": @"123",
-        @"bar": @"hello"
-    };
-    for (NSString *key in replacementValues.allKeys)
-    {
-        NSString *valueToReplace = [NSString stringWithFormat:@"{{url.%@}}", key];
-        NSString *replacementValue = [NSString stringWithFormat:@"%@", replacementValues[key]];
-        vmapURL = [vmapURL stringByReplacingOccurrencesOfString:valueToReplace withString:replacementValue].mutableCopy;
-    }
-    return vmapURL;
-}
-
-```
-
-```
-// Swift
-
+```swift
 func requestContentFromPlaybackService() {
     ...
-    playbackService.findVideo(withConfiguration: configuration, queryParameters: queryParameters, completion: { [weak self] (video: BCOVVideo?, jsonResponse: [AnyHashable: Any]?, error: Error?) in
-        guard let jsonResponse = jsonResponse else {
+    playbackService.findVideo(withConfiguration: configuration,
+                              queryParameters: queryParameters,
+                              completion: { [weak self] (video: BCOVVideo?,
+                                                         jsonResponse: Any?,
+                                                         error: Error?) in
+        guard let jsonResponse = jsonResponse as? [AnyHashable:Any] else {
             return
         }
         let updatedJSON = self?.replaceSSAIVariablesInJSON(jsonResponse)
-        let updatedVideo = BCOVPlaybackService.video(fromJSONDictionary: updatedJSON)
-        self?.playbackController?.setVideos([updatedVideo] as NSFastEnumeration)
+        if let updatedVideo = BCOVPlaybackService.videoFromJSONDictionary(updatedJSON as Any) {
+            self?.playbackController.setVideos([updatedVideo])
+        }
     })
 }
 
