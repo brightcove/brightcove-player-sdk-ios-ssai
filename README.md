@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.12.34
+# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.13.35
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -10,8 +10,6 @@ The SSAI plugin for Brightcove Player SDK for iOS provides a dynamic library fra
 
 You can use [CocoaPods][cocoapods] to add the SSAI Plugin for Brightcove Player SDK to your project.  You can find the latest `Brightcove-Player-SSAI` podspec [here][podspecs].
 
-#### CocoaPod Podfile example:
-
 ```bash
 source 'https://github.com/brightcove/BrightcoveSpecs.git'
 
@@ -20,21 +18,6 @@ platform :ios, '12.0'
 
 target 'MyVideoPlayer' do
   pod 'Brightcove-Player-SSAI'
-end
-```
-
-#### XCFramework example:
-
-XCFramework will be installed appending the `/XCFramework` subspec in the pod.
-
-```bash
-source 'https://github.com/brightcove/BrightcoveSpecs.git'
-
-use_frameworks!
-platform :ios, '12.0'
-
-target 'MyVideoPlayer' do
-  pod 'Brightcove-Player-SSAI/XCFramework'
 end
 ```
 
@@ -48,15 +31,12 @@ To add the SSAI Plugin for Brightcove Player SDK to your project manually:
 
 1. Install the latest version of the [Brightcove Player SDK][bcovsdkreleases].
 1. Download the latest zip'ed release of the BrightcoveSSAI plugin from our [release page][release].
-1. Add `BrightcoveSSAI.framework` or `BrightcoveSSAI.xcframework` to your project.
+1. Add `BrightcoveSSAI.xcframework` to your project.
 1. Add `OMSDK_Brightcove.xcframework` to your project.
 1. On the "Build Settings" tab of your application target, ensure that the "Framework Search Paths" include the paths to the frameworks. This should have been done automatically unless the framework is stored under a different root directory than your project.
-1. On the "General" tab of your application target, add 'BrightcoveSSAI.framework' or 'BrightcoveSSAI.xcframework' to the "Frameworks, Libraries, Embedded Content" section. 
-1. (**Open Measurement** support) If you need to support OM in your app add 'OMSDK_Brightcove.xcframework' to the "Frameworks, Libraries, Embedded Content" section.
+1. On the "General" tab of your application target, add `BrightcoveSSAI.xcframework` to the "Frameworks, Libraries, Embedded Content" section.
+1. (**Open Measurement** support) If you need to support OM in your app add `OMSDK_Brightcove.xcframework` to the "Frameworks, Libraries, Embedded Content" section.
 1. (**Mac Catalyst and Open Measurement** only) In the "Filter" for `OMSDK_Brightcove.xcframework`, ensure that only the value `iOS` is selected.
-1. (**Universal Framework** only) On the "Build Phases" tab, add a "Run Script" phase with the command `bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveSSAI.framework/strip-frameworks.sh`. Check "Run script only when installing". This will remove unneeded architectures from the build, which is important for App Store submission.
-1. (**Apple Silicon with Universal Framework** only) On the "Build Settings" tab of your application target:
-    * Ensure that `arm64` has been added to your "Excluded Architectures" build setting for `Any iOS Simulator SDK`.
 
 ### Swift Package Manager
 
@@ -138,10 +118,8 @@ Universal Framework (Fat Framework) example:
   pod 'Brightcove-Player-OpenMeasurement'
 ```
 
-XCFramework example:
-
 ```bash
-  pod 'Brightcove-Player-SSAI/XCFramework'
+  pod 'Brightcove-Player-SSAI'
   pod 'Brightcove-Player-OpenMeasurement'
 ```
 
