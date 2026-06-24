@@ -12,10 +12,10 @@ let BrightcovePlayerSDK = Package(
     products: [
         .library(
             name: "BrightcoveSSAI",
-            targets: ["BrightcoveSSAI"]),
+            targets: ["BrightcoveSSAI", "BrightcoveSSAIDeprecationNotice"]),
         .library(
             name: "BrightcoveSSAI & Open Measurement",
-            targets: ["BrightcoveSSAI", "OMSDK_Brightcove"])
+            targets: ["BrightcoveSSAI", "OMSDK_Brightcove", "BrightcoveSSAIDeprecationNotice"])
     ],
     targets: [
         .binaryTarget(
@@ -25,6 +25,11 @@ let BrightcovePlayerSDK = Package(
         .binaryTarget(
             name: "OMSDK_Brightcove",
             path: "xcframework/OMSDK_Brightcove.xcframework"
+        ),
+        .target(
+            name: "BrightcoveSSAIDeprecationNotice",
+            path: "DeprecationNotice",
+            exclude: ["Notice.m"]
         )
     ]
 )
