@@ -437,10 +437,6 @@
 	<dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDAdEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			meAD0Tti654qKmhqjThqmbPegk4=
-			</data>
 			<key>hash2</key>
 			<data>
 			oKBdZE8yJrnRT5vTvY/bNzzkLFSn0YmRZpzXJyMqvVU=
@@ -448,10 +444,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDAdSession.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Tidyirt+VwV95JYIBryn6Vv5/m8=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZrwcB5NYeMdd/A8IowqVLKDAx5bvND2SDOoEb97boMA=
@@ -459,10 +451,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDAdSessionConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ldF/UAQPqfonodOR7D/9aLJsfZY=
-			</data>
 			<key>hash2</key>
 			<data>
 			OxPFbF1BY59c0eK97lqxGHZw44Za5HVvfkP3ZJtZqQc=
@@ -470,10 +458,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDAdSessionContext.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LsDu+A9DraNASa8u0UTXgZov8NU=
-			</data>
 			<key>hash2</key>
 			<data>
 			VVvHPH9S2GctUQZv0QSn3czMyK81MqxGNP0Y26a1Fog=
@@ -481,10 +465,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDFriendlyObstructionType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ymPA8TI4PL8pK0zhc5ilyQj/SsA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/ZmBFlTK7mS0fZy4WqxCTpfhwDAEA4qlDHoed4FawBg=
@@ -492,10 +472,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDImports.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/ghw/vX0KUlF9SSq4LZhhZDpZb4=
-			</data>
 			<key>hash2</key>
 			<data>
 			XQBgb62m3DEN2XBtnlS+hqca4MEIuBJjq6po9fIbZco=
@@ -503,10 +479,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDJavaScriptSessionService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FBim5h6uqa4wBNmbfkdz3jpcYH0=
-			</data>
 			<key>hash2</key>
 			<data>
 			6wYW4UiL9UVGGvfnDOemoyfaAEagE9ONQ6hDLAuPDzw=
@@ -514,10 +486,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDMediaEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			V9gMhtvQVUaftfXBCsbKZtTyFm0=
-			</data>
 			<key>hash2</key>
 			<data>
 			ju30190qWpW8HXIHuME1ZL5PegcpJ9o/htjiOqnuWv8=
@@ -525,10 +493,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDPartner.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QQcTP5owenO7ZdYFMw180cwvbJA=
-			</data>
 			<key>hash2</key>
 			<data>
 			JtoYCWPJC8R+5OvkPhpPrgGZuOord7aA4j0Zyc347HE=
@@ -536,10 +500,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qnvEPUOwpw15xtWHQXDBEuRrsyg=
-			</data>
 			<key>hash2</key>
 			<data>
 			JKJF++YrNJ2cz4VCBJlQZDleZcIxjR35q81MTkXobv8=
@@ -547,10 +507,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDScriptInjector.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tVCUSNHRaQFPnRcwb/V0s9vPb7U=
-			</data>
 			<key>hash2</key>
 			<data>
 			rD4TYO4MbZ68XSDBUTu9fbFVDNHwHdqRyTxGOtHAruY=
@@ -558,10 +514,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDVASTProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0o08FfSKe1x67vV+FkrBSgskcpw=
-			</data>
 			<key>hash2</key>
 			<data>
 			YksILKsgIZNohGrPHgmSXbKraRtRHq+G31rjFhTwvp4=
@@ -569,10 +521,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMIDVerificationScriptResource.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+2JdTqQKlud/juDThNkJAjXehPA=
-			</data>
 			<key>hash2</key>
 			<data>
 			HgAMowu1pICUAkOVyXJwFUDxRw0NhkDevolz4ufQnLA=
@@ -580,10 +528,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Headers/OMSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SwK6aatAfFlLHnP2+J8eYoZyaqs=
-			</data>
 			<key>hash2</key>
 			<data>
 			RMvQNEJLOImLem6a8DtHWs08tFMncdsWXtF/QfYUIvQ=
@@ -591,10 +535,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			I4s5/cdvip5twYCwhufXOc/IICU=
-			</data>
 			<key>hash2</key>
 			<data>
 			19SUHNgJckUqZbuR2CgrLJAQv6XIjLHRMn0TOSojE90=
@@ -602,10 +542,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lPl9cM2Y+qRV4m6Ut/kJ4TGaOjM=
-			</data>
 			<key>hash2</key>
 			<data>
 			/qWKfOa3yveluw0FPr2JTMrl70AUcaXJBlQRkymXgMg=
@@ -613,10 +549,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/OMSDK_Brightcove</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			76ZZwVggkObQoRdY2VNPz9lCRWU=
-			</data>
 			<key>hash2</key>
 			<data>
 			js7bvd4wTERyzoSXEa27xG7ZKUuLQg6qApaIfuXD/kY=
@@ -624,10 +556,6 @@
 		</dict>
 		<key>ios-arm64/OMSDK_Brightcove.framework/PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7BgfS40JHW2Znl7afTrGvxB58Ws=
-			</data>
 			<key>hash2</key>
 			<data>
 			5rdpDTW6MDoz1u2y0rCJB5ensp/KZWPv7EAq4o8GtfM=
@@ -635,10 +563,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDAdEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			meAD0Tti654qKmhqjThqmbPegk4=
-			</data>
 			<key>hash2</key>
 			<data>
 			oKBdZE8yJrnRT5vTvY/bNzzkLFSn0YmRZpzXJyMqvVU=
@@ -646,10 +570,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDAdSession.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Tidyirt+VwV95JYIBryn6Vv5/m8=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZrwcB5NYeMdd/A8IowqVLKDAx5bvND2SDOoEb97boMA=
@@ -657,10 +577,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDAdSessionConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ldF/UAQPqfonodOR7D/9aLJsfZY=
-			</data>
 			<key>hash2</key>
 			<data>
 			OxPFbF1BY59c0eK97lqxGHZw44Za5HVvfkP3ZJtZqQc=
@@ -668,10 +584,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDAdSessionContext.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Xtjf7nJtJwOzgc3HdaiAIXwNiT4=
-			</data>
 			<key>hash2</key>
 			<data>
 			v6I2gc8YOrBJeCr/9jlVQ5IiDvK7FI+4QU2yZYJ7TUA=
@@ -679,10 +591,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDFriendlyObstructionType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ymPA8TI4PL8pK0zhc5ilyQj/SsA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/ZmBFlTK7mS0fZy4WqxCTpfhwDAEA4qlDHoed4FawBg=
@@ -690,10 +598,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDImports.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kklBQQiiHyi6ArUe1OOfy92xxX4=
-			</data>
 			<key>hash2</key>
 			<data>
 			WWfw+Z3RNrtOfWYdio9jyxKjmeVbPXzWNH7Pa7ErD0U=
@@ -701,10 +605,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDMediaEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			V9gMhtvQVUaftfXBCsbKZtTyFm0=
-			</data>
 			<key>hash2</key>
 			<data>
 			ju30190qWpW8HXIHuME1ZL5PegcpJ9o/htjiOqnuWv8=
@@ -712,10 +612,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDPartner.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QQcTP5owenO7ZdYFMw180cwvbJA=
-			</data>
 			<key>hash2</key>
 			<data>
 			JtoYCWPJC8R+5OvkPhpPrgGZuOord7aA4j0Zyc347HE=
@@ -723,10 +619,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			m5KokM2jcKduCadVg6UdV0JzODY=
-			</data>
 			<key>hash2</key>
 			<data>
 			KBGEiIM3xNNcnic/P7IGP/9vlvcKLonuughEAj4fb1o=
@@ -734,10 +626,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDScriptInjector.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tVCUSNHRaQFPnRcwb/V0s9vPb7U=
-			</data>
 			<key>hash2</key>
 			<data>
 			rD4TYO4MbZ68XSDBUTu9fbFVDNHwHdqRyTxGOtHAruY=
@@ -745,10 +633,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDVASTProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0o08FfSKe1x67vV+FkrBSgskcpw=
-			</data>
 			<key>hash2</key>
 			<data>
 			YksILKsgIZNohGrPHgmSXbKraRtRHq+G31rjFhTwvp4=
@@ -756,10 +640,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMIDVerificationScriptResource.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+2JdTqQKlud/juDThNkJAjXehPA=
-			</data>
 			<key>hash2</key>
 			<data>
 			HgAMowu1pICUAkOVyXJwFUDxRw0NhkDevolz4ufQnLA=
@@ -767,10 +647,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Headers/OMSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SwK6aatAfFlLHnP2+J8eYoZyaqs=
-			</data>
 			<key>hash2</key>
 			<data>
 			RMvQNEJLOImLem6a8DtHWs08tFMncdsWXtF/QfYUIvQ=
@@ -778,10 +654,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fANCmKUee6m8carj/JuBwxMSJKM=
-			</data>
 			<key>hash2</key>
 			<data>
 			AHdxfNc2dlduIfjDP/jr3/d1S6pjuTWDwprCfPj2LaI=
@@ -789,10 +661,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lPl9cM2Y+qRV4m6Ut/kJ4TGaOjM=
-			</data>
 			<key>hash2</key>
 			<data>
 			/qWKfOa3yveluw0FPr2JTMrl70AUcaXJBlQRkymXgMg=
@@ -800,10 +668,6 @@
 		</dict>
 		<key>ios-arm64_armv7/OMSDK_Brightcove.framework/OMSDK_Brightcove</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Zv4WaU3emGXJX/vXv2/YzbownpQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			QYeTV3lzjVL0WUgURHSxkCOqh48KDDe/Qt8VcI2bcWY=
@@ -811,10 +675,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			meAD0Tti654qKmhqjThqmbPegk4=
-			</data>
 			<key>hash2</key>
 			<data>
 			oKBdZE8yJrnRT5vTvY/bNzzkLFSn0YmRZpzXJyMqvVU=
@@ -822,10 +682,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSession.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Tidyirt+VwV95JYIBryn6Vv5/m8=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZrwcB5NYeMdd/A8IowqVLKDAx5bvND2SDOoEb97boMA=
@@ -833,10 +689,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSessionConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ldF/UAQPqfonodOR7D/9aLJsfZY=
-			</data>
 			<key>hash2</key>
 			<data>
 			OxPFbF1BY59c0eK97lqxGHZw44Za5HVvfkP3ZJtZqQc=
@@ -844,10 +696,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSessionContext.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Xtjf7nJtJwOzgc3HdaiAIXwNiT4=
-			</data>
 			<key>hash2</key>
 			<data>
 			v6I2gc8YOrBJeCr/9jlVQ5IiDvK7FI+4QU2yZYJ7TUA=
@@ -855,10 +703,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDFriendlyObstructionType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ymPA8TI4PL8pK0zhc5ilyQj/SsA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/ZmBFlTK7mS0fZy4WqxCTpfhwDAEA4qlDHoed4FawBg=
@@ -866,10 +710,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDImports.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kklBQQiiHyi6ArUe1OOfy92xxX4=
-			</data>
 			<key>hash2</key>
 			<data>
 			WWfw+Z3RNrtOfWYdio9jyxKjmeVbPXzWNH7Pa7ErD0U=
@@ -877,10 +717,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDMediaEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			V9gMhtvQVUaftfXBCsbKZtTyFm0=
-			</data>
 			<key>hash2</key>
 			<data>
 			ju30190qWpW8HXIHuME1ZL5PegcpJ9o/htjiOqnuWv8=
@@ -888,10 +724,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDPartner.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QQcTP5owenO7ZdYFMw180cwvbJA=
-			</data>
 			<key>hash2</key>
 			<data>
 			JtoYCWPJC8R+5OvkPhpPrgGZuOord7aA4j0Zyc347HE=
@@ -899,10 +731,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			m5KokM2jcKduCadVg6UdV0JzODY=
-			</data>
 			<key>hash2</key>
 			<data>
 			KBGEiIM3xNNcnic/P7IGP/9vlvcKLonuughEAj4fb1o=
@@ -910,10 +738,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDScriptInjector.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tVCUSNHRaQFPnRcwb/V0s9vPb7U=
-			</data>
 			<key>hash2</key>
 			<data>
 			rD4TYO4MbZ68XSDBUTu9fbFVDNHwHdqRyTxGOtHAruY=
@@ -921,10 +745,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDVASTProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0o08FfSKe1x67vV+FkrBSgskcpw=
-			</data>
 			<key>hash2</key>
 			<data>
 			YksILKsgIZNohGrPHgmSXbKraRtRHq+G31rjFhTwvp4=
@@ -932,10 +752,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDVerificationScriptResource.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+2JdTqQKlud/juDThNkJAjXehPA=
-			</data>
 			<key>hash2</key>
 			<data>
 			HgAMowu1pICUAkOVyXJwFUDxRw0NhkDevolz4ufQnLA=
@@ -943,10 +759,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SwK6aatAfFlLHnP2+J8eYoZyaqs=
-			</data>
 			<key>hash2</key>
 			<data>
 			RMvQNEJLOImLem6a8DtHWs08tFMncdsWXtF/QfYUIvQ=
@@ -954,10 +766,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nuGgZaA6ib65Oi27EHIzXLaswN8=
-			</data>
 			<key>hash2</key>
 			<data>
 			eLLCGf0DO3lPUTJ1pQRw9VLJ0zT6ozJSRix5CGAwU08=
@@ -965,10 +773,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lPl9cM2Y+qRV4m6Ut/kJ4TGaOjM=
-			</data>
 			<key>hash2</key>
 			<data>
 			/qWKfOa3yveluw0FPr2JTMrl70AUcaXJBlQRkymXgMg=
@@ -976,10 +780,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/OMSDK_Brightcove</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TFZ5KCPRT31Bu9lKA6XNXfusQ6g=
-			</data>
 			<key>hash2</key>
 			<data>
 			KYRbX0DtSLpiVaMfDe3KXbCeR2bsleGt32lpK5/3H3c=
@@ -987,10 +787,6 @@
 		</dict>
 		<key>ios-arm64_i386_x86_64-simulator/OMSDK_Brightcove.framework/_CodeSignature/CodeResources</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			swMyJJLzJHiyDHBbz5tIb/UxmaI=
-			</data>
 			<key>hash2</key>
 			<data>
 			dBOVy/Ey4pSAXa9UCIU2VMtBxkI3DhSR88Zo+UUqmug=
@@ -998,10 +794,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			meAD0Tti654qKmhqjThqmbPegk4=
-			</data>
 			<key>hash2</key>
 			<data>
 			oKBdZE8yJrnRT5vTvY/bNzzkLFSn0YmRZpzXJyMqvVU=
@@ -1009,10 +801,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSession.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Tidyirt+VwV95JYIBryn6Vv5/m8=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZrwcB5NYeMdd/A8IowqVLKDAx5bvND2SDOoEb97boMA=
@@ -1020,10 +808,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSessionConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ldF/UAQPqfonodOR7D/9aLJsfZY=
-			</data>
 			<key>hash2</key>
 			<data>
 			OxPFbF1BY59c0eK97lqxGHZw44Za5HVvfkP3ZJtZqQc=
@@ -1031,10 +815,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSessionContext.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LsDu+A9DraNASa8u0UTXgZov8NU=
-			</data>
 			<key>hash2</key>
 			<data>
 			VVvHPH9S2GctUQZv0QSn3czMyK81MqxGNP0Y26a1Fog=
@@ -1042,10 +822,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDFriendlyObstructionType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ymPA8TI4PL8pK0zhc5ilyQj/SsA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/ZmBFlTK7mS0fZy4WqxCTpfhwDAEA4qlDHoed4FawBg=
@@ -1053,10 +829,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDImports.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/ghw/vX0KUlF9SSq4LZhhZDpZb4=
-			</data>
 			<key>hash2</key>
 			<data>
 			XQBgb62m3DEN2XBtnlS+hqca4MEIuBJjq6po9fIbZco=
@@ -1064,10 +836,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDJavaScriptSessionService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FBim5h6uqa4wBNmbfkdz3jpcYH0=
-			</data>
 			<key>hash2</key>
 			<data>
 			6wYW4UiL9UVGGvfnDOemoyfaAEagE9ONQ6hDLAuPDzw=
@@ -1075,10 +843,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDMediaEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			V9gMhtvQVUaftfXBCsbKZtTyFm0=
-			</data>
 			<key>hash2</key>
 			<data>
 			ju30190qWpW8HXIHuME1ZL5PegcpJ9o/htjiOqnuWv8=
@@ -1086,10 +850,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDPartner.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QQcTP5owenO7ZdYFMw180cwvbJA=
-			</data>
 			<key>hash2</key>
 			<data>
 			JtoYCWPJC8R+5OvkPhpPrgGZuOord7aA4j0Zyc347HE=
@@ -1097,10 +857,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qnvEPUOwpw15xtWHQXDBEuRrsyg=
-			</data>
 			<key>hash2</key>
 			<data>
 			JKJF++YrNJ2cz4VCBJlQZDleZcIxjR35q81MTkXobv8=
@@ -1108,10 +864,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDScriptInjector.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tVCUSNHRaQFPnRcwb/V0s9vPb7U=
-			</data>
 			<key>hash2</key>
 			<data>
 			rD4TYO4MbZ68XSDBUTu9fbFVDNHwHdqRyTxGOtHAruY=
@@ -1119,10 +871,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDVASTProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0o08FfSKe1x67vV+FkrBSgskcpw=
-			</data>
 			<key>hash2</key>
 			<data>
 			YksILKsgIZNohGrPHgmSXbKraRtRHq+G31rjFhTwvp4=
@@ -1130,10 +878,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDVerificationScriptResource.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+2JdTqQKlud/juDThNkJAjXehPA=
-			</data>
 			<key>hash2</key>
 			<data>
 			HgAMowu1pICUAkOVyXJwFUDxRw0NhkDevolz4ufQnLA=
@@ -1141,10 +885,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SwK6aatAfFlLHnP2+J8eYoZyaqs=
-			</data>
 			<key>hash2</key>
 			<data>
 			RMvQNEJLOImLem6a8DtHWs08tFMncdsWXtF/QfYUIvQ=
@@ -1152,10 +892,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4ejuleQMdaKbP+JJfgkABsEqC60=
-			</data>
 			<key>hash2</key>
 			<data>
 			Qp+0EOFOYvcO4urATy30CLkuh51GWZIU2zbaBVGokNg=
@@ -1163,10 +899,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lPl9cM2Y+qRV4m6Ut/kJ4TGaOjM=
-			</data>
 			<key>hash2</key>
 			<data>
 			/qWKfOa3yveluw0FPr2JTMrl70AUcaXJBlQRkymXgMg=
@@ -1174,10 +906,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/OMSDK_Brightcove</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MVCWJvCsW1c3sKBlLsGn5yTSBn8=
-			</data>
 			<key>hash2</key>
 			<data>
 			1GRq+HE4QWXoQWtdjEbHb38PloXA7orkIQLzuWE9a4o=
@@ -1185,10 +913,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7BgfS40JHW2Znl7afTrGvxB58Ws=
-			</data>
 			<key>hash2</key>
 			<data>
 			5rdpDTW6MDoz1u2y0rCJB5ensp/KZWPv7EAq4o8GtfM=
@@ -1196,10 +920,6 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OMSDK_Brightcove.framework/_CodeSignature/CodeResources</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			U1iWUBI0LObk5kTin6GG7S1nXzc=
-			</data>
 			<key>hash2</key>
 			<data>
 			G2M+WcC8t3wf7SRf8U1J1ckSearBR3vEu8ZnCa87Efo=
@@ -1207,10 +927,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDAdEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			meAD0Tti654qKmhqjThqmbPegk4=
-			</data>
 			<key>hash2</key>
 			<data>
 			oKBdZE8yJrnRT5vTvY/bNzzkLFSn0YmRZpzXJyMqvVU=
@@ -1218,10 +934,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDAdSession.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Tidyirt+VwV95JYIBryn6Vv5/m8=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZrwcB5NYeMdd/A8IowqVLKDAx5bvND2SDOoEb97boMA=
@@ -1229,10 +941,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDAdSessionConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ldF/UAQPqfonodOR7D/9aLJsfZY=
-			</data>
 			<key>hash2</key>
 			<data>
 			OxPFbF1BY59c0eK97lqxGHZw44Za5HVvfkP3ZJtZqQc=
@@ -1240,10 +948,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDAdSessionContext.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LsDu+A9DraNASa8u0UTXgZov8NU=
-			</data>
 			<key>hash2</key>
 			<data>
 			VVvHPH9S2GctUQZv0QSn3czMyK81MqxGNP0Y26a1Fog=
@@ -1251,10 +955,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDFriendlyObstructionType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ymPA8TI4PL8pK0zhc5ilyQj/SsA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/ZmBFlTK7mS0fZy4WqxCTpfhwDAEA4qlDHoed4FawBg=
@@ -1262,10 +962,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDImports.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/ghw/vX0KUlF9SSq4LZhhZDpZb4=
-			</data>
 			<key>hash2</key>
 			<data>
 			XQBgb62m3DEN2XBtnlS+hqca4MEIuBJjq6po9fIbZco=
@@ -1273,10 +969,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDJavaScriptSessionService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FBim5h6uqa4wBNmbfkdz3jpcYH0=
-			</data>
 			<key>hash2</key>
 			<data>
 			6wYW4UiL9UVGGvfnDOemoyfaAEagE9ONQ6hDLAuPDzw=
@@ -1284,10 +976,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDMediaEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			V9gMhtvQVUaftfXBCsbKZtTyFm0=
-			</data>
 			<key>hash2</key>
 			<data>
 			ju30190qWpW8HXIHuME1ZL5PegcpJ9o/htjiOqnuWv8=
@@ -1295,10 +983,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDPartner.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QQcTP5owenO7ZdYFMw180cwvbJA=
-			</data>
 			<key>hash2</key>
 			<data>
 			JtoYCWPJC8R+5OvkPhpPrgGZuOord7aA4j0Zyc347HE=
@@ -1306,10 +990,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qnvEPUOwpw15xtWHQXDBEuRrsyg=
-			</data>
 			<key>hash2</key>
 			<data>
 			JKJF++YrNJ2cz4VCBJlQZDleZcIxjR35q81MTkXobv8=
@@ -1317,10 +997,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDScriptInjector.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tVCUSNHRaQFPnRcwb/V0s9vPb7U=
-			</data>
 			<key>hash2</key>
 			<data>
 			rD4TYO4MbZ68XSDBUTu9fbFVDNHwHdqRyTxGOtHAruY=
@@ -1328,10 +1004,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDVASTProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0o08FfSKe1x67vV+FkrBSgskcpw=
-			</data>
 			<key>hash2</key>
 			<data>
 			YksILKsgIZNohGrPHgmSXbKraRtRHq+G31rjFhTwvp4=
@@ -1339,10 +1011,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMIDVerificationScriptResource.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+2JdTqQKlud/juDThNkJAjXehPA=
-			</data>
 			<key>hash2</key>
 			<data>
 			HgAMowu1pICUAkOVyXJwFUDxRw0NhkDevolz4ufQnLA=
@@ -1350,10 +1018,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Headers/OMSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SwK6aatAfFlLHnP2+J8eYoZyaqs=
-			</data>
 			<key>hash2</key>
 			<data>
 			RMvQNEJLOImLem6a8DtHWs08tFMncdsWXtF/QfYUIvQ=
@@ -1361,10 +1025,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZuABD+GXJt5dpPy4GuQ8hYghwyc=
-			</data>
 			<key>hash2</key>
 			<data>
 			kMofs6fWzQV+zh20+fdRbYuSQ1sk2TSr5YzxjgIeiZs=
@@ -1372,10 +1032,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lPl9cM2Y+qRV4m6Ut/kJ4TGaOjM=
-			</data>
 			<key>hash2</key>
 			<data>
 			/qWKfOa3yveluw0FPr2JTMrl70AUcaXJBlQRkymXgMg=
@@ -1383,10 +1039,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/OMSDK_Brightcove</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cAkjDyhvUVde+2Mf4C/osNeMm7A=
-			</data>
 			<key>hash2</key>
 			<data>
 			uX2UJA//cOWUtH3uE5I040u/OrjOw9qqdcw9+ktGXYk=
@@ -1394,10 +1046,6 @@
 		</dict>
 		<key>tvos-arm64/OMSDK_Brightcove.framework/PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7BgfS40JHW2Znl7afTrGvxB58Ws=
-			</data>
 			<key>hash2</key>
 			<data>
 			5rdpDTW6MDoz1u2y0rCJB5ensp/KZWPv7EAq4o8GtfM=
@@ -1405,10 +1053,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			meAD0Tti654qKmhqjThqmbPegk4=
-			</data>
 			<key>hash2</key>
 			<data>
 			oKBdZE8yJrnRT5vTvY/bNzzkLFSn0YmRZpzXJyMqvVU=
@@ -1416,10 +1060,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSession.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Tidyirt+VwV95JYIBryn6Vv5/m8=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZrwcB5NYeMdd/A8IowqVLKDAx5bvND2SDOoEb97boMA=
@@ -1427,10 +1067,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSessionConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ldF/UAQPqfonodOR7D/9aLJsfZY=
-			</data>
 			<key>hash2</key>
 			<data>
 			OxPFbF1BY59c0eK97lqxGHZw44Za5HVvfkP3ZJtZqQc=
@@ -1438,10 +1074,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDAdSessionContext.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LsDu+A9DraNASa8u0UTXgZov8NU=
-			</data>
 			<key>hash2</key>
 			<data>
 			VVvHPH9S2GctUQZv0QSn3czMyK81MqxGNP0Y26a1Fog=
@@ -1449,10 +1081,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDFriendlyObstructionType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ymPA8TI4PL8pK0zhc5ilyQj/SsA=
-			</data>
 			<key>hash2</key>
 			<data>
 			/ZmBFlTK7mS0fZy4WqxCTpfhwDAEA4qlDHoed4FawBg=
@@ -1460,10 +1088,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDImports.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/ghw/vX0KUlF9SSq4LZhhZDpZb4=
-			</data>
 			<key>hash2</key>
 			<data>
 			XQBgb62m3DEN2XBtnlS+hqca4MEIuBJjq6po9fIbZco=
@@ -1471,10 +1095,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDJavaScriptSessionService.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FBim5h6uqa4wBNmbfkdz3jpcYH0=
-			</data>
 			<key>hash2</key>
 			<data>
 			6wYW4UiL9UVGGvfnDOemoyfaAEagE9ONQ6hDLAuPDzw=
@@ -1482,10 +1102,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDMediaEvents.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			V9gMhtvQVUaftfXBCsbKZtTyFm0=
-			</data>
 			<key>hash2</key>
 			<data>
 			ju30190qWpW8HXIHuME1ZL5PegcpJ9o/htjiOqnuWv8=
@@ -1493,10 +1109,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDPartner.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QQcTP5owenO7ZdYFMw180cwvbJA=
-			</data>
 			<key>hash2</key>
 			<data>
 			JtoYCWPJC8R+5OvkPhpPrgGZuOord7aA4j0Zyc347HE=
@@ -1504,10 +1116,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qnvEPUOwpw15xtWHQXDBEuRrsyg=
-			</data>
 			<key>hash2</key>
 			<data>
 			JKJF++YrNJ2cz4VCBJlQZDleZcIxjR35q81MTkXobv8=
@@ -1515,10 +1123,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDScriptInjector.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tVCUSNHRaQFPnRcwb/V0s9vPb7U=
-			</data>
 			<key>hash2</key>
 			<data>
 			rD4TYO4MbZ68XSDBUTu9fbFVDNHwHdqRyTxGOtHAruY=
@@ -1526,10 +1130,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDVASTProperties.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0o08FfSKe1x67vV+FkrBSgskcpw=
-			</data>
 			<key>hash2</key>
 			<data>
 			YksILKsgIZNohGrPHgmSXbKraRtRHq+G31rjFhTwvp4=
@@ -1537,10 +1137,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMIDVerificationScriptResource.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+2JdTqQKlud/juDThNkJAjXehPA=
-			</data>
 			<key>hash2</key>
 			<data>
 			HgAMowu1pICUAkOVyXJwFUDxRw0NhkDevolz4ufQnLA=
@@ -1548,10 +1144,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Headers/OMSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SwK6aatAfFlLHnP2+J8eYoZyaqs=
-			</data>
 			<key>hash2</key>
 			<data>
 			RMvQNEJLOImLem6a8DtHWs08tFMncdsWXtF/QfYUIvQ=
@@ -1559,10 +1151,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2I2yhLIH2l0OLz8VRKy6z7Jnljw=
-			</data>
 			<key>hash2</key>
 			<data>
 			EqlV1e7VwHRJ/7quiuCIMnXauIxXIrxWPMF1565n/3A=
@@ -1570,10 +1158,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lPl9cM2Y+qRV4m6Ut/kJ4TGaOjM=
-			</data>
 			<key>hash2</key>
 			<data>
 			/qWKfOa3yveluw0FPr2JTMrl70AUcaXJBlQRkymXgMg=
@@ -1581,10 +1165,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/OMSDK_Brightcove</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JNqjaJ78T57FPO0kKD7wImD7rZY=
-			</data>
 			<key>hash2</key>
 			<data>
 			EoPmiK6Pd1xil6RMbZIz0XS97pkg3DhHZUITDzjx+b0=
@@ -1592,10 +1172,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7BgfS40JHW2Znl7afTrGvxB58Ws=
-			</data>
 			<key>hash2</key>
 			<data>
 			5rdpDTW6MDoz1u2y0rCJB5ensp/KZWPv7EAq4o8GtfM=
@@ -1603,10 +1179,6 @@
 		</dict>
 		<key>tvos-arm64_x86_64-simulator/OMSDK_Brightcove.framework/_CodeSignature/CodeResources</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YoG8rYUL84i9etR+VhhePoc+emE=
-			</data>
 			<key>hash2</key>
 			<data>
 			D6mCXOrys9zc0tvvwI+6CfFL5tegzsDNbqVGni6BLI8=

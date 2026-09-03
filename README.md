@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.16.38
+# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.17.40
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
