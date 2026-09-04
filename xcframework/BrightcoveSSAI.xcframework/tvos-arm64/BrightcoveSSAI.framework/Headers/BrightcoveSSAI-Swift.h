@@ -441,8 +441,6 @@ SWIFT_CLASS_NAMED("BCOVSSAILive2Coordinator")
 /// Live correlates on PROGRAM-DATE-TIME: the player’s elapsed time and
 /// MediaTailor’s tracking times share no origin, but both carry wallclock.
 - (BCOVSSAILive2AdInfo * _Nullable)presentableAdInfoAtDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
-/// All non-slate ads in an avail, in playback order. Used to build the
-/// BCOVAdSequence the controller requires on AdSequenceEnter.
 /// Drops avails whose break ended before the playhead, and fires any timed
 /// beacons the playhead has crossed. Called once per playhead tick.
 - (void)updateForPlayheadDate:(NSDate * _Nonnull)date;
