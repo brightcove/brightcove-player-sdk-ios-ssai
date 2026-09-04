@@ -11,6 +11,8 @@
 
 @import BrightcovePlayerSDK;
 
+@class BCOVOUXSessionProviderOptions;
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,6 +49,26 @@ NS_ASSUME_NONNULL_BEGIN
  * @return A new BCOVSSAISessionProvider with the specified parameters.
  */
 - (id<BCOVPlaybackSessionProvider>)createSSAISessionProviderWithUpstreamSessionProvider:(nullable id<BCOVPlaybackSessionProvider>)provider;
+
+/**
+ * Creates and returns a new BCOVSSAI session provider configured with the
+ * supplied options.
+ *
+ * This is the only way to reach the options object. Use it to set NextGen Live
+ * ad targeting parameters (`live2AdsParams`) or to change or disable NextGen
+ * Live detection (`nextGenLiveDetection`).
+ *
+ * If `options.omidPartnerName` is set, it is honoured exactly as it is by
+ * `-createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:`, and is
+ * ignored when the OpenMeasurement framework is not embedded in the app.
+ *
+ * @param provider Optional upstream session provider.
+ * @param options Optional configuration. Passing nil matches
+ *        `-createSSAISessionProviderWithUpstreamSessionProvider:`.
+ * @return A new BCOVSSAISessionProvider with the specified parameters.
+ */
+- (id<BCOVPlaybackSessionProvider>)createSSAISessionProviderWithUpstreamSessionProvider:(nullable id<BCOVPlaybackSessionProvider>)provider
+                                                                               options:(nullable BCOVOUXSessionProviderOptions *)options;
 
 #if !TARGET_OS_TV && !TARGET_OS_MACCATALYST
 /**

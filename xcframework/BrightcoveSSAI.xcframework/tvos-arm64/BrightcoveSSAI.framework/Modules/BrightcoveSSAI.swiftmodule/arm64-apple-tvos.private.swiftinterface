@@ -1,0 +1,184 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-tvos12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BrightcoveSSAI
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+@_exported import BrightcoveSSAI
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc(BCOVSSAILive2ErrorCode) public enum BCOVSSAILive2ErrorCode : Swift.Int {
+  case networkError
+  case invalidSession
+  case timeoutError
+  case parseError
+  case sessionError
+  case trackingError
+  public var name: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct BCOVSSAILive2Error : Swift.Error {
+  public static let domain: Swift.String
+  public let code: BrightcoveSSAI.BCOVSSAILive2ErrorCode
+  public let message: Swift.String
+  public let timestamp: Foundation.Date
+  public let context: [Swift.String : Swift.String]
+  public let underlying: (any Swift.Error)?
+}
+extension BrightcoveSSAI.BCOVSSAILive2Error : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension BrightcoveSSAI.BCOVSSAILive2Error : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+@objc(BCOVSSAILive2TrackingType) public enum BCOVSSAILive2TrackingType : Swift.Int {
+  case impression
+  case start
+  case firstQuartile
+  case midpoint
+  case thirdQuartile
+  case complete
+  case creativeView
+  case pause
+  case resume
+  case clickThrough
+  case clickTracking
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(BCOVSSAILive2DetectionRule) public enum BCOVSSAILive2DetectionRule : Swift.Int {
+  case hostname
+  case playbackToken
+  case either
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(BCOVSSAILive2Detector) final public class BCOVSSAILive2Detector : ObjectiveC.NSObject {
+  @objc public static let defaultRule: BrightcoveSSAI.BCOVSSAILive2DetectionRule
+  @objc(isLive2SourceURL:playbackToken:rule:) public static func isLive2(sourceURL: Foundation.URL?, playbackToken: Swift.String?, rule: BrightcoveSSAI.BCOVSSAILive2DetectionRule) -> Swift.Bool
+  @objc(isLive2SourceURL:playbackToken:) public static func isLive2(sourceURL: Foundation.URL?, playbackToken: Swift.String?) -> Swift.Bool
+  @objc(matchesLive2Hostname:) public static func matchesHostname(_ url: Foundation.URL?) -> Swift.Bool
+  @objc(isJWTShapedToken:) public static func isJWTShaped(_ token: Swift.String?) -> Swift.Bool
+  @objc(isLegacyOnceSSAIURL:) public static func isLegacyOnceSSAI(_ url: Foundation.URL?) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(BCOVSSAILive2SessionControllerDelegate) public protocol BCOVSSAILive2SessionControllerDelegate {
+  @objc func live2ControllerDidResolveManifest(_ manifestURL: Foundation.URL)
+  @objc func live2ControllerDidUpdateTimeline()
+  @objc func live2ControllerDidReceiveOverlayConfiguration()
+  @objc func live2ControllerDidFail(_ error: any Swift.Error)
+}
+@_hasMissingDesignatedInitializers @objc(BCOVSSAILive2CompanionInfo) final public class BCOVSSAILive2CompanionInfo : ObjectiveC.NSObject {
+  @objc final public let identifier: Swift.String
+  @objc final public let width: Swift.Int
+  @objc final public let height: Swift.Int
+  @objc final public let staticResource: Foundation.URL?
+  @objc final public let creativeType: Swift.String
+  @objc final public let clickThrough: Foundation.URL?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(BCOVSSAILive2AdInfo) final public class BCOVSSAILive2AdInfo : ObjectiveC.NSObject {
+  @objc final public let adId: Swift.String
+  @objc final public let title: Swift.String
+  @objc final public let beginTime: Foundation.TimeInterval
+  @objc final public let duration: Foundation.TimeInterval
+  @objc final public let isSlate: Swift.Bool
+  @objc final public let clickthroughURLs: [Swift.String]
+  @objc final public let clickTrackingURLs: [Swift.String]
+  @objc final public let trackingURLs: [Swift.String]
+  @objc final public let companions: [BrightcoveSSAI.BCOVSSAILive2CompanionInfo]
+  @objc final public var endTime: Foundation.TimeInterval {
+    @objc get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(BCOVSSAILive2AdCountdown) final public class BCOVSSAILive2AdCountdown : ObjectiveC.NSObject {
+  @objc final public let remainingInCurrentAd: Foundation.TimeInterval
+  @objc final public let remainingInBreak: Foundation.TimeInterval
+  @objc final public let adIndex: Swift.Int
+  @objc final public let adCount: Swift.Int
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(BCOVSSAILive2VerificationInfo) final public class BCOVSSAILive2VerificationInfo : ObjectiveC.NSObject {
+  @objc final public let vendor: Swift.String
+  @objc final public let apiFramework: Swift.String
+  @objc final public let browserOptional: Swift.Bool
+  @objc final public let resource: Foundation.URL
+  @objc final public let verificationParameters: Swift.String
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(BCOVSSAILive2OMID) final public class BCOVSSAILive2OMID : ObjectiveC.NSObject {
+  @objc(verificationsForTimelineEntryWithAdId:timeline:) public static func verifications(adId: Swift.String, timeline: BrightcoveSSAI.BCOVSSAILive2TimelineHandle) -> [BrightcoveSSAI.BCOVSSAILive2VerificationInfo]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(BCOVSSAILive2TimelineHandle) final public class BCOVSSAILive2TimelineHandle : ObjectiveC.NSObject {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(BCOVSSAILive2Coordinator) final public class BCOVSSAILive2Coordinator : ObjectiveC.NSObject {
+  @objc final public var manifestURL: Foundation.URL? {
+    get
+  }
+  @objc final public var trackingURL: Foundation.URL? {
+    @objc get
+  }
+  @objc(initWithSourceURL:) public init(sourceURL: Foundation.URL)
+  @objc(isLive2SourceURL:playbackToken:) public static func isLive2(sourceURL: Foundation.URL?, playbackToken: Swift.String?) -> Swift.Bool
+  @objc(startWithAdsParams:completion:) final public func start(adsParams: [Swift.String : Swift.String], completion: @escaping (Foundation.URL?, (any Swift.Error)?) -> Swift.Void)
+  @objc(resumeWithManifestURL:trackingURL:completion:) final public func resume(manifestURL: Foundation.URL, trackingURL: Foundation.URL, completion: @escaping (Foundation.URL?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func stop()
+  @objc final public var timelineHandle: BrightcoveSSAI.BCOVSSAILive2TimelineHandle {
+    @objc get
+  }
+  @objc(presentableAdInfoAtDate:) final public func presentableAdInfo(at date: Foundation.Date) -> BrightcoveSSAI.BCOVSSAILive2AdInfo?
+  @objc(updateForPlayheadDate:) final public func update(forPlayheadDate date: Foundation.Date)
+  @objc(verificationsForAdId:) final public func verifications(forAdId adId: Swift.String) -> [BrightcoveSSAI.BCOVSSAILive2VerificationInfo]
+  @objc(fireAdPausedForAdId:) final public func fireAdPaused(forAdId adId: Swift.String)
+  @objc(fireAdResumedForAdId:) final public func fireAdResumed(forAdId adId: Swift.String)
+  @objc(fireClickTrackingForAdId:) final public func fireClickTracking(forAdId adId: Swift.String)
+  @objc(adsForAvailId:) final public func ads(forAvailId availId: Swift.String) -> [BrightcoveSSAI.BCOVSSAILive2AdInfo]
+  @objc(presentableAdCountForAvailId:) final public func presentableAdCount(forAvailId availId: Swift.String) -> Swift.Int
+  @objc(availIdAtDate:) final public func availId(at date: Foundation.Date) -> Swift.String?
+  @objc(seekTargetDateFrom:to:) final public func seekTargetDate(from origin: Foundation.Date, to destination: Foundation.Date) -> Foundation.Date?
+  @objc deinit
+}
+extension BrightcoveSSAI.BCOVSSAILive2Coordinator : BrightcoveSSAI.BCOVSSAILive2SessionControllerDelegate {
+  @objc final public func live2ControllerDidResolveManifest(_ manifestURL: Foundation.URL)
+  @objc final public func live2ControllerDidUpdateTimeline()
+  @objc final public func live2ControllerDidReceiveOverlayConfiguration()
+  @objc final public func live2ControllerDidFail(_ error: any Swift.Error)
+}
+extension BrightcoveSSAI.BCOVSSAILive2ErrorCode : Swift.Equatable {}
+extension BrightcoveSSAI.BCOVSSAILive2ErrorCode : Swift.Hashable {}
+extension BrightcoveSSAI.BCOVSSAILive2ErrorCode : Swift.RawRepresentable {}
+extension BrightcoveSSAI.BCOVSSAILive2TrackingType : Swift.Equatable {}
+extension BrightcoveSSAI.BCOVSSAILive2TrackingType : Swift.Hashable {}
+extension BrightcoveSSAI.BCOVSSAILive2TrackingType : Swift.RawRepresentable {}
+extension BrightcoveSSAI.BCOVSSAILive2DetectionRule : Swift.Equatable {}
+extension BrightcoveSSAI.BCOVSSAILive2DetectionRule : Swift.Hashable {}
+extension BrightcoveSSAI.BCOVSSAILive2DetectionRule : Swift.RawRepresentable {}

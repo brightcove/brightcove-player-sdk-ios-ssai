@@ -4,3 +4,7 @@ framework module BrightcoveSSAI {
 
   module * { export * }
 }
+
+module BrightcoveSSAI.Swift {
+  header "BrightcoveSSAI-Swift.h"
+}

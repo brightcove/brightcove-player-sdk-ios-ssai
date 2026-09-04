@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.17.40
+# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.18.42
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -459,9 +459,44 @@ func replaceSSAIVariablesInVMAPURL(_ vmapURL: String) -> String {
 }
 ```
 
+## NextGen Live Configuration
+
+NextGen Live (Cloud Playout 2.0) streams are detected and played automatically, so no configuration is required. To change any of it, create the session provider with an options object:
+
+```swift
+let options = BCOVOUXSessionProviderOptions()
+
+// Ad targeting parameters. Sent in the `adsParams` field of the session
+// initialization request; the SSAI server uses them to replace macros in the
+// ad tag URL.
+options.live2AdsParams = [
+    "deviceType": "mobile",
+    "uid": userId
+]
+
+let ssaiSessionProvider = sdkManager.createSSAISessionProvider(withUpstreamSessionProvider: nil,
+                                                               options: options)
+```
+
+`live2AdsParams` must be set before the session provider is created, because session initialization happens as soon as a NextGen Live source is loaded. It is ignored for Legacy Live and VOD SSAI sources, which carry their ad targeting in the VMAP URL instead.
+
+### Disabling NextGen Live
+
+`nextGenLiveDetection` controls how — and whether — a source is recognised as NextGen Live:
+
+```swift
+options.nextGenLiveDetection = .disabled
+```
+
+With detection disabled, NextGen Live streams play as plain video with no ad features rather than failing. This is a client-side off switch: an app that ships with NextGen Live support can turn it off without needing a new build to recover.
+
+### Behaviour when session initialization fails
+
+If session initialization fails — the request times out, the network is unavailable, or the response is rejected — the plugin logs the failure and plays the original stream without ad features. Playback is not interrupted and no error is surfaced to the viewer. Ad tracking, the ad UI and clickthrough are all unavailable for that session.
+
 ## Known Issues
 
-* **NextGen Live SSAI (Cloud Playout 2.0) is not supported.** This plugin only supports Legacy Live SSAI streams (URLs containing `_ssaiM`). NextGen Live streams use a different URL format (`ssai.live.brightcove.com`) and will fall back to normal playback without SSAI features (no ad UI, beaconing, or clickthrough support). This is a known limitation. To enable playback for NextGen Live streams, client apps should detect the JWT-style `livePlaybackToken` (starts with "eyJ") and use a basic playback controller instead of the SSAI session provider.
+* **NextGen Live SSAI (Cloud Playout 2.0) is supported.** NextGen Live streams (`ssai.live.brightcove.com`, or a JWT-style `livePlaybackToken` beginning `eyJ`) are detected automatically and played through the SSAI session provider — no separate playback controller is needed. Ads are stitched into the manifest server-side, and the countdown overlay, Learn More clickthrough, companion slots and client-side tracking beacons all work as they do for Legacy Live SSAI. Ad boundaries are correlated on `EXT-X-PROGRAM-DATE-TIME`, so the stream's manifest must carry it. Open Measurement is wired for these streams: `adVerifications` from the tracking payload open an OM ad session for the duration of each ad, on iOS, when the SSAI session provider was created with an `omidPartner`. It has not yet been exercised against a live ad response containing `adVerifications`, because no reachable test ad server emits them.
 
 * Because tvOS does not support Web browsing, Companion Ads, Learn More and all ad clickthroughs are ignored on that platform.
 
