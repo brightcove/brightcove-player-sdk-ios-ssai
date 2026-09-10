@@ -5861,15 +5861,22 @@
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "kind": "Dictionary",
+      "offset": 1477,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Array",
-      "offset": 1487,
+      "offset": 1543,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "IntegerLiteral",
-      "offset": 5650,
+      "offset": 5965,
       "length": 1,
       "value": "0"
     },
