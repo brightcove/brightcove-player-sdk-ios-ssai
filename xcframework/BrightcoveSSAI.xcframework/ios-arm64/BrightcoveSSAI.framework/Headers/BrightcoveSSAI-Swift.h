@@ -382,6 +382,7 @@ SWIFT_CLASS_NAMED("BCOVSSAILive2AdCountdown")
 
 @class NSString;
 @class BCOVSSAILive2CompanionInfo;
+@class NSDate;
 SWIFT_CLASS_NAMED("BCOVSSAILive2AdInfo")
 @interface BCOVSSAILive2AdInfo : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull adId;
@@ -393,6 +394,9 @@ SWIFT_CLASS_NAMED("BCOVSSAILive2AdInfo")
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull clickTrackingURLs;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull trackingURLs;
 @property (nonatomic, readonly, copy) NSArray<BCOVSSAILive2CompanionInfo *> * _Nonnull companions;
+/// When the ad starts on the wallclock, resolved through its avail. Nil for
+/// lookups that are not keyed on a date.
+@property (nonatomic, readonly, copy) NSDate * _Nullable startDate;
 @property (nonatomic, readonly) NSTimeInterval endTime;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -414,7 +418,6 @@ SWIFT_CLASS_NAMED("BCOVSSAILive2CompanionInfo")
 @end
 
 @class BCOVSSAILive2TimelineHandle;
-@class NSDate;
 @class BCOVSSAILive2VerificationInfo;
 /// ObjC-facing facade over the Live 2.0 stack. <code>BCOVOUXSession</code> owns one of
 /// these for the lifetime of a Live 2.0 session: it performs session
@@ -441,6 +444,21 @@ SWIFT_CLASS_NAMED("BCOVSSAILive2Coordinator")
 /// Live correlates on PROGRAM-DATE-TIME: the player’s elapsed time and
 /// MediaTailor’s tracking times share no origin, but both carry wallclock.
 - (BCOVSSAILive2AdInfo * _Nullable)presentableAdInfoAtDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
+- (void)noteInferredAvailWithId:(NSString * _Nonnull)id startDate:(NSDate * _Nonnull)startDate durationInSeconds:(double)durationInSeconds;
+- (void)noteSignalledBreakWithId:(NSString * _Nonnull)id startDate:(NSDate * _Nonnull)startDate durationInSeconds:(double)durationInSeconds;
+/// Planned length of the break an avail sits in, from the stream’s SCTE-35
+/// date range. Zero when the stream signalled none.
+- (double)plannedBreakDurationForAvailId:(NSString * _Nonnull)availId SWIFT_WARN_UNUSED_RESULT;
+- (double)breakBeginTimeForAvailId:(NSString * _Nonnull)availId SWIFT_WARN_UNUSED_RESULT;
+/// When the avail’s break ends on the wallclock, from its tracked duration
+/// or its last ad. Nil until the avail has a date to anchor on.
+- (NSDate * _Nullable)availEndDateForAvailId:(NSString * _Nonnull)availId SWIFT_WARN_UNUSED_RESULT;
+/// Whether MediaTailor may still list more ads for an avail. It lists a
+/// pod’s ads one at a time as each is stitched, so the count is only final
+/// once the listed ads fill the signalled break — less a tolerance for the
+/// slate that pads a pod whose creatives do not add up exactly.
+- (BOOL)adCountIsProvisionalForAvailId:(NSString * _Nonnull)availId SWIFT_WARN_UNUSED_RESULT;
+- (BCOVSSAILive2AdInfo * _Nullable)slateOnlyBreakInfoAtDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 /// Drops avails whose break ended before the playhead, and fires any timed
 /// beacons the playhead has crossed. Called once per playhead tick.
 - (void)updateForPlayheadDate:(NSDate * _Nonnull)date;
@@ -511,6 +529,55 @@ typedef SWIFT_ENUM_NAMED(NSInteger, BCOVSSAILive2ErrorCode, "BCOVSSAILive2ErrorC
   BCOVSSAILive2ErrorCodeSessionError = 4,
   BCOVSSAILive2ErrorCodeTrackingError = 5,
 };
+
+/// The seekable window of a live stream as AVFoundation reports it, and the
+/// arithmetic for deciding whether a playhead that sat paused inside it has to
+/// rejoin the live edge before it plays again.
+/// A paused AVPlayer keeps the playlist it had when it stopped, so at resume
+/// the window it reports can be as stale as the pause was long, while the
+/// playlist itself went on sliding at wallclock rate. The length of the pause
+/// and where the playhead stood when it began therefore say more about the
+/// present than the reported window does.
+SWIFT_CLASS_NAMED("BCOVSSAILive2LiveWindow")
+@interface BCOVSSAILive2LiveWindow : NSObject
+/// Distance behind the end of the seekable window to join at. Playing
+/// right at the end of a live playlist stalls the moment a segment is late.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSTimeInterval edgeHoldback;)
++ (NSTimeInterval)edgeHoldback SWIFT_WARN_UNUSED_RESULT;
+/// A playhead closer than this to the window’s start is treated as already
+/// out of it: the next playlist refresh will have dropped its segment.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSTimeInterval margin;)
++ (NSTimeInterval)margin SWIFT_WARN_UNUSED_RESULT;
+/// When the window cannot be measured, a pause longer than this is assumed
+/// to have outlived it.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSTimeInterval rejoinAfterPause;)
++ (NSTimeInterval)rejoinAfterPause SWIFT_WARN_UNUSED_RESULT;
+/// AVFoundation leaves the last three target durations of a live playlist
+/// out of the seekable range, so a channel with a short DVR window reports
+/// a point or a sliver whose edges say nothing about the playlist.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSTimeInterval minimumMeasurableDuration;)
++ (NSTimeInterval)minimumMeasurableDuration SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isMeasurableDuration:(NSTimeInterval)duration SWIFT_WARN_UNUSED_RESULT;
+/// How long the playhead can stand still before the window’s sliding start
+/// reaches it. NaN when the window cannot be measured.
++ (NSTimeInterval)slackForPlayhead:(NSTimeInterval)playhead windowStart:(NSTimeInterval)windowStart windowDuration:(NSTimeInterval)windowDuration SWIFT_WARN_UNUSED_RESULT;
+/// Whether an ad paused for <code>paused</code> seconds has to rejoin the live edge
+/// before playing: either the pause used up the slack measured when it
+/// began, or it outlasted <code>rejoinAfterPause</code> and the window cannot be
+/// measured now.
++ (BOOL)pauseOutlastedWindowAfter:(NSTimeInterval)paused slackAtPause:(NSTimeInterval)slackAtPause windowIsMeasurableNow:(BOOL)windowIsMeasurableNow SWIFT_WARN_UNUSED_RESULT;
+/// A pause this long has outlived the live playlist itself. Seeking the
+/// stale item to its edge then tends to fail and fall through to the
+/// failure-recovery reload with its back-off; reloading straight away is
+/// faster.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSTimeInterval reloadAfterPause;)
++ (NSTimeInterval)reloadAfterPause SWIFT_WARN_UNUSED_RESULT;
+/// Whether resuming after <code>paused</code> seconds should reload the manifest at
+/// the live edge instead of seeking: longer than <code>reloadAfterPause</code>, and
+/// longer than twice the window when the window can be measured.
++ (BOOL)pauseOutlivedPlaylistAfter:(NSTimeInterval)paused windowDuration:(NSTimeInterval)windowDuration SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 SWIFT_CLASS_NAMED("BCOVSSAILive2OMID")
 @interface BCOVSSAILive2OMID : NSObject

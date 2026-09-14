@@ -3456,6 +3456,73 @@
           },
           {
             "kind": "Var",
+            "name": "startDate",
+            "printedName": "startDate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Date?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2AdInfo(py)startDate",
+            "mangledName": "$s14BrightcoveSSAI19BCOVSSAILive2AdInfoC9startDate10Foundation0G0VSgvp",
+            "moduleName": "BrightcoveSSAI",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Date?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Date",
+                        "printedName": "Foundation.Date",
+                        "usr": "s:10Foundation4DateV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2AdInfo(im)startDate",
+                "mangledName": "$s14BrightcoveSSAI19BCOVSSAILive2AdInfoC9startDate10Foundation0G0VSgvg",
+                "moduleName": "BrightcoveSSAI",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "endTime",
             "printedName": "endTime",
             "children": [
@@ -5071,6 +5138,257 @@
           },
           {
             "kind": "Function",
+            "name": "noteInferredAvail",
+            "printedName": "noteInferredAvail(id:startDate:durationInSeconds:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)noteInferredAvailWithId:startDate:durationInSeconds:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC17noteInferredAvail2id9startDate17durationInSecondsySS_10Foundation0J0VSdtF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "noteInferredAvailWithId:startDate:durationInSeconds:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "noteSignalledBreak",
+            "printedName": "noteSignalledBreak(id:startDate:durationInSeconds:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)noteSignalledBreakWithId:startDate:durationInSeconds:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC18noteSignalledBreak2id9startDate17durationInSecondsySS_10Foundation0J0VSdtF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "noteSignalledBreakWithId:startDate:durationInSeconds:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "plannedBreakDuration",
+            "printedName": "plannedBreakDuration(forAvailId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)plannedBreakDurationForAvailId:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC20plannedBreakDuration10forAvailIdSdSS_tF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "plannedBreakDurationForAvailId:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "breakBeginTime",
+            "printedName": "breakBeginTime(forAvailId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)breakBeginTimeForAvailId:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC14breakBeginTime10forAvailIdSdSS_tF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "breakBeginTimeForAvailId:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "availEndDate",
+            "printedName": "availEndDate(forAvailId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Date?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)availEndDateForAvailId:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC12availEndDate10forAvailId10Foundation0G0VSgSS_tF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "availEndDateForAvailId:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "adCountIsProvisional",
+            "printedName": "adCountIsProvisional(forAvailId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)adCountIsProvisionalForAvailId:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC20adCountIsProvisional10forAvailIdSbSS_tF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "adCountIsProvisionalForAvailId:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "slateOnlyBreakInfo",
+            "printedName": "slateOnlyBreakInfo(at:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "BrightcoveSSAI.BCOVSSAILive2AdInfo?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BCOVSSAILive2AdInfo",
+                    "printedName": "BrightcoveSSAI.BCOVSSAILive2AdInfo",
+                    "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2AdInfo"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)slateOnlyBreakInfoAtDate:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC18slateOnlyBreakInfo2atAA0c2AdH0CSg10Foundation4DateV_tF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "slateOnlyBreakInfoAtDate:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "update",
             "printedName": "update(forPlayheadDate:)",
             "children": [
@@ -5604,6 +5922,542 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "BCOVSSAILive2LiveWindow",
+        "printedName": "BCOVSSAILive2LiveWindow",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "edgeHoldback",
+            "printedName": "edgeHoldback",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cpy)edgeHoldback",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC12edgeHoldbackSdvpZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)edgeHoldback",
+                "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC12edgeHoldbackSdvgZ",
+                "moduleName": "BrightcoveSSAI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "margin",
+            "printedName": "margin",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cpy)margin",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC6marginSdvpZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)margin",
+                "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC6marginSdvgZ",
+                "moduleName": "BrightcoveSSAI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rejoinAfterPause",
+            "printedName": "rejoinAfterPause",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cpy)rejoinAfterPause",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC16rejoinAfterPauseSdvpZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)rejoinAfterPause",
+                "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC16rejoinAfterPauseSdvgZ",
+                "moduleName": "BrightcoveSSAI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "minimumMeasurableDuration",
+            "printedName": "minimumMeasurableDuration",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cpy)minimumMeasurableDuration",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC25minimumMeasurableDurationSdvpZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)minimumMeasurableDuration",
+                "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC25minimumMeasurableDurationSdvgZ",
+                "moduleName": "BrightcoveSSAI",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "isMeasurable",
+            "printedName": "isMeasurable(duration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)isMeasurableDuration:",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC12isMeasurable8durationSbSd_tFZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "objc_name": "isMeasurableDuration:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "slack",
+            "printedName": "slack(playhead:windowStart:windowDuration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)slackForPlayhead:windowStart:windowDuration:",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC5slack8playhead11windowStart0H8DurationS2d_S2dtFZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "objc_name": "slackForPlayhead:windowStart:windowDuration:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "pauseOutlastedWindow",
+            "printedName": "pauseOutlastedWindow(paused:slackAtPause:windowIsMeasurableNow:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)pauseOutlastedWindowAfter:slackAtPause:windowIsMeasurableNow:",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC014pauseOutlastedE06paused12slackAtPause21windowIsMeasurableNowSbSd_SdSbtFZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "objc_name": "pauseOutlastedWindowAfter:slackAtPause:windowIsMeasurableNow:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "reloadAfterPause",
+            "printedName": "reloadAfterPause",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cpy)reloadAfterPause",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC16reloadAfterPauseSdvpZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)reloadAfterPause",
+                "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC16reloadAfterPauseSdvgZ",
+                "moduleName": "BrightcoveSSAI",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "pauseOutlivedPlaylist",
+            "printedName": "pauseOutlivedPlaylist(paused:windowDuration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(cm)pauseOutlivedPlaylistAfter:windowDuration:",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC21pauseOutlivedPlaylist6paused14windowDurationSbSd_SdtFZ",
+            "moduleName": "BrightcoveSSAI",
+            "static": true,
+            "objc_name": "pauseOutlivedPlaylistAfter:windowDuration:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BCOVSSAILive2LiveWindow",
+                "printedName": "BrightcoveSSAI.BCOVSSAILive2LiveWindow",
+                "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow(im)init",
+            "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowCACycfc",
+            "moduleName": "BrightcoveSSAI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2LiveWindow",
+        "mangledName": "$s14BrightcoveSSAI23BCOVSSAILive2LiveWindowC",
+        "moduleName": "BrightcoveSSAI",
+        "objc_name": "BCOVSSAILive2LiveWindow",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -5708,77 +6562,77 @@
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13234,
+      "offset": 13362,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13249,
+      "offset": 13377,
       "length": 13,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13272,
+      "offset": 13400,
       "length": 8,
       "value": "3"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13290,
+      "offset": 13418,
       "length": 13,
       "value": "4"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13313,
+      "offset": 13441,
       "length": 8,
       "value": "5"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13331,
+      "offset": 13459,
       "length": 12,
       "value": "6"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13353,
+      "offset": 13481,
       "length": 5,
       "value": "7"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13368,
+      "offset": 13496,
       "length": 6,
       "value": "8"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13384,
+      "offset": 13512,
       "length": 12,
       "value": "9"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13406,
+      "offset": 13534,
       "length": 13,
       "value": "10"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 13429,
+      "offset": 13557,
       "length": 7,
       "value": "11"
     },
@@ -5869,14 +6723,35 @@
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Array",
-      "offset": 1543,
+      "offset": 1529,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "kind": "Dictionary",
+      "offset": 1609,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "kind": "Dictionary",
+      "offset": 1670,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "kind": "Array",
+      "offset": 1736,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "IntegerLiteral",
-      "offset": 5965,
+      "offset": 10112,
       "length": 1,
       "value": "0"
     },
@@ -5949,6 +6824,41 @@
       "offset": 1102,
       "length": 6,
       "value": "\"omid\""
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6116,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "kind": "IntegerLiteral",
+      "offset": 12570,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "kind": "IntegerLiteral",
+      "offset": 12781,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "kind": "IntegerLiteral",
+      "offset": 12954,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "kind": "IntegerLiteral",
+      "offset": 14883,
+      "length": 2,
+      "value": "60"
     },
     {
       "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",

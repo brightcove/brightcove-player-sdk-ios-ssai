@@ -36,6 +36,14 @@ extern NSString * const kBCOVSSAILifecycleErrorEvent;
 extern NSString * const kBCOVSSAILifecycleEventPropertiesKeyError;
 
 /**
+ * Present, with a value of @YES, in the properties of a BCOVAd that stands for
+ * slate rather than an advertisement: a NextGen Live break MediaTailor filled
+ * with slate, surfaced so the countdown overlay can be shown over it. Only
+ * delivered while BCOVSSAISessionProviderOptions.live2SlateCountdown is YES.
+ */
+extern NSString * const kBCOVSSAIAdPropertiesKeySlate;
+
+/**
  * XML elements are sometimes represented as NSDictionary objects. The NSDictionary
  * contains the XML element start tag (NSString), attributes (NSDictionary) and
  * content. When the element is a leaf node, the content is the element text

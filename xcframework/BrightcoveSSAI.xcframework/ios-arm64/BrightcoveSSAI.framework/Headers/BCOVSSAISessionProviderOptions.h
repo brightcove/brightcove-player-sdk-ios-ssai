@@ -94,6 +94,22 @@ typedef NS_ENUM(NSInteger, BCOVSSAINextGenLiveDetection)
  */
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> *live2AdsParams;
 
+/**
+ * Shows the ad countdown overlay over a NextGen Live ad break that contains no
+ * ads — one MediaTailor filled entirely with slate because the ad server
+ * returned nothing or its creatives were not yet transcoded. MediaTailor does
+ * not report such a break in its tracking data, so it is inferred from the
+ * SCTE-35 `EXT-X-DATERANGE` in the stitched manifest, the same way the
+ * Brightcove web player does. The break is delivered as an ad sequence holding
+ * a single ad whose properties contain `kBCOVSSAIAdPropertiesKeySlate`; it has
+ * no clickthrough, fires no tracking beacons and opens no Open Measurement
+ * session.
+ *
+ * Defaults to YES. Set it to NO to leave a slate-only break without any ad
+ * chrome, as releases before 7.2.23 did.
+ */
+@property (nonatomic, assign) BOOL live2SlateCountdown;
+
 @end
 
 NS_ASSUME_NONNULL_END

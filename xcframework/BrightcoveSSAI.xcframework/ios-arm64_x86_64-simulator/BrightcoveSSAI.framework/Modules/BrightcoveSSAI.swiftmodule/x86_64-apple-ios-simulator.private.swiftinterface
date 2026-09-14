@@ -112,6 +112,7 @@ extension BrightcoveSSAI.BCOVSSAILive2Error : Foundation.CustomNSError {
   @objc final public let clickTrackingURLs: [Swift.String]
   @objc final public let trackingURLs: [Swift.String]
   @objc final public let companions: [BrightcoveSSAI.BCOVSSAILive2CompanionInfo]
+  @objc final public let startDate: Foundation.Date?
   @objc final public var endTime: Foundation.TimeInterval {
     @objc get
   }
@@ -156,6 +157,13 @@ extension BrightcoveSSAI.BCOVSSAILive2Error : Foundation.CustomNSError {
     @objc get
   }
   @objc(presentableAdInfoAtDate:) final public func presentableAdInfo(at date: Foundation.Date) -> BrightcoveSSAI.BCOVSSAILive2AdInfo?
+  @objc(noteInferredAvailWithId:startDate:durationInSeconds:) final public func noteInferredAvail(id: Swift.String, startDate: Foundation.Date, durationInSeconds: Swift.Double)
+  @objc(noteSignalledBreakWithId:startDate:durationInSeconds:) final public func noteSignalledBreak(id: Swift.String, startDate: Foundation.Date, durationInSeconds: Swift.Double)
+  @objc(plannedBreakDurationForAvailId:) final public func plannedBreakDuration(forAvailId availId: Swift.String) -> Swift.Double
+  @objc(breakBeginTimeForAvailId:) final public func breakBeginTime(forAvailId availId: Swift.String) -> Swift.Double
+  @objc(availEndDateForAvailId:) final public func availEndDate(forAvailId availId: Swift.String) -> Foundation.Date?
+  @objc(adCountIsProvisionalForAvailId:) final public func adCountIsProvisional(forAvailId availId: Swift.String) -> Swift.Bool
+  @objc(slateOnlyBreakInfoAtDate:) final public func slateOnlyBreakInfo(at date: Foundation.Date) -> BrightcoveSSAI.BCOVSSAILive2AdInfo?
   @objc(updateForPlayheadDate:) final public func update(forPlayheadDate date: Foundation.Date)
   @objc(verificationsForAdId:) final public func verifications(forAdId adId: Swift.String) -> [BrightcoveSSAI.BCOVSSAILive2VerificationInfo]
   @objc(fireAdPausedForAdId:) final public func fireAdPaused(forAdId adId: Swift.String)
@@ -172,6 +180,21 @@ extension BrightcoveSSAI.BCOVSSAILive2Coordinator : BrightcoveSSAI.BCOVSSAILive2
   @objc final public func live2ControllerDidUpdateTimeline()
   @objc final public func live2ControllerDidReceiveOverlayConfiguration()
   @objc final public func live2ControllerDidFail(_ error: any Swift.Error)
+}
+@_inheritsConvenienceInitializers @objc(BCOVSSAILive2LiveWindow) final public class BCOVSSAILive2LiveWindow : ObjectiveC.NSObject {
+  @objc public static let edgeHoldback: Swift.Double
+  @objc public static let margin: Swift.Double
+  @objc public static let rejoinAfterPause: Swift.Double
+  @objc public static var minimumMeasurableDuration: Foundation.TimeInterval {
+    @objc get
+  }
+  @objc(isMeasurableDuration:) public static func isMeasurable(duration: Foundation.TimeInterval) -> Swift.Bool
+  @objc(slackForPlayhead:windowStart:windowDuration:) public static func slack(playhead: Foundation.TimeInterval, windowStart: Foundation.TimeInterval, windowDuration: Foundation.TimeInterval) -> Foundation.TimeInterval
+  @objc(pauseOutlastedWindowAfter:slackAtPause:windowIsMeasurableNow:) public static func pauseOutlastedWindow(paused: Foundation.TimeInterval, slackAtPause: Foundation.TimeInterval, windowIsMeasurableNow: Swift.Bool) -> Swift.Bool
+  @objc public static let reloadAfterPause: Swift.Double
+  @objc(pauseOutlivedPlaylistAfter:windowDuration:) public static func pauseOutlivedPlaylist(paused: Foundation.TimeInterval, windowDuration: Foundation.TimeInterval) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
 }
 extension BrightcoveSSAI.BCOVSSAILive2ErrorCode : Swift.Equatable {}
 extension BrightcoveSSAI.BCOVSSAILive2ErrorCode : Swift.Hashable {}
