@@ -6469,420 +6469,420 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 462,
       "length": 14,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 486,
       "length": 12,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 508,
       "length": 10,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 528,
       "length": 12,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 550,
       "length": 13,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "StringLiteral",
       "offset": 1307,
       "length": 26,
       "value": "\"BCOVSSAILive2ErrorDomain\""
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "Dictionary",
       "offset": 1623,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "Dictionary",
       "offset": 2157,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "Dictionary",
       "offset": 4276,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "BooleanLiteral",
       "offset": 4317,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "StringLiteral",
       "offset": 4356,
       "length": 8,
       "value": "\"server\""
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "StringLiteral",
       "offset": 5083,
       "length": 13,
       "value": "\"manifestUrl\""
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "StringLiteral",
       "offset": 5124,
       "length": 13,
       "value": "\"trackingUrl\""
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13362,
       "length": 5,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13377,
       "length": 13,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13400,
       "length": 8,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13418,
       "length": 13,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13441,
       "length": 8,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13459,
       "length": 12,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13481,
       "length": 5,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13496,
       "length": 6,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13512,
       "length": 12,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13534,
       "length": 13,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2WireModels.swift",
       "kind": "IntegerLiteral",
       "offset": 13557,
       "length": 7,
       "value": "11"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionClient.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionClient.swift",
       "kind": "IntegerLiteral",
       "offset": 107,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionClient.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionClient.swift",
       "kind": "Dictionary",
       "offset": 487,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2TrackingClient.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2TrackingClient.swift",
       "kind": "IntegerLiteral",
       "offset": 108,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2TrackingClient.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2TrackingClient.swift",
       "kind": "IntegerLiteral",
       "offset": 145,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2TrackingClient.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2TrackingClient.swift",
       "kind": "IntegerLiteral",
       "offset": 399,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2TrackingClient.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2TrackingClient.swift",
       "kind": "BooleanLiteral",
       "offset": 428,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "FloatLiteral",
       "offset": 1198,
       "length": 3,
       "value": "0.5"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Array",
       "offset": 1242,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Dictionary",
       "offset": 1314,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Dictionary",
       "offset": 1369,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Dictionary",
       "offset": 1421,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Dictionary",
       "offset": 1477,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Array",
       "offset": 1529,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Dictionary",
       "offset": 1609,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Dictionary",
       "offset": 1670,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "Array",
       "offset": 1736,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Timeline.swift",
       "kind": "IntegerLiteral",
       "offset": 10112,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Detector.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Detector.swift",
       "kind": "IntegerLiteral",
       "offset": 126,
       "length": 13,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Detector.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Detector.swift",
       "kind": "IntegerLiteral",
       "offset": 149,
       "length": 6,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Detector.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Detector.swift",
       "kind": "StringLiteral",
       "offset": 349,
       "length": 26,
       "value": "\"ssai.live.brightcove.com\""
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Detector.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Detector.swift",
       "kind": "StringLiteral",
       "offset": 405,
       "length": 29,
       "value": "\"ssai.live.qa.brightcove.com\""
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
       "kind": "StringLiteral",
       "offset": 366,
       "length": 32,
       "value": "\"com.brightcove.ssai.live2.poll\""
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
       "kind": "IntegerLiteral",
       "offset": 1289,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
       "kind": "BooleanLiteral",
       "offset": 1667,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
       "kind": "BooleanLiteral",
       "offset": 1722,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2SessionController.swift",
       "kind": "Dictionary",
       "offset": 2719,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2OMID.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2OMID.swift",
       "kind": "StringLiteral",
       "offset": 1102,
       "length": 6,
       "value": "\"omid\""
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
       "offset": 6116,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
       "offset": 12570,
       "length": 2,
       "value": "12"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
       "offset": 12781,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
       "offset": 12954,
       "length": 2,
       "value": "20"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
       "offset": 14883,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",
       "kind": "IntegerLiteral",
       "offset": 737,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",
       "kind": "Array",
       "offset": 791,
       "length": 9,
       "value": "[1, 2, 4]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",
       "kind": "Array",
       "offset": 5643,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/ec2-user\/workspace\/videocloud_agave_Release_master\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",
+      "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2BeaconFirer.swift",
       "kind": "IntegerLiteral",
       "offset": 6156,
       "length": 2,
