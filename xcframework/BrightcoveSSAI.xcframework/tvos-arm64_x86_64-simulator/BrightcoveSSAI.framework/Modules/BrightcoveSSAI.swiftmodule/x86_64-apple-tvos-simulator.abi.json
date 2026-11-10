@@ -5351,6 +5351,82 @@
           },
           {
             "kind": "Function",
+            "name": "slateInfo",
+            "printedName": "slateInfo(at:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "BrightcoveSSAI.BCOVSSAILive2AdInfo?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BCOVSSAILive2AdInfo",
+                    "printedName": "BrightcoveSSAI.BCOVSSAILive2AdInfo",
+                    "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2AdInfo"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)slateInfoAtDate:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC9slateInfo2atAA0c2AdF0CSg10Foundation4DateV_tF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "slateInfoAtDate:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "slot",
+            "printedName": "slot(forSlateAdId:availId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BrightcoveSSAI@objc(cs)BCOVSSAILive2Coordinator(im)slotForSlateAdId:availId:",
+            "mangledName": "$s14BrightcoveSSAI24BCOVSSAILive2CoordinatorC4slot12forSlateAdId05availI0SiSS_SStF",
+            "moduleName": "BrightcoveSSAI",
+            "objc_name": "slotForSlateAdId:availId:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "slateOnlyBreakInfo",
             "printedName": "slateOnlyBreakInfo(at:)",
             "children": [
@@ -6835,28 +6911,28 @@
     {
       "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
-      "offset": 12570,
+      "offset": 13698,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
-      "offset": 12781,
+      "offset": 13909,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
-      "offset": 12954,
+      "offset": 14082,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/runner\/work\/videocloud_agave\/videocloud_agave\/src\/ssai\/Source\/Live2\/BCOVSSAILive2Coordinator.swift",
       "kind": "IntegerLiteral",
-      "offset": 14883,
+      "offset": 16011,
       "length": 2,
       "value": "60"
     },

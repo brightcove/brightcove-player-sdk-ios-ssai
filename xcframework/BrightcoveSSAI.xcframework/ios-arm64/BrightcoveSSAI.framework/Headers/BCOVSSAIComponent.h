@@ -113,6 +113,23 @@ NS_ASSUME_NONNULL_BEGIN
  * - If seeking backwards, no ads will play.
  * - If seeking over ads that have already been played, they will play again.
  *
+ * `completionHandler` is invoked exactly once. A seek that is ignored because
+ * `ssai_canSeek` is `NO` (an ad is playing, or a previous seek is still being
+ * processed) or because the time is invalid is completed with `NO` immediately.
+ * For a seek that is redirected to an ad sequence, the block runs once the player
+ * is positioned at the start of the break and the ad is ready to play. In that
+ * case `finished == YES` means the seek has been positioned, not that the content
+ * playhead has already reached `time`; observe subsequent content progress or the
+ * ad sequence exit if you need to know when the target is reached. A seek to or
+ * past the end of the logical content time plays the post rolls and leaves the
+ * player at the end of the stream; it does not restart playback from the
+ * beginning.
+ *
+ * To play the preroll and then resume at a saved content position, wait for the
+ * preroll's ad sequence to exit (`beginTime == kCMTimeZero`) and then call this
+ * method with the saved position. A seek made while the preroll is playing is
+ * refused because `ssai_canSeek` is `NO` during an ad.
+ *
  * @param time The logical time to seek to
  * @param completionHandler The block to execute when the seek is performed
  */

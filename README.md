@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.25.9
+# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.26.10
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -195,9 +195,33 @@ currentSession?.providerExtension.ssai_seek(to: contentTimeToSeekTo, completionH
 })
 ```
     
-The `completionHandler` will execute at the completion of a successful seek. It will not execute if a seek was already initiated by a previous call to `-[BCOVSessionProviderExtension ssai_seekToTime:completionHandler:]` or if an ad is playing back. To test whether a seek attempt can be made, check the `-[BCOVSessionProviderExtension ssai_canSeek]` property. For more information on both of these methods, be sure to read the [headerdoc][ssai_extensions].
+The `completionHandler` is invoked exactly once. A seek that is refused because a previous call to `-[BCOVSessionProviderExtension ssai_seekToTime:completionHandler:]` is still in progress, or because an ad is playing back, is completed immediately with `NO`. To test whether a seek attempt can be made, check the `-[BCOVSessionProviderExtension ssai_canSeek]` property. For more information on both of these methods, be sure to read the [headerdoc][ssai_extensions].
+
+When the seek is redirected to an ad sequence, the completion runs once the player is positioned at the start of that break and the ad is ready to play. `finished == YES` therefore means the seek has been positioned, not that the content playhead has already reached the requested time. Observe subsequent content progress, or the ad sequence exit, if you need to know when the target is reached. Seeking to or past the end of the content plays the post rolls and leaves the player at the end of the stream; it does not restart from the beginning.
 
 [ssai_extensions]: https://github.com/brightcove/brightcove-player-sdk-ios-ssai/blob/master/ios/BrightcoveSSAI.framework/Headers/BCOVSSAIComponent.h
+
+## Resuming after the preroll
+
+If you want the viewer to see the preroll and then continue at a saved content position, leave ads enabled and wait for the preroll's ad sequence to exit. `didExitAdSequence` runs while the tracker is still transitioning, so defer the seek by one run-loop turn:
+
+```swift
+func playbackController(_ controller: BCOVPlaybackController,
+                        playbackSession session: BCOVPlaybackSession,
+                        didExitAdSequence adSequence: BCOVAdSequence) {
+    guard CMTimeCompare(adSequence.beginTime, .zero) == 0 else { return }
+
+    DispatchQueue.main.async {
+        session.providerExtension.ssai_seek(to: self.savedPosition) { finished in
+            if finished {
+                controller.play()
+            }
+        }
+    }
+}
+```
+
+A seek that crosses a midroll plays that break first, as described above. Do not call `ssai_seek` while the preroll is playing: `ssai_canSeek` is `NO` during an ad, and the seek is refused. To skip the preroll instead, use the `adsDisabled` flow below.
 
 ## Seek Without Ads
 

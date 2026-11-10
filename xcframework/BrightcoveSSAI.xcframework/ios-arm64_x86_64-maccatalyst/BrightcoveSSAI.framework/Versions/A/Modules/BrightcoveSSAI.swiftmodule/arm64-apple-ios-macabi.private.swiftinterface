@@ -163,6 +163,8 @@ extension BrightcoveSSAI.BCOVSSAILive2Error : Foundation.CustomNSError {
   @objc(breakBeginTimeForAvailId:) final public func breakBeginTime(forAvailId availId: Swift.String) -> Swift.Double
   @objc(availEndDateForAvailId:) final public func availEndDate(forAvailId availId: Swift.String) -> Foundation.Date?
   @objc(adCountIsProvisionalForAvailId:) final public func adCountIsProvisional(forAvailId availId: Swift.String) -> Swift.Bool
+  @objc(slateInfoAtDate:) final public func slateInfo(at date: Foundation.Date) -> BrightcoveSSAI.BCOVSSAILive2AdInfo?
+  @objc(slotForSlateAdId:availId:) final public func slot(forSlateAdId adId: Swift.String, availId: Swift.String) -> Swift.Int
   @objc(slateOnlyBreakInfoAtDate:) final public func slateOnlyBreakInfo(at date: Foundation.Date) -> BrightcoveSSAI.BCOVSSAILive2AdInfo?
   @objc(updateForPlayheadDate:) final public func update(forPlayheadDate date: Foundation.Date)
   @objc(verificationsForAdId:) final public func verifications(forAdId adId: Swift.String) -> [BrightcoveSSAI.BCOVSSAILive2VerificationInfo]

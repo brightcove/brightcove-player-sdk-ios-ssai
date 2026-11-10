@@ -458,6 +458,13 @@ SWIFT_CLASS_NAMED("BCOVSSAILive2Coordinator")
 /// once the listed ads fill the signalled break — less a tolerance for the
 /// slate that pads a pod whose creatives do not add up exactly.
 - (BOOL)adCountIsProvisionalForAvailId:(NSString * _Nonnull)availId SWIFT_WARN_UNUSED_RESULT;
+/// The slate under the playhead, whether it fills the whole break or only
+/// the gaps MediaTailor left before, between or after the listed ads.
+- (BCOVSSAILive2AdInfo * _Nullable)slateInfoAtDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
+/// The pod slot a slate segment reports to the PlayerUI: that of the real
+/// ad it follows, so the ordinal does not advance over slate. Slate ahead
+/// of the first ad reports the first slot.
+- (NSInteger)slotForSlateAdId:(NSString * _Nonnull)adId availId:(NSString * _Nonnull)availId SWIFT_WARN_UNUSED_RESULT;
 - (BCOVSSAILive2AdInfo * _Nullable)slateOnlyBreakInfoAtDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT;
 /// Drops avails whose break ended before the playhead, and fires any timed
 /// beacons the playhead has crossed. Called once per playhead tick.
