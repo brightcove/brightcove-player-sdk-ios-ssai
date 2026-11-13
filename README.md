@@ -1,4 +1,4 @@
-# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.26.10
+# SSAI Plugin for Brightcove Player SDK for iOS, version 7.2.27.11
 
 Supports Mac Catalyst 13.0 and above since SDK release v6.10.3.
 
@@ -181,6 +181,37 @@ BrightcoveSSAI provides ad playback information via the `BCOVPlaybackControllerA
 For more information on how to use these delegate methods, please see [Brightcove Player SDK for iOS][bcovsdk].
 
 [bcovsdk]: https://github.com/brightcove/brightcove-player-sdk-ios
+
+## Content Time and Stream Time
+
+A VOD SSAI stream has its ads stitched in, so two timelines exist:
+
+* **Content time** covers the content only. It excludes the ads.
+* **Stream time** covers the full stream, including the ads.
+
+With the SSAI session provider, the playback controller APIs use content time:
+
+| API | Time |
+| --- | --- |
+| `playbackController(_:playbackSession:didChangeDuration:)` | Content duration (stream duration minus all ad sequences) |
+| `playbackController(_:playbackSession:didProgressTo:)` | Content time |
+| `playbackController.seek(to:completionHandler:)` and `ssai_seek(to:completionHandler:)` | Content time |
+| `BCOVCuePoint.position` of the ad cue points | Content time |
+
+Only the underlying `AVPlayer` (`session.player`) uses stream time: `currentTime()`, `currentItem.duration` and its seek methods. Do not use those values in your controls, and do not seek the `AVPlayer` directly. To convert between the two timelines, use the session's provider extension:
+
+```swift
+guard let ext = session.providerExtension,
+      let player = session.player else { return }
+
+let streamTime = player.currentTime()
+let contentTime = ext.ssai_contentTime(atAbsoluteTime: streamTime)
+
+let savedPosition = CMTime(seconds: 120, preferredTimescale: 600)
+let streamPosition = ext.ssai_absoluteTime(atContentTime: savedPosition)
+```
+
+During a mid-roll or post-roll, `ssai_contentTime(atAbsoluteTime:)` returns the content time at which that ad break is placed. During the preroll, it returns `.invalid`.
 
 ## Seeking
 
@@ -469,19 +500,28 @@ func replaceSSAIVariablesInJSON(_ jsonResponse: [AnyHashable: Any]) -> [AnyHasha
 func replaceSSAIVariablesInVMAPURL(_ vmapURL: String) -> String {
     let replacementValues = [
         "foo": "123",
-        "bar": "hello"
+        "bar": "hello world & more"
     ]
+
+    // Characters that are allowed in a query value. `&`, `=`, `+`, `?` and `#`
+    // are removed so that they are percent-encoded.
+    var queryValueAllowed = CharacterSet.urlQueryAllowed
+    queryValueAllowed.remove(charactersIn: "&=+?#")
+
     var updatedURL = vmapURL
-    for key in replacementValues.keys {
-        guard let replacementValue = replacementValues[key] else {
+    for (key, value) in replacementValues {
+        guard let encodedValue = value.addingPercentEncoding(withAllowedCharacters: queryValueAllowed) else {
             continue
         }
-        let valueToReplace = "{{url.\(key)}}"
-        updatedURL = updatedURL.replacingOccurrences(of: valueToReplace, with: replacementValue)
+        updatedURL = updatedURL.replacingOccurrences(of: "{{url.\(key)}}", with: encodedValue)
     }
     return updatedURL
 }
 ```
+
+Percent-encode each value before you put it in the URL. A value that is not encoded, and that contains a character such as `&`, `=` or a space, breaks the VMAP URL or changes its other parameters.
+
+URL variables apply to VOD and Legacy Live SSAI. For NextGen Live, set the ad targeting parameters with `BCOVOUXSessionProviderOptions.live2AdsParams` instead. See [NextGen Live Configuration](#nextgen-live-configuration).
 
 ## NextGen Live Configuration
 
